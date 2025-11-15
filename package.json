@@ -20,7 +20,9 @@
     "@react-three/fiber": "^8.15.13",
     "@tailwindcss/forms": "^0.5.10",
     "@types/nodemailer": "^7.0.3",
+    "@vercel/og": "^0.8.5",
     "clsx": "^2.1.1",
+    "gray-matter": "^4.0.3",
     "gsap": "^3.13.0",
     "lucide-react": "^0.468.0",
     "maath": "^0.10.8",
@@ -28,6 +30,8 @@
     "nodemailer": "^7.0.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.160.0"
   },
