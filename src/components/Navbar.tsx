@@ -1,8 +1,7 @@
-"use client"
-
 import Link from 'next/link'
 import { useState } from 'react'
-import { Menu, X, Sparkles } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import Image from 'next/image' // Import Image component
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -19,10 +18,13 @@ export default function Navbar() {
       <div className="container mx-auto px-6 py-4 relative">
         <div className="flex items-center justify-between">
           <Link href="/" className="group flex items-center gap-3">
-            <div className="relative">
-              <Sparkles className="w-8 h-8 text-trishul-500 animate-cosmic-pulse" />
-              <div className="absolute inset-0 bg-trishul-500/30 blur-xl group-hover:blur-2xl transition-all duration-500 animate-cosmic-pulse"></div>
-            </div>
+            <Image 
+              src="/logo.png" 
+              alt="Astras AI Logo" 
+              width={60} 
+              height={60} 
+              className="relative z-10 animate-cosmic-pulse" // Keep some animation if desired
+            />
             <span className="text-2xl font-display bg-gradient-to-r from-trishul-500 via-mystic-300 to-chakra-300 bg-clip-text text-transparent">
               ASTRAS <span className="font-bold">AI</span>
             </span>

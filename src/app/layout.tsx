@@ -60,8 +60,11 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
-  themeColor: '#000000',
   manifest: '/manifest.json',
+};
+
+export const viewport = {
+  themeColor: '#000000',
 };
 
 const jsonLd = {
