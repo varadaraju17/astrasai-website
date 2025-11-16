@@ -1,6 +1,7 @@
 'use client'
 
 import { Linkedin, Mail, Phone } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -74,22 +75,22 @@ export default function Footer() {
             <h4 className="text-xl sm:text-2xl font-display font-semibold bg-gradient-to-r from-white via-white/90 to-white/80 text-transparent bg-clip-text mb-4 sm:mb-8">Begin Your Journey</h4>
             <ul className="space-y-3 sm:space-y-5">
               <li>
-                <a href="#services" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-trishul-300 transition-colors">
+                <Link href="/services" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-trishul-300 transition-colors">
                   <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-trishul-500 to-mystic-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
-                  <span>Brahmastra AI</span>
-                </a>
+                  <span>Our Services</span>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-mystic-300 transition-colors">
+                <Link href="/about" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-mystic-300 transition-colors">
                   <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-mystic-500 to-chakra-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
-                  <span>Sudarshana AI</span>
-                </a>
+                  <span>About Us</span>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-chakra-300 transition-colors">
+                <Link href="/contact" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-chakra-300 transition-colors">
                   <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-chakra-500 to-trishul-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
-                  <span>Custom Solutions</span>
-                </a>
+                  <span>Contact Us</span>
+                </Link>
               </li>
               <li>
                 <a 
@@ -110,28 +111,28 @@ export default function Footer() {
             <h4 className="text-xl sm:text-2xl font-display font-semibold bg-gradient-to-r from-white via-white/90 to-white/80 text-transparent bg-clip-text mb-4 sm:mb-8">Company</h4>
             <ul className="space-y-3 sm:space-y-5">
               <li>
-                <a href="#about" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-trishul-300 transition-colors">
+                <Link href="/about" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-trishul-300 transition-colors">
                   <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-trishul-500 to-mystic-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
                   <span>About Us</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-mystic-300 transition-colors">
+                <Link href="/contact" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-mystic-300 transition-colors">
                   <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-mystic-500 to-chakra-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
                   <span>Contact</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/privacy" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-chakra-300 transition-colors">
+                <Link href="/privacy-policy" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-chakra-300 transition-colors">
                   <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-chakra-500 to-trishul-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
                   <span>Privacy Policy</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/terms" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-trishul-300 transition-colors">
+                <Link href="/terms-of-service" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-trishul-300 transition-colors">
                   <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-trishul-500 to-mystic-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
                   <span>Terms of Service</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -208,12 +209,12 @@ export default function Footer() {
               © {currentYear} AstrasAI. All rights reserved.
             </p>
             <div className="flex flex-wrap gap-4 sm:gap-6 sm:gap-10 justify-center sm:justify-end">
-              <a href="/privacy" className="text-sm sm:text-base font-sans text-cosmic-100/60 hover:text-trishul-300 transition-colors whitespace-nowrap">
+              <Link href="/privacy-policy" className="text-sm sm:text-base font-sans text-cosmic-100/60 hover:text-trishul-300 transition-colors whitespace-nowrap">
                 Privacy Policy
-              </a>
-              <a href="/terms" className="text-sm sm:text-base font-sans text-cosmic-100/60 hover:text-mystic-300 transition-colors whitespace-nowrap">
+              </Link>
+              <Link href="/terms-of-service" className="text-sm sm:text-base font-sans text-cosmic-100/60 hover:text-mystic-300 transition-colors whitespace-nowrap">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>

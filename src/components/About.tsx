@@ -20,9 +20,12 @@ export default function About() {
             <Sparkles className="w-10 h-10 text-trishul-500 animate-cosmic-pulse" />
           </div>
           <h2 className="text-4xl md:text-5xl font-display bg-gradient-to-r from-trishul-500 via-mystic-300 to-chakra-300 bg-clip-text text-transparent pb-4">
-            The Essence of Astras AI
+            Bangalore's Premier AI & Web-Builders
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-trishul-500 to-mystic-300 rounded-full mt-4"></div>
+          <p className="mt-4 text-lg text-cosmic-100/80 max-w-2xl mx-auto">
+            Fusing ancient wisdom with next-generation technology, we are your partners in innovation.
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-trishul-500 to-mystic-300 rounded-full mt-6"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
@@ -38,12 +41,10 @@ export default function About() {
                 </h3>
                 <div className="space-y-6 text-lg text-cosmic-100/80">
                   <p>
-                    Astras AI Tech is a next-gen innovation studio that harmoniously blends artificial intelligence, 
-                    automation, and ancient wisdom to forge transformative business solutions.
+                    Astras AI is a top-tier innovation studio in Bangalore, specializing in AI agent and website building. We harmoniously blend artificial intelligence and automation to forge transformative solutions for software startups and enterprises.
                   </p>
                   <p>
-                    Like the divine Astras of mythology — each embodying unique cosmic powers — we harness different 
-                    forms of intelligence to create technology that's not just powerful, but conscious and meaningful.
+                    Like the divine Astras of mythology, we harness diverse forms of intelligence to create technology that's not just powerful, but conscious—providing the best AI agent and website services in Bangalore.
                   </p>
                 </div>
               </div>
@@ -62,8 +63,7 @@ export default function About() {
                 </h3>
                 <div className="space-y-8">
                   <p className="text-lg text-cosmic-100/80">
-                    In Vedic tradition, Astras were divine weapons wielded with precision and purpose. Today, 
-                    we craft AI systems with the same reverence for power and responsibility.
+                    As a leading software startup creator, we craft AI systems with the same reverence for power and responsibility as the ancient sages.
                   </p>
                   <ul className="space-y-6">
                     {[

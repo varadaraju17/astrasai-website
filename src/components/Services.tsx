@@ -6,44 +6,44 @@ const services = [
   {
     id: 'brahmastra',
     icon: <Sparkles className="w-8 h-8" />,
-    name: 'Brahmastra AI',
-    title: 'Power of Creation',
-    description: 'For Businesses, Startups, and Founders - We design and deploy intelligent systems that accelerate your digital transformation.',
+    name: 'Brahmastra AI for Business',
+    title: 'Creation & Growth Engine',
+    description: 'As the best website builder in Bangalore, we act as a software startup creator for founders, designing and deploying intelligent systems that accelerate your digital transformation.',
     color: 'from-vajra-500 to-mystic-500',
     details: [
-      'AI-powered Websites & Applications',
-      'Startup MVP Development',
-      'Conversational AI & WhatsApp Bots',
+      'AI-Powered Websites & Applications',
+      'Startup MVP & Academic Project Development',
+      'Conversational AI & WhatsApp AI Agents',
       'Predictive Analytics & BI Dashboards',
-      'AI-driven SEO & Marketing Automation'
+      'AI-Driven SEO & Marketing Automation Services'
     ]
   },
   {
     id: 'sudarshana',
     icon: <Brain className="w-8 h-8" />,
-    name: 'Sudarshana Chakra',
-    title: 'Power of Precision',
-    description: 'For Individuals, Students, and Professionals - Personalized AI-driven growth and mentorship tools for your career and learning.',
+    name: 'Sudarshana Chakra for Individuals',
+    title: 'Precision Growth & Mentorship',
+    description: 'For students and professionals in Bangalore, we provide personalized AI-driven growth tools, making us the best academic project builders and career mentors.',
     color: 'from-trishul-500 to-chakra-500',
     details: [
-      'AI Research & Academic Intelligence',
-      'Resume & LinkedIn Optimization',
+      'AI Research & Academic Intelligence Solutions',
+      'AI-Powered Resume & LinkedIn Optimization',
       'Interview Coaching & Mock AI Evaluations',
-      'Skill Pathways & Learning Automation',
-      'Personal AI Mentors for Growth'
+      'Custom Skill Pathways & Learning Automation',
+      'Personal AI Mentors for Career Growth'
     ]
   },
   {
     id: 'features',
     icon: <Bot className="w-8 h-8" />,
-    name: 'Key Features',
-    title: 'Our Capabilities',
-    description: 'Comprehensive suite of features designed for maximum impact and efficiency.',
+    name: 'Our AI Agent Capabilities',
+    title: 'The Best AI Agent Service in Bangalore',
+    description: 'We build the best AI agents in Bangalore, with a comprehensive suite of features designed for maximum impact and efficiency in your business.',
     color: 'from-mystic-500 to-trishul-500',
     details: [
       'Sovereign AI Systems - Privacy-first, secure by design',
       'Lightning UX - 45ms interactions, buttery animations',
-      'Autonomous Workflows - Agents that plan, book, and optimize',
+      'Autonomous AI Agents that plan, book, and optimize',
       'Composable Stack - Easy integration with CRM, ERP, Cloud',
       'Proof of Impact - Measurable ROI on every engagement',
       'Mythic Design - Timeless aesthetic meets modern UX'
@@ -71,10 +71,10 @@ export default function Services() {
             <Rocket className="w-10 h-10 text-trishul-500 animate-float" />
           </div>
           <h2 className="text-4xl md:text-5xl font-display bg-gradient-to-r from-trishul-500 via-mystic-300 to-chakra-300 bg-clip-text text-transparent pb-4">
-            Divine Powers of Intelligence
+            Our AI & Website Services in Bangalore
           </h2>
           <p className="text-xl text-cosmic-100/80 max-w-3xl mx-auto mt-6">
-            Harness the power of legendary Astras transformed into cutting-edge AI solutions for the modern age.
+            We offer the best website and AI agent services in Bangalore, transforming legendary Astras into cutting-edge solutions for the modern age.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-trishul-500 to-mystic-300 rounded-full mx-auto mt-8"></div>
         </div>

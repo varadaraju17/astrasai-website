@@ -1,9 +1,5 @@
-# Allow all user agents
-User-agent: *
+User-Agent: *
 Allow: /
 
-# Disallow specific routes if needed, for example:
-# Disallow: /admin
-
-# Point to the sitemap
 Sitemap: https://www.astrasai.in/sitemap.xml
+Host: https://www.astrasai.in
