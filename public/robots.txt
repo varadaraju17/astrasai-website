@@ -2,4 +2,3 @@ User-Agent: *
 Allow: /
 
 Sitemap: https://www.astrasai.in/sitemap.xml
-Host: https://www.astrasai.in
