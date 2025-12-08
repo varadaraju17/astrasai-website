@@ -1,74 +1,135 @@
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
+"use client";
 
-const HeroCanvas = dynamic(() => import('./HeroCanvas'), { ssr: false })
+import React, { useRef } from "react";
+import Link from "next/link";
+import { motion, useMotionValue } from "framer-motion";
+import { ArrowRight, Sparkles } from "lucide-react";
 
-export default function Hero() {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background Layers */}
-      <div className="absolute inset-0 bg-cosmic-900"></div>
-      <div className="absolute inset-0 bg-cosmic-grid bg-[length:50px_50px] opacity-20"></div>
-      <div className="absolute inset-0 bg-hero-gradient animate-cosmic-pulse"></div>
-      
-      {/* Sacred Geometry Patterns */}
-      <div className="absolute inset-0">
-        <HeroCanvas />
-      </div>
+// --- UI Components ---
 
-      {/* Glowing Orbs */}
-      <div className="absolute top-20 left-20 w-64 h-64 bg-trishul-500/30 rounded-full blur-3xl animate-cosmic-pulse"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-chakra-300/20 rounded-full blur-3xl animate-float"></div>
+const MagneticButton = ({ children, href, primary = false }: { children: React.ReactNode; href: string; primary?: boolean }) => {
+    const ref = useRef<HTMLAnchorElement>(null);
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
 
-      <div className="relative z-10 container mx-auto px-6 py-32">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Sacred Symbol */}
-          <div className="mb-8 flex justify-center">
-            <div className="w-20 h-20 relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-trishul-500 via-mystic-300 to-chakra-300 rounded-full animate-chakra-spin"></div>
-              <div className="absolute inset-1 bg-cosmic-900 rounded-full flex items-center justify-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-trishul-500 via-mystic-300 to-chakra-300 rounded-full animate-cosmic-pulse"></div>
-              </div>
+    const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        const { clientX, clientY } = e;
+        const { left, top, width, height } = ref.current!.getBoundingClientRect();
+        const centerX = left + width / 2;
+        const centerY = top + height / 2;
+        x.set((clientX - centerX) * 0.3);
+        y.set((clientY - centerY) * 0.3);
+    };
+
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
+    };
+
+    return (
+        <motion.div style={{ x, y }}>
+            <Link
+                href={href}
+                ref={ref}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                className={`relative group px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 overflow-hidden transition-all duration-300 ${primary
+                    ? "bg-cyan-500 text-black shadow-[0_0_30px_rgba(0,240,255,0.4)] hover:shadow-[0_0_60px_rgba(0,240,255,0.6)]"
+                    : "bg-black/50 text-white border border-cyan-500/30 hover:bg-cyan-950/30 hover:border-cyan-400/50 backdrop-blur-md shadow-[0_0_20px_rgba(0,240,255,0.1)]"
+                    }`}
+            >
+                {primary && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-shimmer" />
+                )}
+                {children}
+            </Link>
+        </motion.div>
+    );
+};
+
+const Hero = () => {
+    return (
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+            {/* Video Background */}
+            <div className="absolute inset-0 z-0">
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-contain md:object-cover object-center opacity-60"
+                >
+                    <source src="/hero_logo.mp4" type="video/mp4" />
+                </video>
             </div>
-          </div>
 
-          {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight">
-            <span className="block bg-gradient-to-r from-trishul-500 via-mystic-300 to-chakra-300 bg-clip-text text-transparent animate-astra-flow pb-4">
-              AI-Powered Websites & Automation
-            </span>
-          </h1>
+            {/* Gradient Overlays for Readability */}
+            <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/80 via-transparent to-black/80 pointer-events-none" />
+            <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_100%)] pointer-events-none" />
 
-          <p className="mt-8 text-xl md:text-2xl text-cosmic-100/80 max-w-4xl mx-auto leading-relaxed font-body">
-            As the best AI agent and website builder in Bangalore, we help software startups and enterprises with custom AI solutions, automation, and MVP creation.
-          </p>
+            {/* Content */}
+            <div className="container-width relative z-10 pt-32 md:pt-20">
+                <div className="max-w-6xl mx-auto text-center">
+                    {/* Badge */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 text-xs md:text-sm font-medium backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(0,240,255,0.2)]"
+                    >
+                        <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
+                        <span className="tracking-wide uppercase">The Future of Intelligence</span>
+                    </motion.div>
 
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link 
-              href="/services" 
-              className="group relative px-8 py-4 rounded-xl bg-gradient-to-r from-trishul-500 via-mystic-500 to-chakra-500 
-                       text-white font-display text-lg flex items-center gap-3 overflow-hidden
-                       hover:shadow-lg hover:shadow-trishul-500/25 transition-all duration-500"
-            >
-              <span className="relative z-10">Explore Our Services</span>
-              <ChevronRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
-              <div className="absolute inset-0 bg-gradient-to-r from-mystic-500 via-chakra-500 to-trishul-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </Link>
-            
-            <Link 
-              href="/contact" 
-              className="group px-8 py-4 rounded-xl border border-mystic-300/20 text-cosmic-100 font-display text-lg
-                       hover:border-mystic-300/40 hover:bg-mystic-300/5 transition-all duration-300
-                       flex items-center gap-3"
-            >
-              Get in Touch
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
+                    {/* Headline */}
+                    <motion.h1
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                        className="text-5xl sm:text-7xl md:text-9xl font-display font-bold text-white mb-8 leading-tight tracking-tight drop-shadow-2xl"
+                    >
+                        Building the <br />
+                        <span className="relative inline-block">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient-x drop-shadow-[0_0_30px_rgba(0,240,255,0.3)]">
+                                Intelligent Future
+                            </span>
+                            {/* Glitch/Glow Effect Layer */}
+                            <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 blur-lg opacity-50 animate-pulse">
+                                Intelligent Future
+                            </span>
+                        </span>
+                    </motion.h1>
 
+                    {/* Subheadline */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                        className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-12 max-w-4xl mx-auto font-light"
+                    >
+                        We forge digital dominance. From <span className="text-cyan-400 font-medium drop-shadow-[0_0_10px_rgba(0,240,255,0.5)]">AI Websites</span> and <span className="text-cyan-400 font-medium drop-shadow-[0_0_10px_rgba(0,240,255,0.5)]">Custom Apps</span> to intelligent <span className="text-purple-400 font-medium drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">Agents</span> and <span className="text-purple-400 font-medium drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">Startup MVPs</span>, we engineer the technology that powers your exponential growth.
+                    </motion.p>
+
+                    {/* CTA Buttons */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                        className="flex flex-wrap justify-center gap-6 mb-24"
+                    >
+                        <MagneticButton href="/contact" primary>
+                            Start Your Project
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </MagneticButton>
+
+                        <MagneticButton href="#services">
+                            Explore Services
+                        </MagneticButton>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default Hero;

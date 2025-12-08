@@ -1,42 +1,32 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { Inter } from 'next/font/google';
+import { Syne, Space_Grotesk } from 'next/font/google';
 import '../styles/globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import JsonLd from '@/components/JsonLd';
 
-const inter = Inter({
+const syne = Syne({
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-syne',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-space-grotesk',
 });
 
 const domain = 'https://www.astrasai.in';
 const companyName = 'Astras AI';
-const description = 'Astras AI in Bangalore builds intelligent AI systems, automation, AI agents, and AI-powered websites. We help startups and enterprises build the future with the best AI and website services.';
-const keywords = [
-  'best website builder in bangalore',
-  'best ai agents builder in banglore',
-  'best website services in banglore',
-  'best ai agent service in bangalore',
-  'best academic project builders in banglore',
-  'best software startup creator',
-  'best softaware startup building helper',
-  'AI systems Bangalore',
-  'automation workflows',
-  'AI agents Bangalore',
-  'predictive analytics',
-  'AI-powered websites Bangalore',
-  'MVP development',
-  'startup solutions',
-  'enterprise AI',
-  'website builder Bangalore',
-  'AI development Bangalore',
-];
+const description = 'Astras AI is the best software startup creator in Bangalore, specializing in AI agents, website building, and digital growth engines (Brahmastra & Sudarshana).';
+const keywords = ['AI Agent', 'Website Builder', 'Bangalore', 'Software Startup Creator', 'Brahmastra AI', 'Sudarshana Chakra', 'Ads Marketing', 'Social Media AI'];
 
 export const metadata: Metadata = {
   metadataBase: new URL(domain),
   title: {
-    default: `Astras AI | AI-Powered Websites & Automation in Bangalore`,
+    default: `Astras AI | Best AI Agent & Website Builder in Bangalore`,
     template: `%s | ${companyName}`,
   },
   description: description,
@@ -47,7 +37,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Astras AI | AI-Powered Websites & Automation in Bangalore',
+    title: 'Astras AI | Best AI Agent & Website Builder in Bangalore',
     description: description,
     url: domain,
     siteName: companyName,
@@ -64,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Astras AI | AI-Powered Websites & Automation in Bangalore',
+    title: 'Astras AI | Intelligent Enterprise Systems',
     description: description,
     images: [`${domain}/og-image.png`],
     creator: '@astras_ai',
@@ -86,13 +76,13 @@ export default function RootLayout({
   const GA4_ID = 'G-FS33ELQ6LY';
 
   return (
-    <html lang="en" className={`${inter.className} scroll-smooth`}>
+    <html lang="en" className={`${syne.variable} ${spaceGrotesk.variable} scroll-smooth`}>
       <head>
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#02040A" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
       </head>
-      <body className="bg-cosmic-900 text-white overflow-x-hidden">
+      <body className={`${syne.variable} ${spaceGrotesk.variable} font-body bg-void text-white antialiased selection:bg-hologram-cyan selection:text-void`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -105,8 +95,11 @@ export default function RootLayout({
         {/* End Google Tag Manager (noscript) */}
 
         <Navbar />
-        <main>{children}</main>
+        <main className="min-h-screen">
+          {children}
+        </main>
         <Footer />
+        <JsonLd />
 
         {/* Google Tag Manager */}
         <Script id="gtm-script" strategy="afterInteractive">

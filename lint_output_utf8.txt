@@ -1,0 +1,105 @@
+﻿
+> astrasai-website@2.0.0 lint
+> next lint
+
+node.exe : 
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Users\MKT DELL\AppData\Roami ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSp 
+   ecified: (:String) [], RemoteEx  
+  ception
+    + FullyQualifiedErrorId : Nativ 
+   eCommandError
+ 
+./src/app/api/ask/route.ts
+9:14  Error: '_' is defined but 
+never used.  
+@typescript-eslint/no-unused-vars
+43:11  Error: 'errorMessage' is 
+assigned a value but never used.  
+@typescript-eslint/no-unused-vars
+
+./src/app/services/detail/page.tsx
+5:10  Error: 'motion' is defined 
+but never used.  
+@typescript-eslint/no-unused-vars
+
+./src/components/About.tsx
+43:220  Error: Comments inside 
+children section of tag should be 
+placed inside braces  
+react/jsx-no-comment-textnodes
+113:19  Error: `'` can be escaped 
+with `&apos;`, `&lsquo;`, `&#39;`, 
+`&rsquo;`.  
+react/no-unescaped-entities
+
+./src/components/AskAI.tsx
+4:16  Error: 'X' is defined but 
+never used.  
+@typescript-eslint/no-unused-vars
+
+./src/components/Contact.tsx
+75:173  Error: Comments inside 
+children section of tag should be 
+placed inside braces  
+react/jsx-no-comment-textnodes
+
+./src/components/Features.tsx
+55:22  Error: Comments inside 
+children section of tag should be 
+placed inside braces  
+react/jsx-no-comment-textnodes
+68:42  Error: `'` can be escaped 
+with `&apos;`, `&lsquo;`, `&#39;`, 
+`&rsquo;`.  
+react/no-unescaped-entities
+68:55  Error: `'` can be escaped 
+with `&apos;`, `&lsquo;`, `&#39;`, 
+`&rsquo;`.  
+react/no-unescaped-entities
+
+./src/components/motion.tsx
+7:56  Error: Unexpected any. 
+Specify a different type.  
+@typescript-eslint/no-explicit-any
+11:53  Error: Unexpected any. 
+Specify a different type.  
+@typescript-eslint/no-explicit-any
+15:57  Error: Unexpected any. 
+Specify a different type.  
+@typescript-eslint/no-explicit-any
+19:59  Error: Unexpected any. 
+Specify a different type.  
+@typescript-eslint/no-explicit-any
+
+./src/components/Services.tsx
+3:27  Error: 'useRef' is defined 
+but never used.  
+@typescript-eslint/no-unused-vars
+
+./src/data/servicesData.tsx
+4:55  Error: 'CheckCircle2' is 
+defined but never used.  
+@typescript-eslint/no-unused-vars
+4:69  Error: 'ArrowRight' is 
+defined but never used.  
+@typescript-eslint/no-unused-vars
+6:53  Error: 'Phone' is defined but 
+never used.  
+@typescript-eslint/no-unused-vars
+6:76  Error: 'User' is defined but 
+never used.  
+@typescript-eslint/no-unused-vars
+7:5  Error: 'Megaphone' is defined 
+but never used.  
+@typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint 
+rules? Learn more here: https://next
+js.org/docs/basic-features/eslint#di
+sabling-rules

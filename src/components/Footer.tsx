@@ -1,224 +1,156 @@
-'use client'
+"use client";
 
-import { Linkedin, Mail, Phone } from 'lucide-react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Instagram, Linkedin, MessageCircle, Twitter, ArrowRight, Mail, Phone, MapPin } from "lucide-react";
+import Background3D from "./Background3D";
 
-export default function Footer() {
-  const currentYear = new Date().getFullYear()
-
+const Footer = () => {
   return (
-    <footer className="relative bg-cosmic-950 overflow-hidden pb-24 sm:pb-6">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-cosmic-950 via-mystic-900/20 to-cosmic-950" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-trishul-500/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-chakra-500/20 to-transparent" />
-        <div className="absolute -left-48 -top-48 w-96 h-96 bg-trishul-500/5 rounded-full blur-3xl" />
-        <div className="absolute -right-48 -bottom-48 w-96 h-96 bg-chakra-500/5 rounded-full blur-3xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(138,99,255,0.04),transparent_25%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(0,229,255,0.04),transparent_25%)]" />
-      </div>
+    <footer className="bg-black border-t border-white/10 py-12 relative overflow-hidden">
+      <Background3D />
 
-      <div className="relative container mx-auto px-4 sm:px-6 py-12 sm:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 mb-12 sm:mb-16">
-          {/* Company Info */}
-          <div className="space-y-4 sm:space-y-6">
-            <h3 className="text-3xl sm:text-4xl font-display font-bold tracking-tight">
-              <span className="bg-gradient-to-r from-white to-white/90 text-transparent bg-clip-text">ASTRAS</span>
-              <span className="bg-gradient-to-r from-trishul-500 via-mystic-300 to-chakra-300 text-transparent bg-clip-text"> AI</span>
-            </h3>
-            <p className="text-sm sm:text-base md:text-lg font-sans font-light leading-relaxed text-cosmic-100/80">
-              Empowering digital transformation through the fusion of ancient wisdom and artificial intelligence.
+      {/* Background Elements */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+
+      <div className="container-width relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+          {/* Brand Column */}
+          <div className="space-y-6">
+            <Link href="/" className="flex items-center gap-3 group w-fit">
+              <div className="relative w-10 h-10">
+                <Image
+                  src="/logo.png"
+                  alt="Astras AI Logo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <span className="font-display text-2xl font-bold tracking-wider text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-600 transition-all duration-300">
+                ASTRAS<span className="text-cyan-400">AI</span>
+              </span>
+            </Link>
+            <p className="text-gray-400 leading-relaxed text-sm">
+              We build AI agents, websites, and apps that automate your work and grow your revenue.
             </p>
-
-            <div className="flex flex-col gap-3">
-              <a href="mailto:services@astrasai.in" className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 rounded-lg bg-gradient-to-r from-trishul-500 to-mystic-500 text-white text-sm sm:text-base shadow-sm hover:shadow-lg transition-all duration-300 w-fit">
-                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" />
-                <span className="font-medium truncate">services@astrasai.in</span>
-              </a>
-
-              {/* Phone CTA */}
-              <a href="tel:+918197489255" className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 rounded-lg bg-gradient-to-r from-chakra-300 to-mystic-300 text-cosmic-900 text-sm sm:text-base font-medium shadow-sm hover:shadow-lg transition-all duration-300 w-fit">
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                <span>+91 8197489255</span>
-              </a>
-            </div>
-
-            <div className="flex items-center gap-2 sm:gap-3 mt-4">
-              <a
-                href="https://www.instagram.com/astras_ai/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group p-2 sm:p-3 rounded-xl bg-gradient-to-r from-trishul-500/8 to-mystic-500/8 ring-1 ring-trishul-500/16 hover:ring-trishul-500/28 text-white transition-all duration-300"
-                aria-label="Instagram"
-              >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-trishul-300 group-hover:text-trishul-500 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
-              <a
-                href="https://www.linkedin.com/company/astras-ai-tech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group p-2 sm:p-3 rounded-xl bg-gradient-to-r from-mystic-500/8 to-chakra-500/8 ring-1 ring-mystic-500/16 hover:ring-mystic-500/28 text-white transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-mystic-300 group-hover:text-mystic-500 transition-colors" />
-              </a>
+            <div className="flex gap-4">
+              {[
+                { icon: <Instagram className="w-4 h-4" />, href: "https://www.instagram.com/astrasai" },
+                { icon: <Linkedin className="w-4 h-4" />, href: "https://www.linkedin.com/company/astrasai" },
+                { icon: <MessageCircle className="w-4 h-4" />, href: "https://wa.me/918197489255" },
+                { icon: <Twitter className="w-4 h-4" />, href: "https://twitter.com/astrasai" },
+              ].map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 hover:text-cyan-400 transition-all duration-300 border border-white/5 hover:border-cyan-500/30 hover:shadow-[0_0_20px_rgba(0,240,255,0.1)]"
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Begin Your Journey */}
+          {/* Quick Links */}
           <div>
-            <h4 className="text-xl sm:text-2xl font-display font-semibold bg-gradient-to-r from-white via-white/90 to-white/80 text-transparent bg-clip-text mb-4 sm:mb-8">Begin Your Journey</h4>
-            <ul className="space-y-3 sm:space-y-5">
-              <li>
-                <Link href="/services" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-trishul-300 transition-colors">
-                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-trishul-500 to-mystic-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
-                  <span>Our Services</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-mystic-300 transition-colors">
-                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-mystic-500 to-chakra-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
-                  <span>About Us</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-chakra-300 transition-colors">
-                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-chakra-500 to-trishul-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
-                  <span>Contact Us</span>
-                </Link>
-              </li>
-              <li>
-                <a 
-                  href="https://www.instagram.com/astras_ai/"
-                  target="_blank"
-                  rel="noopener noreferrer" 
-                  className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-trishul-300 transition-colors"
-                >
-                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-trishul-500 to-mystic-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
-                  <span>Latest Updates</span>
-                </a>
-              </li>
+            <h4 className="text-white font-bold mb-6 text-base flex items-center gap-2">
+              <span className="w-1 h-4 bg-cyan-500 rounded-full" />
+              Company
+            </h4>
+            <ul className="space-y-3">
+              {['About', 'Services', 'Features', 'Contact'].map((item) => (
+                <li key={item}>
+                  <Link
+                    href={`/${item.toLowerCase()}`}
+                    className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group text-sm"
+                  >
+                    <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-cyan-400" />
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">{item}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Services */}
           <div>
-            <h4 className="text-xl sm:text-2xl font-display font-semibold bg-gradient-to-r from-white via-white/90 to-white/80 text-transparent bg-clip-text mb-4 sm:mb-8">Company</h4>
-            <ul className="space-y-3 sm:space-y-5">
-              <li>
-                <Link href="/about" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-trishul-300 transition-colors">
-                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-trishul-500 to-mystic-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
-                  <span>About Us</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-mystic-300 transition-colors">
-                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-mystic-500 to-chakra-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
-                  <span>Contact</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy-policy" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-chakra-300 transition-colors">
-                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-chakra-500 to-trishul-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
-                  <span>Privacy Policy</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms-of-service" className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-sans font-light text-cosmic-100/70 hover:text-trishul-300 transition-colors">
-                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-trishul-500 to-mystic-500 group-hover:scale-150 transition-transform duration-500 flex-shrink-0"></span>
-                  <span>Terms of Service</span>
-                </Link>
-              </li>
+            <h4 className="text-white font-bold mb-6 text-base flex items-center gap-2">
+              <span className="w-1 h-4 bg-purple-500 rounded-full" />
+              Services
+            </h4>
+            <ul className="space-y-3">
+              {['AI Agents', 'Web Development', 'Consulting', 'Marketing'].map((item) => (
+                <li key={item}>
+                  <Link
+                    href="/services"
+                    className="text-gray-400 hover:text-purple-400 transition-colors flex items-center gap-2 group text-sm"
+                  >
+                    <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-purple-400" />
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">{item}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Connect With Us */}
+          {/* Contact Info */}
           <div>
-            <h4 className="text-xl sm:text-2xl font-display font-semibold bg-gradient-to-r from-white via-white/90 to-white/80 text-transparent bg-clip-text mb-4 sm:mb-8">Connect With Us</h4>
-            <ul className="space-y-3 sm:space-y-4 lg:space-y-6">
+            <h4 className="text-white font-bold mb-6 text-base flex items-center gap-2">
+              <span className="w-1 h-4 bg-cyan-500 rounded-full" />
+              Contact
+            </h4>
+            <ul className="space-y-4">
               <li>
-                <a
-                  href="https://www.instagram.com/astras_ai/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 sm:gap-3 lg:gap-4 text-sm sm:text-base lg:text-lg font-sans font-light text-cosmic-100/70 hover:text-trishul-300 transition-colors"
-                >
-                  <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-to-r from-trishul-500/10 to-mystic-500/10 ring-1 ring-trishul-500/20 group-hover:ring-trishul-500/40 transition-all duration-300 flex-shrink-0">
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-trishul-300 group-hover:text-trishul-500 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
+                <a href="mailto:services@astrasai.in" className="group flex items-start gap-3 text-gray-400 hover:text-cyan-400 transition-colors">
+                  <div className="p-1.5 rounded-md bg-white/5 group-hover:bg-cyan-500/10 transition-colors mt-0.5">
+                    <Mail className="w-3.5 h-3.5" />
                   </div>
-                  <span className="truncate">Follow on Instagram</span>
+                  <div className="text-sm">
+                    <span className="block text-[10px] text-gray-500 uppercase tracking-wider mb-0.5">Email Us</span>
+                    services@astrasai.in
+                  </div>
                 </a>
               </li>
               <li>
-                <a
-                  href="https://www.linkedin.com/company/astras-ai-tech"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 sm:gap-3 lg:gap-4 text-sm sm:text-base lg:text-lg font-sans font-light text-cosmic-100/70 hover:text-mystic-300 transition-colors"
-                >
-                  <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-to-r from-mystic-500/10 to-chakra-500/10 ring-1 ring-mystic-500/20 group-hover:ring-mystic-500/40 transition-all duration-300 flex-shrink-0">
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-mystic-300 group-hover:text-mystic-500 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                      <rect x="2" y="9" width="4" height="12"></rect>
-                      <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
+                <a href="tel:+918197489255" className="group flex items-start gap-3 text-gray-400 hover:text-cyan-400 transition-colors">
+                  <div className="p-1.5 rounded-md bg-white/5 group-hover:bg-cyan-500/10 transition-colors mt-0.5">
+                    <Phone className="w-3.5 h-3.5" />
                   </div>
-                  <span className="truncate">Connect on LinkedIn</span>
+                  <div className="text-sm">
+                    <span className="block text-[10px] text-gray-500 uppercase tracking-wider mb-0.5">Call Us</span>
+                    +91 8197489255
+                  </div>
                 </a>
               </li>
-              <li>
-                <a
-                  href="tel:+918197489255"
-                  className="group flex items-center gap-2 sm:gap-3 lg:gap-4 text-sm sm:text-base lg:text-lg font-sans font-light text-cosmic-100/70 hover:text-chakra-300 transition-colors"
-                >
-                  <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-to-r from-chakra-500/10 to-trishul-500/10 ring-1 ring-chakra-500/20 group-hover:ring-chakra-500/40 transition-all duration-300 flex-shrink-0">
-                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-chakra-300 group-hover:text-chakra-500 transition-colors" />
-                  </div>
-                  <span className="truncate">+91 8197489255</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:services@astrasai.in"
-                  className="group flex items-center gap-2 sm:gap-3 lg:gap-4 text-sm sm:text-base lg:text-lg font-sans font-light text-cosmic-100/70 hover:text-mystic-300 transition-colors"
-                >
-                  <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-to-r from-mystic-500/10 to-trishul-500/10 ring-1 ring-mystic-500/20 group-hover:ring-mystic-500/40 transition-all duration-300 flex-shrink-0">
-                    <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-mystic-300 group-hover:text-mystic-500 transition-colors" />
-                  </div>
-                  <span className="truncate">services@astrasai.in</span>
-                </a>
+              <li className="flex items-start gap-3 text-gray-400">
+                <div className="p-1.5 rounded-md bg-white/5 mt-0.5">
+                  <MapPin className="w-3.5 h-3.5" />
+                </div>
+                <div className="text-sm">
+                  <span className="block text-[10px] text-gray-500 uppercase tracking-wider mb-0.5">Visit Us</span>
+                  Bangalore, India
+                </div>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="relative pt-8 sm:pt-12 lg:pt-16 mt-8 sm:mt-12 lg:mt-16 border-t border-mystic-300/20">
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-trishul-500/20 to-transparent" />
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
-            <p className="text-sm sm:text-base font-sans text-cosmic-100/60 font-light tracking-wide text-center sm:text-left">
-              © {currentYear} AstrasAI. All rights reserved.
-            </p>
-            <div className="flex flex-wrap gap-4 sm:gap-6 sm:gap-10 justify-center sm:justify-end">
-              <Link href="/privacy-policy" className="text-sm sm:text-base font-sans text-cosmic-100/60 hover:text-trishul-300 transition-colors whitespace-nowrap">
-                Privacy Policy
-              </Link>
-              <Link href="/terms-of-service" className="text-sm sm:text-base font-sans text-cosmic-100/60 hover:text-mystic-300 transition-colors whitespace-nowrap">
-                Terms of Service
-              </Link>
-            </div>
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-xs">
+          <p>&copy; {new Date().getFullYear()} AstrasAI. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="/privacy-policy" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-cyan-400 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
+
+export default Footer;

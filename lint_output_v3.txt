@@ -1,0 +1,30 @@
+﻿
+> astrasai-website@2.0.0 lint
+> next lint
+
+node.exe : 
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Users\MKT DELL\AppData\Roami ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSp 
+   ecified: (:String) [], RemoteEx  
+  ception
+    + FullyQualifiedErrorId : Nativ 
+   eCommandError
+ 
+./src/app/api/ask/route.ts
+9:14  Error: '_' is defined but 
+never used.  
+@typescript-eslint/no-unused-vars
+
+./src/components/AskAI.tsx
+158:20  Error: 'Minimize2' is not 
+defined.  react/jsx-no-undef
+
+info  - Need to disable some ESLint 
+rules? Learn more here: https://next
+js.org/docs/basic-features/eslint#di
+sabling-rules
