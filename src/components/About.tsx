@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Brain, Shield, Zap, Sparkles, ArrowRight, X } from "lucide-react";
+import { Brain, Shield, Zap, Sparkles, ArrowRight, X, Globe } from "lucide-react";
 
 interface AboutItem {
     title: string;
@@ -159,6 +159,18 @@ const About = () => {
             stats: [
                 { label: "Uptime Guarantee", value: "99.99%" },
                 { label: "Scaling", value: "Auto" }
+            ]
+        },
+        {
+            image: "/assets/3d/global_innovation.png",
+            title: "Global Innovation",
+            description: "Boundaries don't exist in the digital realm. We bring world-class innovation to your doorstep, leveraging global trends and technologies to keep you ahead of the curve.",
+            icon: <Globe className="w-6 h-6" />,
+            benefit: "Borderless Impact",
+            extendedDesc: "Innovation knows no borders. We constantly scout the globe for the latest breakthroughs in AI and technology, integrating them into our solutions. This ensures that no matter where you are, you're operating with the most advanced tools available worldwide.",
+            stats: [
+                { label: "Global Reach", value: "Unlimited" },
+                { label: "Tech Sources", value: "Worldwide" }
             ]
         },
     ];

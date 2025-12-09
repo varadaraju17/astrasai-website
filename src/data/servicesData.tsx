@@ -991,7 +991,7 @@ export const individualServices: ServiceData[] = [
                 id: "resume-writing",
                 title: "AI Resume Builder",
                 tagline: "ATS Friendly",
-                image: "/services/sub/prof_resume.png",
+                image: "/services/sub/prof_resume_v2.png",
                 icon: <FileText className="w-6 h-6" />,
                 description: "Get past the gatekeepers. We rewrite your resume to be machine-readable and impact-focused, highlighting your achievements.",
                 features: [
@@ -1005,7 +1005,7 @@ export const individualServices: ServiceData[] = [
                 id: "linkedin-optimization",
                 title: "LinkedIn Profile Optimization",
                 tagline: "Attract Recruiters",
-                image: "/services/sub/prof_linkedin.png",
+                image: "/services/sub/prof_linkedin_v2.png",
                 icon: <Linkedin className="w-6 h-6" />,
                 description: "Be found. We optimize your headline, summary, and skills to ensure you appear in recruiter searches for your dream roles.",
                 features: [
@@ -1019,7 +1019,7 @@ export const individualServices: ServiceData[] = [
                 id: "portfolio-build",
                 title: "Personal Portfolio Site",
                 tagline: "Showcase Work",
-                image: "/services/sub/prof_port.png",
+                image: "/services/sub/prof_port_v2.png",
                 icon: <Layout className="w-6 h-6" />,
                 description: "Prove your skills. We help you build a stunning digital portfolio that visually demonstrates your capabilities to potential employers.",
                 features: [
