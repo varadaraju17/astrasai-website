@@ -33,7 +33,7 @@ const MagneticButton = ({ children, href, primary = false }: { children: React.R
                 ref={ref}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                className={`relative group px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 overflow-hidden transition-all duration-300 ${primary
+                className={`relative group px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg flex items-center gap-2 overflow-hidden transition-all duration-300 ${primary
                     ? "bg-cyan-500 text-black shadow-[0_0_30px_rgba(0,240,255,0.4)] hover:shadow-[0_0_60px_rgba(0,240,255,0.6)]"
                     : "bg-black/50 text-white border border-cyan-500/30 hover:bg-cyan-950/30 hover:border-cyan-400/50 backdrop-blur-md shadow-[0_0_20px_rgba(0,240,255,0.1)]"
                     }`}
@@ -57,15 +57,16 @@ const Hero = () => {
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-contain md:object-cover object-center opacity-60"
+                    className="w-full h-full object-contain md:object-cover object-center opacity-50"
                 >
                     <source src="/hero_logo.mp4" type="video/mp4" />
                 </video>
             </div>
 
-            {/* Gradient Overlays for Readability */}
-            <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/80 via-transparent to-black/80 pointer-events-none" />
-            <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_100%)] pointer-events-none" />
+            {/* Advanced Gradient Overlays */}
+            <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/90 via-black/40 to-black/90 pointer-events-none" />
+            <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_100%)] opacity-80 pointer-events-none" />
+            <div className="absolute inset-0 z-0 bg-gradient-to-r from-black/50 via-transparent to-black/50 pointer-events-none" />
 
             {/* Content */}
             <div className="container-width relative z-10 pt-32 md:pt-20">
@@ -75,7 +76,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 text-xs md:text-sm font-medium backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(0,240,255,0.2)]"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 text-xs md:text-sm font-medium backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] transition-shadow duration-500"
                     >
                         <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
                         <span className="tracking-wide uppercase">The Future of Intelligence</span>
@@ -94,7 +95,7 @@ const Hero = () => {
                                 Intelligent Future
                             </span>
                             {/* Glitch/Glow Effect Layer */}
-                            <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 blur-lg opacity-50 animate-pulse">
+                            <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 blur-xl opacity-50 animate-pulse">
                                 Intelligent Future
                             </span>
                         </span>
@@ -128,6 +129,8 @@ const Hero = () => {
                     </motion.div>
                 </div>
             </div>
+
+
         </section>
     );
 };

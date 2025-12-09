@@ -59,7 +59,7 @@ const ServiceModal = ({ service, onClose }: { service: ServiceData; onClose: () 
                             {service.subServices.map((sub, idx) => (
                                 <div key={idx} className="group relative bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,240,255,0.1)] flex flex-col">
                                     {/* Image */}
-                                    <div className="aspect-video w-full relative overflow-hidden shrink-0">
+                                    <div className="aspect-video w-full relative overflow-hidden shrink-0 bg-black/20">
                                         <Image
                                             src={sub.image}
                                             alt={sub.title}
@@ -92,7 +92,7 @@ const ServiceModal = ({ service, onClose }: { service: ServiceData; onClose: () 
 
                                         <Link
                                             href={`/services/detail?id=${sub.id}`}
-                                            className="mt-auto w-full py-2 rounded-lg bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-500/50 text-cyan-400 text-sm font-medium flex items-center justify-center gap-1.5 transition-all group/link"
+                                            className="mt-auto w-full py-2.5 rounded-lg bg-white/5 hover:bg-cyan-500/20 border border-white/10 hover:border-cyan-500/50 text-cyan-400 text-xs md:text-sm font-bold uppercase tracking-wide flex items-center justify-center gap-2 transition-all group/link shadow-lg shadow-black/20"
                                         >
                                             Learn more <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
                                         </Link>

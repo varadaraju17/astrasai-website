@@ -41,7 +41,7 @@ export const businessServices: ServiceData[] = [
     {
         id: "web-dev",
         icon: <Monitor />,
-        title: "AI-Powered Web Development",
+        title: "AI-Powered Websites",
         desc: "We build intelligent, high-performance websites infused with AI. From smart chatbots to dynamic content, your site becomes your best 24/7 salesperson.",
         benefit: "Smart & Fast",
         example: "A real estate site that predicts what users want to see.",
@@ -198,7 +198,7 @@ export const businessServices: ServiceData[] = [
                 id: "flutter-app",
                 title: "Flutter Cross-Platform App",
                 tagline: "Beautiful & Fast",
-                image: "/services/sub/app_flutter.png",
+                image: "/services/sub/app_flutter_v2.png",
                 icon: <Smartphone className="w-6 h-6" />,
                 description: "Google's power, your app. We build stunning apps that work on both iPhone and Android from a single codebase, saving you time and money.",
                 features: [
@@ -212,7 +212,7 @@ export const businessServices: ServiceData[] = [
                 id: "react-native-app",
                 title: "React Native App",
                 tagline: "Native Feel, Web Speed",
-                image: "/services/sub/app_react.png",
+                image: "/services/sub/app_react_v2.png",
                 icon: <Code className="w-6 h-6" />,
                 description: "Trusted by Facebook. We use the same tech as Instagram to build robust, high-performance apps that feel completely native.",
                 features: [
@@ -226,7 +226,7 @@ export const businessServices: ServiceData[] = [
                 id: "pwa-app",
                 title: "Installable Web App (PWA)",
                 tagline: "No App Store Needed",
-                image: "/services/sub/app_pwa.png",
+                image: "/services/sub/app_pwa_v2.png",
                 icon: <Globe className="w-6 h-6" />,
                 description: "Skip the App Store. We build web apps that install directly on your users' phones, offering a native experience without the download friction.",
                 features: [
@@ -240,7 +240,7 @@ export const businessServices: ServiceData[] = [
                 id: "cross-platform-app",
                 title: "Unified Cross-Platform App",
                 tagline: "Every Device, One App",
-                image: "/services/sub/app_cross.png",
+                image: "/services/sub/app_cross_v2.png",
                 icon: <Layers className="w-6 h-6" />,
                 description: "Reach everyone. We build apps that run flawlessly on iOS, Android, and even desktop, maximizing your audience reach.",
                 features: [
@@ -254,7 +254,7 @@ export const businessServices: ServiceData[] = [
                 id: "hybrid-app",
                 title: "Cost-Effective Hybrid App",
                 tagline: "Fast & Affordable",
-                image: "/services/sub/app_hybrid.png",
+                image: "/services/sub/app_hybrid_v2.png",
                 icon: <Box className="w-6 h-6" />,
                 description: "Get to market fast. We wrap web technologies in a native container, giving you an App Store presence without the high cost of native development.",
                 features: [
@@ -268,7 +268,7 @@ export const businessServices: ServiceData[] = [
                 id: "native-app",
                 title: "High-Performance Native App",
                 tagline: "Uncompromised Power",
-                image: "/services/sub/app_native.png",
+                image: "/services/sub/app_native_v2.png",
                 icon: <Zap className="w-6 h-6" />,
                 description: "The gold standard. We build specifically for iOS (Swift) or Android (Kotlin) to unlock the full power of the device for maximum performance.",
                 features: [
@@ -368,7 +368,7 @@ export const businessServices: ServiceData[] = [
                 id: "hospital-management",
                 title: "Digital Hospital System",
                 tagline: "Better Patient Care",
-                image: "/services/sub/soft_hospital.png",
+                image: "/services/sub/soft_hms.png",
                 icon: <Activity className="w-6 h-6" />,
                 description: "Focus on care, not paperwork. Manage appointments, patient records, billing, and pharmacy inventory in a secure, compliant system.",
                 features: [
@@ -382,7 +382,7 @@ export const businessServices: ServiceData[] = [
                 id: "ecommerce-platform",
                 title: "Multi-Vendor Marketplace",
                 tagline: "Your Own Amazon",
-                image: "/services/sub/soft_ecom_plat.png",
+                image: "/services/sub/soft_ecom.png",
                 icon: <ShoppingCart className="w-6 h-6" />,
                 description: "Launch your own Amazon or Etsy. Allow multiple vendors to sell on your platform while you earn commissions on every sale.",
                 features: [
@@ -499,7 +499,7 @@ export const businessServices: ServiceData[] = [
         desc: "Maximize your ROI with AI-optimized advertising. We use machine learning to target the right audience at the perfect time, reducing waste and boosting conversions.",
         benefit: "Precision Targeting",
         example: "Ad campaigns that auto-adjust budget based on performance.",
-        image: "/services/ai_ads_3d.png",
+        image: "/services/ai_ads_v2.png",
         details: {
             extendedDesc: "Stop guessing with your marketing budget. Our AI-powered marketing services analyze vast amounts of data to identify your ideal customers. We automate bid management, creative testing, and audience segmentation to ensure every dollar you spend delivers maximum results.",
             features: ["Smart Bidding", "Audience Prediction", "Creative Optimization", "Real-time Analytics"],
@@ -524,7 +524,7 @@ export const businessServices: ServiceData[] = [
                 id: "sem",
                 title: "Smart Ad Campaigns (SEM)",
                 tagline: "Advertise. Appear. Convert.",
-                image: "/services/sub/ads_sem.png",
+                image: "/services/sub/ads_sem_v2.png",
                 icon: <Target className="w-6 h-6" />,
                 description: "Instant visibility. Our AI algorithms manage your Google Ads campaigns, adjusting bids in real-time to get the best ad spots for the lowest cost.",
                 features: [
@@ -552,7 +552,7 @@ export const businessServices: ServiceData[] = [
                 id: "content-marketing",
                 title: "AI Content Strategy",
                 tagline: "Educate. Attract. Convert.",
-                image: "/services/sub/ads_content.png",
+                image: "/services/sub/ads_content_v2.png",
                 icon: <PenTool className="w-6 h-6" />,
                 description: "Stories that sell. We use AI to research trending topics and generate content outlines that resonate with your audience and establish your brand authority.",
                 features: [
@@ -566,7 +566,7 @@ export const businessServices: ServiceData[] = [
                 id: "email-marketing",
                 title: "Hyper-Personalized Email",
                 tagline: "Send. Connect. Retain.",
-                image: "/services/sub/ads_email.png",
+                image: "/services/sub/ads_email_v3.png",
                 icon: <Mail className="w-6 h-6" />,
                 description: "Personalized at scale. AI segments your list and writes personalized subject lines, ensuring your emails get opened and drive action.",
                 features: [
@@ -580,7 +580,7 @@ export const businessServices: ServiceData[] = [
                 id: "video-marketing",
                 title: "AI Video Production",
                 tagline: "Show. Engage. Convert.",
-                image: "/services/sub/ads_video.png",
+                image: "/services/sub/ads_video_v2.png",
                 icon: <Youtube className="w-6 h-6" />,
                 description: "Captivate your audience. From script to screen, we produce high-quality videos optimized for retention and conversion across all platforms.",
                 features: [
@@ -610,7 +610,7 @@ export const businessServices: ServiceData[] = [
                 id: "whatsapp-bot",
                 title: "WhatsApp AI Chatbot",
                 tagline: "Instant Customer Engagement",
-                image: "/services/sub/agent_whatsapp.png",
+                image: "/services/sub/agent_whatsapp_v2.png",
                 icon: <MessageSquare className="w-6 h-6" />,
                 description: "Meet your customers where they are. Our intelligent WhatsApp bots handle inquiries, process orders, and send personalized updates instantly, 24/7.",
                 features: [
@@ -624,7 +624,7 @@ export const businessServices: ServiceData[] = [
                 id: "support-agent",
                 title: "24/7 Customer Support AI",
                 tagline: "Zero Wait Time Support",
-                image: "/services/sub/agent_support.png",
+                image: "/services/sub/agent_support_v2.png",
                 icon: <UserCheck className="w-6 h-6" />,
                 description: "Turn support into your strength. Our AI agents resolve 80% of queries instantly, leaving your human team to handle complex issues with care.",
                 features: [
@@ -638,7 +638,7 @@ export const businessServices: ServiceData[] = [
                 id: "sales-bot",
                 title: "AI Sales & Lead Qualifier",
                 tagline: "24/7 Sales Machine",
-                image: "/services/sub/agent_sales.png",
+                image: "/services/sub/agent_sales_v2.png",
                 icon: <BarChart className="w-6 h-6" />,
                 description: "Stop chasing bad leads. Our AI engages website visitors, answers buying questions, and qualifies prospects before booking meetings for your sales team.",
                 features: [
@@ -652,7 +652,7 @@ export const businessServices: ServiceData[] = [
                 id: "booking-agent",
                 title: "Smart Appointment Scheduler",
                 tagline: "Fill Your Calendar",
-                image: "/services/sub/agent_booking.png",
+                image: "/services/sub/agent_booking_v2.png",
                 icon: <Briefcase className="w-6 h-6" />,
                 description: "Eliminate the back-and-forth. Our AI coordinates with clients to find the perfect time, books the slot, and sends automated reminders to ensure they show up.",
                 features: [
@@ -666,7 +666,7 @@ export const businessServices: ServiceData[] = [
                 id: "data-entry-bot",
                 title: "Automated Data Entry & Processing",
                 tagline: "Error-Free Operations",
-                image: "/services/sub/agent_data.png",
+                image: "/services/sub/agent_data_v2.png",
                 icon: <FileText className="w-6 h-6" />,
                 description: "Free your team from boring work. Our AI extracts data from invoices, forms, and emails with 99.9% accuracy and updates your systems in real-time.",
                 features: [

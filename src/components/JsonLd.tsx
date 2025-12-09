@@ -9,6 +9,7 @@ export default function JsonLd() {
   const social = {
     instagram: 'https://www.instagram.com/astras_ai/',
     linkedin: 'https://www.linkedin.com/company/astras-ai-tech/',
+    twitter: 'https://x.com/astras_ai',
     whatsapp: 'https://wa.me/918197489255',
   };
 

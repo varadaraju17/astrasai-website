@@ -151,7 +151,7 @@ const Contact = () => {
                                 <h3 className="text-base font-bold text-white mb-4">Connect With Us</h3>
                                 <div className="flex flex-wrap gap-4">
                                     <a
-                                        href="https://www.instagram.com/astrasai"
+                                        href="https://www.instagram.com/astras_ai/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-3 text-gray-400 hover:text-pink-500 transition-colors group"
@@ -175,7 +175,7 @@ const Contact = () => {
                                     </a>
 
                                     <a
-                                        href="https://www.linkedin.com/company/astrasai"
+                                        href="https://www.linkedin.com/company/astras-ai-tech/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-3 text-gray-400 hover:text-blue-500 transition-colors group"
@@ -197,6 +197,20 @@ const Contact = () => {
                                         </div>
                                         <span className="font-medium text-sm">YouTube</span>
                                     </a>
+
+                                    <a
+                                        href="https://x.com/astras_ai"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
+                                    >
+                                        <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-white/50 transition-colors">
+                                            <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                            </svg>
+                                        </div>
+                                        <span className="font-medium text-sm">X</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -210,68 +224,74 @@ const Contact = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="relative"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 rounded-3xl blur-xl opacity-50" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 rounded-3xl blur-2xl opacity-20 animate-pulse" />
 
-                        <div className="relative bg-black/60 backdrop-blur-xl border border-cyan-500/20 p-6 md:p-8 rounded-3xl shadow-[0_0_30px_rgba(0,240,255,0.1)]">
-                            <h3 className="text-xl font-bold text-white mb-6">Send a Message</h3>
+                        <div className="relative bg-black border border-cyan-500/30 p-8 md:p-10 rounded-3xl shadow-[0_0_60px_rgba(0,240,255,0.2)] overflow-hidden ring-1 ring-cyan-500/30">
+                            {/* Premium Border Effect */}
+                            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+                            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
 
-                            <form onSubmit={handleSubmit} className="space-y-3">
-                                <div className="grid grid-cols-2 gap-3">
-                                    <div className="space-y-1">
-                                        <label className="text-[10px] font-medium text-gray-400 ml-1 uppercase tracking-wider">Full Name</label>
+                            <h3 className="text-2xl font-display font-bold text-white mb-8 flex items-center gap-2">
+                                Send a Message <span className="text-cyan-500">.</span>
+                            </h3>
+
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="space-y-2 group">
+                                        <label className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest ml-1 opacity-70 group-focus-within:opacity-100 transition-opacity">Full Name</label>
                                         <input
                                             type="text"
                                             required
                                             placeholder="John Doe"
                                             value={formState.name}
                                             onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                                            className="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-white/10 transition-all text-xs"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-900/50 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-gray-900 focus:shadow-[0_0_20px_rgba(0,240,255,0.1)] transition-all text-sm"
                                         />
                                     </div>
-                                    <div className="space-y-1">
-                                        <label className="text-[10px] font-medium text-gray-400 ml-1 uppercase tracking-wider">Phone</label>
+                                    <div className="space-y-2 group">
+                                        <label className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest ml-1 opacity-70 group-focus-within:opacity-100 transition-opacity">Phone</label>
                                         <input
                                             type="tel"
                                             placeholder="+91 98765 43210"
                                             value={formState.phone}
                                             onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                                            className="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-white/10 transition-all text-xs"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-900/50 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-gray-900 focus:shadow-[0_0_20px_rgba(0,240,255,0.1)] transition-all text-sm"
                                         />
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-3">
-                                    <div className="space-y-1">
-                                        <label className="text-[10px] font-medium text-gray-400 ml-1 uppercase tracking-wider">Email</label>
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="space-y-2 group">
+                                        <label className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest ml-1 opacity-70 group-focus-within:opacity-100 transition-opacity">Email</label>
                                         <input
                                             type="email"
                                             required
                                             placeholder="john@company.com"
                                             value={formState.email}
                                             onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                                            className="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-white/10 transition-all text-xs"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-900/50 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-gray-900 focus:shadow-[0_0_20px_rgba(0,240,255,0.1)] transition-all text-sm"
                                         />
                                     </div>
-                                    <div className="space-y-1">
-                                        <label className="text-[10px] font-medium text-gray-400 ml-1 uppercase tracking-wider">Company</label>
+                                    <div className="space-y-2 group">
+                                        <label className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest ml-1 opacity-70 group-focus-within:opacity-100 transition-opacity">Company</label>
                                         <input
                                             type="text"
                                             placeholder="Company Ltd."
                                             value={formState.companyName}
                                             onChange={(e) => setFormState({ ...formState, companyName: e.target.value })}
-                                            className="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-white/10 transition-all text-xs"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-900/50 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-gray-900 focus:shadow-[0_0_20px_rgba(0,240,255,0.1)] transition-all text-sm"
                                         />
                                     </div>
                                 </div>
 
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-medium text-gray-400 ml-1 uppercase tracking-wider">Service Required</label>
+                                <div className="space-y-2 group">
+                                    <label className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest ml-1 opacity-70 group-focus-within:opacity-100 transition-opacity">Service Required</label>
                                     <div className="relative">
                                         <select
                                             required
                                             value={formState.service}
                                             onChange={(e) => setFormState({ ...formState, service: e.target.value })}
-                                            className="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-white/10 transition-all appearance-none cursor-pointer text-xs"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-900/50 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-gray-900 focus:shadow-[0_0_20px_rgba(0,240,255,0.1)] transition-all appearance-none cursor-pointer text-sm"
                                         >
                                             <option value="" disabled className="bg-black text-gray-500">Select a service...</option>
                                             {services.map((service, idx) => (
@@ -280,40 +300,41 @@ const Contact = () => {
                                                 </option>
                                             ))}
                                         </select>
-                                        <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
-                                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-cyan-500">
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-medium text-gray-400 ml-1 uppercase tracking-wider">Message</label>
+                                <div className="space-y-2 group">
+                                    <label className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest ml-1 opacity-70 group-focus-within:opacity-100 transition-opacity">Message</label>
                                     <textarea
                                         required
-                                        rows={3}
+                                        rows={4}
                                         placeholder="Tell us about your project..."
                                         value={formState.message}
                                         onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                                        className="w-full px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-white/10 transition-all resize-none text-xs"
+                                        className="w-full px-4 py-3 rounded-xl bg-gray-900/50 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-gray-900 focus:shadow-[0_0_20px_rgba(0,240,255,0.1)] transition-all resize-none text-sm"
                                     />
                                 </div>
 
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full group relative px-6 py-3.5 rounded-xl font-bold text-base tracking-wide overflow-hidden transition-all hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100 text-white shadow-[0_0_20px_rgba(0,240,255,0.3)]"
+                                    className="w-full group relative px-8 py-4 rounded-xl font-bold text-base tracking-wide overflow-hidden transition-all hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100 text-white shadow-[0_0_30px_rgba(0,240,255,0.4)] hover:shadow-[0_0_60px_rgba(0,240,255,0.6)] border border-cyan-400/50"
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
                                     <span className="relative z-10 flex items-center justify-center gap-2">
                                         {isSubmitting ? (
                                             <>
-                                                <Loader2 className="w-4 h-4 animate-spin" />
+                                                <Loader2 className="w-5 h-5 animate-spin text-cyan-400" />
                                                 Sending...
                                             </>
                                         ) : (
                                             <>
                                                 Send Message
-                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-cyan-400" />
                                             </>
                                         )}
                                     </span>
@@ -323,7 +344,7 @@ const Contact = () => {
                                     <motion.div
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        className="p-3 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-center text-xs font-medium"
+                                        className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-center text-sm font-medium backdrop-blur-md"
                                     >
                                         Message sent successfully! We&apos;ll get back to you soon.
                                     </motion.div>
@@ -333,7 +354,7 @@ const Contact = () => {
                                     <motion.div
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        className="p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-center text-xs font-medium"
+                                        className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-center text-sm font-medium backdrop-blur-md"
                                     >
                                         Something went wrong. Please try again later.
                                     </motion.div>
