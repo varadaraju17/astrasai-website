@@ -3,7 +3,7 @@ import {
     Rocket, Brain, MessageSquare, BarChart, Search, GraduationCap, FileText, UserCheck,
     Layers, Users, Zap, Palette, Lightbulb, Workflow,
     Smartphone, Monitor, Code, Globe, ShoppingCart, Database, Layout, Server, Activity,
-    HeartPulse, Truck, CreditCard, Video, Box, Bot, Briefcase, Map, Target,
+    Video, Box, Bot, Briefcase, Target,
     Mail, PenTool, Share2, Youtube, Home, Linkedin, BookOpen, Network, Dumbbell,
     ShoppingBag, Plane, MapPin, DollarSign
 } from "lucide-react";
