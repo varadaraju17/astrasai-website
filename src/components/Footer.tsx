@@ -30,7 +30,7 @@ const Footer = () => {
             <Link href="/" className="flex items-center gap-3 group w-fit">
               <div className="relative w-10 h-10">
                 <Image
-                  src="/logo.png"
+                  src="/logo.webp"
                   alt="Astras AI Logo"
                   width={40}
                   height={40}

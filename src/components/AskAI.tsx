@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Send, Sparkles, Zap, Cpu, Minimize2, User } from 'lucide-react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import botAvatar from '../../public/3d_ai_bot_avatar.png'
+import botAvatar from '../../public/3d_ai_bot_avatar.webp'
 
 type Message = {
   role: 'user' | 'assistant'

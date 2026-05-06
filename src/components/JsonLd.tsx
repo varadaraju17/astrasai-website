@@ -26,7 +26,7 @@ export default function JsonLd() {
         url: domain,
         logo: {
           '@type': 'ImageObject',
-          url: `${domain}/logo.png`,
+          url: `${domain}/logo.webp`,
           width: 400,
           height: 100,
         },
@@ -93,7 +93,7 @@ export default function JsonLd() {
         '@type': ['LocalBusiness', 'ProfessionalService', 'SoftwareApplication'],
         '@id': `${domain}/#localbusiness`,
         name: companyName,
-        image: [`${domain}/og-image.png`, `${domain}/logo.png`],
+        image: [`${domain}/og-image.webp`, `${domain}/logo.webp`],
         url: domain,
         telephone: contact,
         email: email,

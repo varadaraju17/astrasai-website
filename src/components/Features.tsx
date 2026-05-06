@@ -158,7 +158,7 @@ const Features = () => {
             title: "Intelligent Systems",
             benefit: "Smarter Decisions",
             description: "We build systems that don't just follow rules—they learn, adapt, and help you make better business decisions.",
-            image: "/assets/3d/neural_intelligence.png",
+            image: "/assets/3d/neural_intelligence.webp",
             details: {
                 extendedDesc: "Imagine software that gets smarter the more you use it. Our Intelligent Systems mimic human learning to understand context, recognize patterns, and provide insights that standard software simply can't match.",
                 visualMetaphor: "A digital brain connecting ideas like a constellation of stars.",
@@ -171,7 +171,7 @@ const Features = () => {
             title: "Bank-Grade Security",
             benefit: "Total Protection",
             description: "Your data is your most valuable asset. We protect it with the same encryption standards used by major banks.",
-            image: "/assets/3d/secure_protocols.png",
+            image: "/assets/3d/secure_protocols.webp",
             details: {
                 extendedDesc: "In today's digital world, security isn't optional. We build digital fortresses around your data, using military-grade encryption and 'Zero Trust' architecture to ensure your information stays safe, private, and under your control.",
                 visualMetaphor: "A diamond shield deflecting all incoming threats.",
@@ -184,7 +184,7 @@ const Features = () => {
             title: "Instant Speed",
             benefit: "Real-Time Action",
             description: "Don't wait for answers. Our technology processes data instantly, giving you insights the moment they happen.",
-            image: "/assets/3d/lightning_ux.png",
+            image: "/assets/3d/lightning_ux.webp",
             details: {
                 extendedDesc: "Speed wins. Our systems are engineered to process information in microseconds, turning raw data into actionable insights instantly. Whether it's a customer click or a market shift, you'll know about it immediately.",
                 visualMetaphor: "A lightning bolt striking a microchip, instantly powering a city.",
@@ -197,7 +197,7 @@ const Features = () => {
             title: "Global Scale",
             benefit: "Grow Without Limits",
             description: "Start small, grow massive. Our cloud infrastructure scales automatically to handle millions of users worldwide.",
-            image: "/assets/3d/infinite_scalability.png",
+            image: "/assets/3d/infinite_scalability.webp",
             details: {
                 extendedDesc: "Your technology should never hold you back. We build on cloud-native infrastructure that expands effortlessly. Whether you have 100 users or 100 million, our systems handle the load without breaking a sweat.",
                 visualMetaphor: "A tree whose branches reach endlessly into the sky.",
@@ -210,7 +210,7 @@ const Features = () => {
             title: "Seamless Integration",
             benefit: "Works with Everything",
             description: "No need to replace your existing tools. Our solutions plug right into your current workflow without disruption.",
-            image: "/assets/3d/autonomous_agents.png",
+            image: "/assets/3d/autonomous_agents.webp",
             details: {
                 extendedDesc: "New technology shouldn't be a headache to install. We design our solutions to fit perfectly into your existing ecosystem, connecting with your favorite apps and tools so you can keep working without interruption.",
                 visualMetaphor: "Two complex gears meshing perfectly in silent unison.",
@@ -223,7 +223,7 @@ const Features = () => {
             title: "Future-Ready Tech",
             benefit: "Built to Last",
             description: "We use the latest technology to ensure your software stays modern, relevant, and powerful for years to come.",
-            image: "/assets/3d/sovereign_ai.png",
+            image: "/assets/3d/sovereign_ai.webp",
             details: {
                 extendedDesc: "Technology moves fast. We build with the future in mind, using modular architectures that allow you to easily adopt new innovations like AI and Quantum Computing as they emerge, keeping you ahead of the curve.",
                 visualMetaphor: "A bridge extending confidently into a bright, futuristic horizon.",

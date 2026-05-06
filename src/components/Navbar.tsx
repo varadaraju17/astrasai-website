@@ -40,7 +40,7 @@ const Navbar = () => {
         <Link href="/" className="relative group flex items-center gap-3">
           <div className="relative w-10 h-10">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="Astras AI Logo"
               width={40}
               height={40}

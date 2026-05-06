@@ -94,11 +94,11 @@ export const metadata: Metadata = {
     siteName: companyName,
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image.webp',
         width: 1200,
         height: 630,
         alt: 'Astras AI — Building Intelligent Websites, Apps & AI Agents in Bangalore',
-        type: 'image/png',
+        type: 'image/webp',
       },
     ],
     locale: 'en_IN',
@@ -113,7 +113,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: `${domain}/og-image.png`,
+        url: `${domain}/og-image.webp`,
         alt: 'Astras AI — AI Websites, Apps & Automation in Bangalore',
       },
     ],
@@ -121,11 +121,7 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-    other: [
-      { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon-32x32.png' },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon-16x16.png' },
-    ],
+    apple: '/apple-touch-icon.webp',
   },
   manifest: '/manifest.json',
   other: {

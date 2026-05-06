@@ -34,7 +34,7 @@ export function generatePageMetadata({
       url,
       images: [
         {
-          url: `${domain}/og-image.png`,
+          url: `${domain}/og-image.webp`,
           width: 1200,
           height: 630,
           alt: imageAlt ?? `${title} | Astras AI`,
@@ -48,7 +48,7 @@ export function generatePageMetadata({
       title: ogTitle,
       description: ogDesc,
       site: '@astras_ai',
-      images: [`${domain}/og-image.png`],
+      images: [`${domain}/og-image.webp`],
     },
     robots: {
       index: true,

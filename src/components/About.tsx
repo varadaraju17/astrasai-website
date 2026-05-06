@@ -126,7 +126,7 @@ const About = () => {
 
     const aboutItems: AboutItem[] = [
         {
-            image: "/assets/3d/neural_intelligence.png",
+            image: "/assets/3d/neural_intelligence.webp",
             title: "More Than Just Code",
             description: "We believe true intelligence comes from understanding your business, not just writing algorithms. Our AI systems are designed to think like a partner, adapting to your specific needs and goals.",
             icon: <Brain className="w-6 h-6" />,
@@ -138,7 +138,7 @@ const About = () => {
             ]
         },
         {
-            image: "/assets/3d/secure_protocols.png",
+            image: "/assets/3d/secure_protocols.webp",
             title: "Your Data, Your Rules",
             description: "In a world of data leaks, we build vaults. We prioritize your privacy and security above all else, ensuring your proprietary information remains strictly yours—encrypted, protected, and sovereign.",
             icon: <Shield className="w-6 h-6" />,
@@ -150,7 +150,7 @@ const About = () => {
             ]
         },
         {
-            image: "/assets/3d/infinite_scalability.png",
+            image: "/assets/3d/infinite_scalability.webp",
             title: "Built for Growth",
             description: "We don't build for today; we build for where you want to be tomorrow. Our scalable systems grow with your ambition, ensuring technology never becomes a bottleneck to your success.",
             icon: <Zap className="w-6 h-6" />,
@@ -162,7 +162,7 @@ const About = () => {
             ]
         },
         {
-            image: "/assets/3d/global_innovation.png",
+            image: "/assets/3d/global_innovation.webp",
             title: "Global Innovation",
             description: "Boundaries don't exist in the digital realm. We bring world-class innovation to your doorstep, leveraging global trends and technologies to keep you ahead of the curve.",
             icon: <Globe className="w-6 h-6" />,
