@@ -5,6 +5,7 @@ import '../styles/globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const syne = Syne({
   subsets: ['latin'],
@@ -20,25 +21,75 @@ const spaceGrotesk = Space_Grotesk({
 
 const domain = 'https://www.astrasai.in';
 const companyName = 'Astras AI';
-const description = 'Astras AI is the best software startup creator in Bangalore, specializing in AI agents, website building, and digital growth engines (Brahmastra & Sudarshana).';
-const keywords = ['AI Agent', 'Website Builder', 'Bangalore', 'Software Startup Creator', 'Brahmastra AI', 'Sudarshana Chakra', 'Ads Marketing', 'Social Media AI'];
+
+// GEO-rich, intent-driven description (~155 chars)
+const description =
+  'Astras AI — Bangalore\'s #1 AI agency for website development, mobile apps, AI agents & digital marketing. We help startups & enterprises dominate their market with intelligent technology.';
+
+const keywords = [
+  // Core brand / product
+  'Astras AI', 'Brahmastra AI', 'Sudarshana Chakra',
+  // Website building
+  'website development company Bangalore', 'AI website builder India',
+  'best website development company in Bangalore',
+  'custom website development Bangalore', 'Next.js development company India',
+  'website design and development services', 'web development agency India',
+  // App development
+  'mobile app development company Bangalore', 'AI mobile app development India',
+  'Flutter app development Bangalore', 'React Native development company',
+  'cross-platform app development India', 'iOS Android app development Bangalore',
+  // AI Agents
+  'AI agent development company India', 'AI automation agency Bangalore',
+  'WhatsApp AI chatbot Bangalore', 'custom AI agent development',
+  'intelligent automation solutions India', 'AI-powered chatbot development',
+  'LLM agent development company', 'autonomous AI agents India',
+  // Digital Marketing
+  'digital marketing agency Bangalore', 'AI digital marketing India',
+  'SEO services Bangalore', 'performance marketing agency India',
+  'social media marketing Bangalore', 'Google Ads management India',
+  'content marketing agency Bangalore',
+  // Startup / MVP
+  'startup MVP development Bangalore', 'AI startup development India',
+  'rapid MVP development company', 'startup tech partner Bangalore',
+  // General AI
+  'artificial intelligence company Bangalore', 'AI software development India',
+  'machine learning solutions Bangalore', 'generative AI development company',
+];
 
 export const metadata: Metadata = {
   metadataBase: new URL(domain),
   title: {
-    default: `Astras AI | Best AI Agent & Website Builder in Bangalore`,
+    default: 'Astras AI | #1 AI Agency for Websites, Apps & AI Agents in Bangalore',
     template: `%s | ${companyName}`,
   },
-  description: description,
-  keywords: keywords,
+  description,
+  keywords,
   creator: companyName,
   publisher: companyName,
+  authors: [{ name: companyName, url: domain }],
+  category: 'technology',
+  classification: 'AI Agency, Software Development, Digital Marketing',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
     canonical: '/',
+    languages: {
+      'en-IN': '/',
+      'en-US': '/',
+    },
   },
   openGraph: {
-    title: 'Astras AI | Best AI Agent & Website Builder in Bangalore',
-    description: description,
+    title: 'Astras AI | #1 AI Agency — Websites, Apps, AI Agents & Digital Marketing',
+    description,
     url: domain,
     siteName: companyName,
     images: [
@@ -46,25 +97,46 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: `${companyName} Open Graph Image`,
+        alt: 'Astras AI — Building Intelligent Websites, Apps & AI Agents in Bangalore',
+        type: 'image/png',
       },
     ],
-    locale: 'en_US',
+    locale: 'en_IN',
     type: 'website',
+    countryName: 'India',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Astras AI | Intelligent Enterprise Systems',
-    description: description,
-    images: [`${domain}/og-image.png`],
+    site: '@astras_ai',
     creator: '@astras_ai',
+    title: 'Astras AI | Bangalore\'s #1 AI Agency — Websites, Apps & AI Agents',
+    description,
+    images: [
+      {
+        url: `${domain}/og-image.png`,
+        alt: 'Astras AI — AI Websites, Apps & Automation in Bangalore',
+      },
+    ],
   },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/apple-touch-icon.png',
+    other: [
+      { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon-16x16.png' },
+    ],
   },
   manifest: '/manifest.json',
+  other: {
+    // GEO tags for local discovery
+    'geo.region': 'IN-KA',
+    'geo.placename': 'Bangalore',
+    'geo.position': '12.9716;77.5946',
+    'ICBM': '12.9716, 77.5946',
+    // Generative Engine Optimization (GEO) context hints
+    'og:locale:alternate': 'en_US',
+  },
 };
 
 export default function RootLayout({
@@ -76,11 +148,20 @@ export default function RootLayout({
   const GA4_ID = 'G-FS33ELQ6LY';
 
   return (
-    <html lang="en" className={`${syne.variable} ${spaceGrotesk.variable} scroll-smooth`}>
+    <html lang="en-IN" className={`${syne.variable} ${spaceGrotesk.variable} scroll-smooth`}>
       <head>
         <meta name="theme-color" content="#02040A" />
+        <meta name="rating" content="general" />
+        <meta name="revisit-after" content="3 days" />
+        <meta name="language" content="English" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="distribution" content="Global" />
+        <meta name="target" content="all" />
+        {/* Preconnects for performance */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
       </head>
       <body className={`${syne.variable} ${spaceGrotesk.variable} font-body bg-void text-white antialiased selection:bg-hologram-cyan selection:text-void`}>
         {/* Google Tag Manager (noscript) */}
@@ -92,14 +173,14 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
 
         <Navbar />
-        <main className="min-h-screen">
+        <main id="main-content" className="min-h-screen">
           {children}
         </main>
         <Footer />
         <JsonLd />
+        <SpeedInsights />
 
         {/* Google Tag Manager */}
         <Script id="gtm-script" strategy="afterInteractive">
@@ -111,12 +192,7 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','${GTM_ID}');
           `}
         </Script>
-        {/* End Google Tag Manager */}
 
-        {/* 
-          GA4 script is recommended to be loaded through GTM. 
-          Including it here separately for redundancy as requested.
-        */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
           strategy="afterInteractive"
@@ -126,7 +202,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA4_ID}');
+            gtag('config', '${GA4_ID}', { page_location: window.location.href });
           `}
         </Script>
       </body>

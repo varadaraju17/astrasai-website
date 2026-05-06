@@ -2,31 +2,73 @@ import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.astrasai.in';
+  const now = new Date();
 
   return [
+    // Core pages — highest priority
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: 'weekly',
-      priority: 1,
+      priority: 1.0,
     },
     {
-      url: `${baseUrl}/#services`,
-      lastModified: new Date(),
+      url: `${baseUrl}/services`,
+      lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: 0.95,
     },
     {
-      url: `${baseUrl}/#about`,
-      lastModified: new Date(),
+      url: `${baseUrl}/about`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/features`,
+      lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+
+    // Home-page section anchors (for crawlability)
+    {
+      url: `${baseUrl}/#services`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/#about`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
     {
       url: `${baseUrl}/#contact`,
-      lastModified: new Date(),
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.65,
+    },
+
+    // Legal pages
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: now,
       changeFrequency: 'yearly',
-      priority: 0.5,
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/terms-of-service`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.4,
     },
   ];
 }

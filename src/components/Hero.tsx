@@ -49,7 +49,11 @@ const MagneticButton = ({ children, href, primary = false }: { children: React.R
 
 const Hero = () => {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+        <section
+            id="home"
+            aria-label="Astras AI — #1 AI Agency in Bangalore for Websites, Apps and AI Agents"
+            className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
+        >
             {/* Video Background */}
             <div className="absolute inset-0 z-0">
                 <video
@@ -82,33 +86,40 @@ const Hero = () => {
                         <span className="tracking-wide uppercase">The Future of Intelligence</span>
                     </motion.div>
 
-                    {/* Headline */}
+                    {/* Headline — SEO-rich H1 */}
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                         className="text-5xl sm:text-7xl md:text-9xl font-display font-black text-white mb-8 leading-[0.9] tracking-tighter drop-shadow-2xl"
                     >
-                        Building the <br />
-                        <span className="relative inline-block mt-2">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient-x drop-shadow-[0_0_50px_rgba(0,240,255,0.4)] relative z-10">
-                                Intelligent Future
-                            </span>
-                            {/* Glitch/Glow Effect Layer */}
-                            <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 blur-2xl opacity-60 animate-pulse">
-                                Intelligent Future
+                        {/* Visually hidden SEO text — read by crawlers & screen readers */}
+                        <span className="sr-only">
+                            Astras AI — Building Intelligent Websites, Mobile Apps &amp; AI Agents in Bangalore
+                        </span>
+                        {/* Visual display text */}
+                        <span aria-hidden="true">
+                            Building the <br />
+                            <span className="relative inline-block mt-2">
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient-x drop-shadow-[0_0_50px_rgba(0,240,255,0.4)] relative z-10">
+                                    Intelligent Future
+                                </span>
+                                {/* Glitch/Glow Effect Layer */}
+                                <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 blur-2xl opacity-60 animate-pulse">
+                                    Intelligent Future
+                                </span>
                             </span>
                         </span>
                     </motion.h1>
 
-                    {/* Subheadline */}
+                    {/* Subheadline — Speakable for GEO */}
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                        className="text-lg md:text-2xl text-gray-300 leading-relaxed mb-12 max-w-4xl mx-auto font-light tracking-wide"
+                        className="speakable text-lg md:text-2xl text-gray-300 leading-relaxed mb-12 max-w-4xl mx-auto font-light tracking-wide"
                     >
-                        We forge digital dominance. From <span className="text-cyan-400 font-semibold drop-shadow-[0_0_15px_rgba(0,240,255,0.4)]">AI Websites</span> and <span className="text-cyan-400 font-semibold drop-shadow-[0_0_15px_rgba(0,240,255,0.4)]">Custom Apps</span> to intelligent <span className="text-purple-400 font-semibold drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">Agents</span> and <span className="text-purple-400 font-semibold drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">Startup MVPs</span>, we engineer the technology that powers your exponential growth.
+                        We forge digital dominance. From <span className="text-cyan-400 font-semibold drop-shadow-[0_0_15px_rgba(0,240,255,0.4)]">AI Websites</span> and <span className="text-cyan-400 font-semibold drop-shadow-[0_0_15px_rgba(0,240,255,0.4)]">Custom Apps</span> to intelligent <span className="text-purple-400 font-semibold drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">AI Agents</span> and <span className="text-purple-400 font-semibold drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">Startup MVPs</span>, we engineer the technology that powers your exponential growth.
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -120,7 +131,7 @@ const Hero = () => {
                     >
                         <MagneticButton href="/contact" primary>
                             Start Your Project
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                         </MagneticButton>
 
                         <MagneticButton href="#services">
