@@ -37,26 +37,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
-    // Home-page section anchors (for crawlability)
-    {
-      url: `${baseUrl}/#services`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.75,
-    },
-    {
-      url: `${baseUrl}/#about`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/#contact`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.65,
-    },
-
     // Legal pages
     {
       url: `${baseUrl}/privacy-policy`,
