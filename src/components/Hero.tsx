@@ -201,32 +201,34 @@ const Hero = () => {
                     </motion.div>
 
                     {/* H1 — SEO + Visual */}
-                    <motion.h1
-                        initial={{ opacity: 0, y: 28 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.15 }}
-                        className="font-display font-black tracking-tight text-white leading-[1.1] sm:leading-[1.05] mb-6 sm:mb-8 text-[2.5rem] min-[400px]:text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] px-2 sm:px-4"
-                    >
-                        <span className="sr-only">
-                            Astras AI — Building Intelligent Websites, Mobile Apps &amp; AI Agents in Bangalore
-                        </span>
+                    <div className="min-h-[140px] sm:min-h-[180px] flex flex-col items-center justify-center">
+                        <motion.h1
+                            initial={isMobile ? { opacity: 0 } : { opacity: 0, y: 28 }}
+                            animate={isMobile ? { opacity: 1 } : { opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: 0.1 }}
+                            className="font-display font-black tracking-tight text-white leading-[1.1] sm:leading-[1.05] mb-6 sm:mb-8 text-[2.5rem] min-[400px]:text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] px-2 sm:px-4"
+                        >
+                            <span className="sr-only">
+                                Astras AI — Building Intelligent Websites, Mobile Apps &amp; AI Agents in Bangalore
+                            </span>
 
-                        <span aria-hidden="true" className="block">
-                            Building the{" "}
-                            <br className="hidden sm:block" />
-                            <span className="relative inline-block mt-2 sm:mt-4">
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 animate-gradient-x drop-shadow-[0_0_30px_rgba(0,240,255,0.4)]">
-                                    Intelligent Future
+                            <span aria-hidden="true" className="block">
+                                Building the{" "}
+                                <br className="hidden sm:block" />
+                                <span className="relative inline-block mt-2 sm:mt-4">
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 drop-shadow-[0_0_30px_rgba(0,240,255,0.4)]">
+                                        Intelligent Future
+                                    </span>
                                 </span>
                             </span>
-                        </span>
-                    </motion.h1>
+                        </motion.h1>
+                    </div>
 
                     {/* Subheadline */}
                     <motion.p
-                        initial={{ opacity: 0, y: 24 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
+                        initial={isMobile ? { opacity: 0 } : { opacity: 0, y: 24 }}
+                        animate={isMobile ? { opacity: 1 } : { opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
                         className="speakable text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto font-light px-6"
                     >
                         From{" "}

@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useState, useEffect, memo } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Stars } from "@react-three/drei";
+import React, { useState, useEffect, Suspense, useMemo } from "react";
+import dynamic from "next/dynamic";
 
-const Scene = memo(() => {
-    return (
-        <Stars radius={100} depth={50} count={1000} factor={6} saturation={0} fade />
-    );
+// Dynamically import Three.js components with no SSR
+const ThreeCanvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canvas), { 
+    ssr: false,
+    loading: () => <div className="absolute inset-0 bg-black" />
 });
 
-Scene.displayName = "Scene";
+// Scene components should also be dynamic to keep them out of the mobile bundle
+const Scene = dynamic(() => import("./ThreeScene"), { ssr: false });
 
 const Background3D = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -18,43 +18,50 @@ const Background3D = () => {
 
     useEffect(() => {
         const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
+            const mobile = window.innerWidth < 768;
+            setIsMobile(mobile);
+            // On desktop, we want to render after a delay
+            if (!mobile) {
+                const timer = setTimeout(() => setShouldRender(true), 1500);
+                return () => clearTimeout(timer);
+            }
         };
-        checkMobile();
         
-        // Delay 3D initialization to prioritize UI paint
-        const timer = setTimeout(() => {
-            setShouldRender(true);
-        }, 500);
-
+        checkMobile();
         window.addEventListener("resize", checkMobile);
-        return () => {
-            window.removeEventListener("resize", checkMobile);
-            clearTimeout(timer);
-        };
+        return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
-    if (isMobile) return <div className="absolute inset-0 bg-void -z-10" />;
+    // ZERO impact on mobile: No Three.js code will even be parsed
+    if (isMobile) {
+        return (
+            <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden bg-void">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/20 via-black to-purple-950/20 opacity-40" />
+            </div>
+        );
+    }
+
     if (!shouldRender) return <div className="absolute inset-0 bg-black -z-10" />;
 
     return (
         <div className="absolute inset-0 -z-10 pointer-events-none h-full w-full overflow-hidden">
-            <Canvas 
-                gl={{ 
-                    antialias: false, 
-                    alpha: true, 
-                    powerPreference: "high-performance",
-                    preserveDrawingBuffer: false
-                }} 
-                camera={{ position: [0, 0, 1] }}
-                dpr={[1, 1.5]} // Limit DPR on desktop for better performance
-            >
-                <Scene />
-            </Canvas>
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/10" />
+            <Suspense fallback={<div className="absolute inset-0 bg-black" />}>
+                <ThreeCanvas 
+                    gl={{ 
+                        antialias: false, 
+                        alpha: true, 
+                        powerPreference: "high-performance",
+                        preserveDrawingBuffer: false
+                    }} 
+                    camera={{ position: [0, 0, 1] }}
+                    dpr={[1, 1.2]}
+                >
+                    <Scene />
+                </ThreeCanvas>
+            </Suspense>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" />
         </div>
     );
 };
 
-export default memo(Background3D);
-
+export default Background3D;
