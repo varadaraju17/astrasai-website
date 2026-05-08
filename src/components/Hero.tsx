@@ -80,14 +80,23 @@ const FloatingTag = ({
 // --- Background Aurora Animation ---
 const AuroraBackground = () => {
     const [isMobile, setIsMobile] = useState(false);
+    const [startAnim, setStartAnim] = useState(false);
 
     useEffect(() => {
         const checkMobile = () => {
             setIsMobile(window.innerWidth < 768);
         };
         checkMobile();
+
+        const timer = setTimeout(() => {
+            setStartAnim(true);
+        }, 1000);
+
         window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
+        return () => {
+            window.removeEventListener("resize", checkMobile);
+            clearTimeout(timer);
+        };
     }, []);
 
     return (
@@ -103,38 +112,42 @@ const AuroraBackground = () => {
                 }}
             />
 
-            {/* Animated Glowing Orbs - Reduced on Mobile */}
-            <motion.div 
-                animate={isMobile ? { opacity: [0.1, 0.2, 0.1] } : { 
-                    x: [0, 100, -50, 0], 
-                    y: [0, -50, 50, 0],
-                    scale: [1, 1.2, 0.9, 1]
-                }}
-                transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                className={`absolute top-1/4 left-1/4 w-[200px] h-[200px] sm:w-[40vw] sm:h-[40vw] bg-cyan-500/20 rounded-full ${isMobile ? 'blur-[60px]' : 'blur-[90px] sm:blur-[140px]'} mix-blend-screen`}
-            />
-            
-            {!isMobile && (
+            {/* Animated Glowing Orbs - Reduced on Mobile and Delayed */}
+            {startAnim && (
                 <>
                     <motion.div 
-                        animate={{ 
-                            x: [0, -100, 50, 0], 
-                            y: [0, 80, -40, 0],
-                            scale: [1, 1.1, 0.8, 1]
+                        animate={isMobile ? { opacity: [0.1, 0.2, 0.1] } : { 
+                            x: [0, 100, -50, 0], 
+                            y: [0, -50, 50, 0],
+                            scale: [1, 1.2, 0.9, 1]
                         }}
-                        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                        className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] sm:w-[35vw] sm:h-[35vw] bg-purple-600/20 rounded-full blur-[90px] sm:blur-[140px] mix-blend-screen"
+                        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                        className={`absolute top-1/4 left-1/4 w-[200px] h-[200px] sm:w-[40vw] sm:h-[40vw] bg-cyan-500/20 rounded-full ${isMobile ? 'blur-[60px]' : 'blur-[90px] sm:blur-[140px]'} mix-blend-screen`}
                     />
+                    
+                    {!isMobile && (
+                        <>
+                            <motion.div 
+                                animate={{ 
+                                    x: [0, -100, 50, 0], 
+                                    y: [0, 80, -40, 0],
+                                    scale: [1, 1.1, 0.8, 1]
+                                }}
+                                transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                                className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] sm:w-[35vw] sm:h-[35vw] bg-purple-600/20 rounded-full blur-[90px] sm:blur-[140px] mix-blend-screen"
+                            />
 
-                    <motion.div 
-                        animate={{ 
-                            x: [0, 50, -80, 0], 
-                            y: [0, -30, 60, 0],
-                            scale: [1, 0.9, 1.3, 1]
-                        }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] sm:w-[45vw] sm:h-[45vw] bg-blue-500/15 rounded-full blur-[100px] sm:blur-[140px] mix-blend-screen"
-                    />
+                            <motion.div 
+                                animate={{ 
+                                    x: [0, 50, -80, 0], 
+                                    y: [0, -30, 60, 0],
+                                    scale: [1, 0.9, 1.3, 1]
+                                }}
+                                transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] sm:w-[45vw] sm:h-[45vw] bg-blue-500/15 rounded-full blur-[100px] sm:blur-[140px] mix-blend-screen"
+                            />
+                        </>
+                    )}
                 </>
             )}
 

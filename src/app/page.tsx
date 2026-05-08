@@ -1,12 +1,20 @@
 import { Metadata } from 'next';
 import HomePageClient from '@/components/HomePageClient';
 
+export const runtime = 'edge';
+
+
 const domain = 'https://www.astrasai.in';
 
 export const metadata: Metadata = {
-  title: 'Astras AI | #1 AI Agency in Bangalore — Websites, Apps, AI Agents & Digital Marketing',
+  title: 'Astras AI — Bangalore\'s #1 AI Development Agency',
   description:
-    'Astras AI is Bangalore\'s #1 AI agency. We build AI-powered websites, mobile apps, custom AI agents, and run data-driven digital marketing campaigns. Trusted by 50+ startups & enterprises. Get a free consultation today.',
+    'Astras AI is the leading AI agency in Bangalore, India. We build intelligent AI-powered websites, custom mobile apps, and autonomous AI agents for global startups and enterprises.',
+  keywords: [
+    'Astras AI', 'AstrasAI', 'Astras AI Bangalore', 'Astras AI India',
+    'AI agency Bangalore', 'best AI development company India',
+    'AI website builder Bangalore', 'custom AI agents India',
+  ],
   alternates: {
     canonical: domain,
   },

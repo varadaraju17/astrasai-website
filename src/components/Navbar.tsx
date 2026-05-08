@@ -44,6 +44,7 @@ const Navbar = () => {
               alt="Astras AI Logo"
               width={40}
               height={40}
+              priority
               className="w-full h-full object-contain relative z-10"
             />
             <div className="absolute inset-0 bg-hologram-cyan/40 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

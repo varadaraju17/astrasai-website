@@ -1,11 +1,16 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
+
+export const runtime = 'edge';
+
 import { Syne, Space_Grotesk } from 'next/font/google';
 import '../styles/globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
+
 
 const syne = Syne({
   subsets: ['latin'],
@@ -142,6 +147,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: '#02040A',
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -153,13 +164,6 @@ export default function RootLayout({
   return (
     <html lang="en-IN" className={`${syne.variable} ${spaceGrotesk.variable} scroll-smooth`}>
       <head>
-        <meta name="theme-color" content="#02040A" />
-        <meta name="rating" content="general" />
-        <meta name="revisit-after" content="3 days" />
-        <meta name="language" content="English" />
-        <meta name="coverage" content="Worldwide" />
-        <meta name="distribution" content="Global" />
-        <meta name="target" content="all" />
         {/* Preconnects for performance */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
@@ -184,6 +188,8 @@ export default function RootLayout({
         <Footer />
         <JsonLd />
         <SpeedInsights />
+        <Analytics />
+
 
         {/* Google Tag Manager */}
         <Script id="gtm-script" strategy="lazyOnload">

@@ -1,12 +1,16 @@
 "use client"
 
-import JsonLd from '@/components/JsonLd'
-import Hero from '@/components/Hero'
-import Features from '@/components/Features'
-import Services from '@/components/Services'
-import About from '@/components/About'
-import Contact from '@/components/Contact'
-import AskAI from '@/components/AskAI'
+import dynamic from 'next/dynamic';
+import JsonLd from '@/components/JsonLd';
+import Hero from '@/components/Hero';
+
+// Lazy load below-the-fold components 
+const About = dynamic(() => import('@/components/About'), { ssr: true });
+const Services = dynamic(() => import('@/components/Services'), { ssr: true });
+const Features = dynamic(() => import('@/components/Features'), { ssr: true });
+const Contact = dynamic(() => import('@/components/Contact'), { ssr: true });
+const AskAI = dynamic(() => import('@/components/AskAI'), { ssr: true });
+
 
 export default function HomePageClient() {
   return (

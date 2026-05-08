@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Features from "@/components/Features";
 
+export const runtime = 'edge';
+
+
 const domain = 'https://www.astrasai.in';
 
 export const metadata: Metadata = {

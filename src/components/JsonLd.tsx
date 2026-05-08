@@ -22,13 +22,18 @@ export default function JsonLd() {
         '@type': 'Organization',
         '@id': `${domain}/#organization`,
         name: companyName,
-        alternateName: ['Astras AI Tech', 'Astras AI Bangalore'],
+        alternateName: ['Astras AI Tech', 'Astras AI Bangalore', 'AstrasAI'],
         url: domain,
         logo: {
           '@type': 'ImageObject',
           url: `${domain}/logo.png`,
           width: 512,
           height: 512,
+        },
+        brand: {
+          '@type': 'Brand',
+          name: 'Astras AI',
+          logo: `${domain}/logo.png`,
         },
         description,
         foundingDate: '2024',
@@ -180,8 +185,9 @@ export default function JsonLd() {
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: domain },
           { '@type': 'ListItem', position: 2, name: 'Services', item: `${domain}/services` },
-          { '@type': 'ListItem', position: 3, name: 'About', item: `${domain}/about` },
-          { '@type': 'ListItem', position: 4, name: 'Contact', item: `${domain}/contact` },
+          { '@type': 'ListItem', position: 3, name: 'Features', item: `${domain}/features` },
+          { '@type': 'ListItem', position: 4, name: 'About', item: `${domain}/about` },
+          { '@type': 'ListItem', position: 5, name: 'Contact', item: `${domain}/contact` },
         ],
       },
 

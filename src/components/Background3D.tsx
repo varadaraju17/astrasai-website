@@ -14,24 +14,40 @@ Scene.displayName = "Scene";
 
 const Background3D = () => {
     const [isMobile, setIsMobile] = useState(false);
+    const [shouldRender, setShouldRender] = useState(false);
 
     useEffect(() => {
         const checkMobile = () => {
             setIsMobile(window.innerWidth < 768);
         };
         checkMobile();
+        
+        // Delay 3D initialization to prioritize UI paint
+        const timer = setTimeout(() => {
+            setShouldRender(true);
+        }, 500);
+
         window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
+        return () => {
+            window.removeEventListener("resize", checkMobile);
+            clearTimeout(timer);
+        };
     }, []);
 
     if (isMobile) return <div className="absolute inset-0 bg-void -z-10" />;
+    if (!shouldRender) return <div className="absolute inset-0 bg-black -z-10" />;
 
     return (
         <div className="absolute inset-0 -z-10 pointer-events-none h-full w-full overflow-hidden">
             <Canvas 
-                gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }} 
+                gl={{ 
+                    antialias: false, 
+                    alpha: true, 
+                    powerPreference: "high-performance",
+                    preserveDrawingBuffer: false
+                }} 
                 camera={{ position: [0, 0, 1] }}
-                dpr={[1, 2]} // Optimize pixel ratio
+                dpr={[1, 1.5]} // Limit DPR on desktop for better performance
             >
                 <Scene />
             </Canvas>
