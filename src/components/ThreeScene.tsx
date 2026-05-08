@@ -4,11 +4,14 @@ import React, { useRef, useMemo } from "react";
 import { useFrame, ThreeElements } from "@react-three/fiber";
 import * as THREE from "three";
 
+/* eslint-disable @typescript-eslint/no-namespace */
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 declare global {
   namespace JSX {
     interface IntrinsicElements extends ThreeElements {}
   }
 }
+
 
 
 const Scene = () => {
