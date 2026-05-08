@@ -124,7 +124,10 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: 'https://astrasai.in/favicon.ico',
+    icon: [
+      { url: 'https://astrasai.in/favicon.ico', sizes: 'any' },
+      { url: 'https://astrasai.in/logo.png', sizes: '192x192', type: 'image/png' },
+    ],
     shortcut: 'https://astrasai.in/favicon.ico',
     apple: 'https://astrasai.in/apple-touch-icon.png',
   },
