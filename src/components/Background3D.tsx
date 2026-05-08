@@ -3,13 +3,11 @@
 import React, { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
 
-// Dynamically import Three.js components with no SSR
 const ThreeCanvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canvas), { 
     ssr: false,
-    loading: () => <div className="absolute inset-0 bg-black" />
+    loading: () => <div className="absolute inset-0 bg-black -z-10" />
 });
 
-// Scene components should also be dynamic to keep them out of the mobile bundle
 const Scene = dynamic(() => import("./ThreeScene"), { ssr: false });
 
 const Background3D = () => {
@@ -17,22 +15,24 @@ const Background3D = () => {
     const [shouldRender, setShouldRender] = useState(false);
 
     useEffect(() => {
-        const checkMobile = () => {
-            const mobile = window.innerWidth < 768;
-            setIsMobile(mobile);
-            // On desktop, we want to render after a delay
-            if (!mobile) {
-                const timer = setTimeout(() => setShouldRender(true), 1500);
-                return () => clearTimeout(timer);
-            }
+        // Initial check
+        const mobile = window.innerWidth < 768;
+        setIsMobile(mobile);
+        
+        if (!mobile) {
+            const timer = setTimeout(() => setShouldRender(true), 2000);
+            return () => clearTimeout(timer);
+        }
+
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
         };
         
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // ZERO impact on mobile: No Three.js code will even be parsed
+    // Static background for mobile - zero JS overhead
     if (isMobile) {
         return (
             <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden bg-void">
@@ -50,11 +50,10 @@ const Background3D = () => {
                     gl={{ 
                         antialias: false, 
                         alpha: true, 
-                        powerPreference: "high-performance",
-                        preserveDrawingBuffer: false
+                        powerPreference: "high-performance"
                     }} 
                     camera={{ position: [0, 0, 1] }}
-                    dpr={[1, 1.2]}
+                    dpr={[1, 1]}
                 >
                     <Scene />
                 </ThreeCanvas>

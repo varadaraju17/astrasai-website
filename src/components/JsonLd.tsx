@@ -26,7 +26,7 @@ export default function JsonLd() {
         url: domain,
         logo: {
           '@type': 'ImageObject',
-          url: `${domain}/logo.png`,
+          url: `${domain}/logo.webp`,
           width: 512,
           height: 512,
         },

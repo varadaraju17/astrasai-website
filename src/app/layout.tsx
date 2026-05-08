@@ -125,11 +125,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: 'https://astrasai.in/favicon.ico', sizes: 'any' },
-      { url: 'https://astrasai.in/logo.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/logo.webp', sizes: '192x192', type: 'image/webp' },
     ],
-    shortcut: 'https://astrasai.in/favicon.ico',
-    apple: 'https://astrasai.in/apple-touch-icon.png',
+    shortcut: '/favicon.ico',
+    apple: '/logo.webp',
   },
   manifest: '/manifest.json',
   other: {
