@@ -1,8 +1,15 @@
 "use client";
 
 import React, { useRef, useMemo } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, ThreeElements } from "@react-three/fiber";
 import * as THREE from "three";
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements extends ThreeElements {}
+  }
+}
+
 
 const Scene = () => {
     const pointsRef = useRef<THREE.Points>(null);
