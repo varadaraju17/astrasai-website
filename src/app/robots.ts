@@ -30,7 +30,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://www.astrasai.in/sitemap.xml',
-    host: 'https://www.astrasai.in',
+    sitemap: 'https://astrasai.in/sitemap.xml',
+    host: 'https://astrasai.in',
   };
 }

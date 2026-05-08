@@ -3,7 +3,7 @@ import PrivacyPolicyClient from "./PrivacyPolicyClient";
 
 export const runtime = 'edge';
 
-const domain = 'https://www.astrasai.in';
+const domain = 'https://astrasai.in';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Astras AI — Data Protection & Privacy Standards',

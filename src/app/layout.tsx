@@ -24,7 +24,7 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 });
 
-const domain = 'https://www.astrasai.in';
+const domain = 'https://astrasai.in';
 const companyName = 'Astras AI';
 
 // GEO-rich, intent-driven description (~155 chars)

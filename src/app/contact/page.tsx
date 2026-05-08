@@ -4,7 +4,7 @@ import Contact from "@/components/Contact";
 export const runtime = 'edge';
 
 
-const domain = 'https://www.astrasai.in';
+const domain = 'https://astrasai.in';
 
 export const metadata: Metadata = {
   title: 'Contact Astras AI — Start Your AI Project in Bangalore Today',

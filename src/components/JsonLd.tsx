@@ -1,7 +1,7 @@
 import Script from 'next/script';
 
 export default function JsonLd() {
-  const domain = 'https://www.astrasai.in';
+  const domain = 'https://astrasai.in';
   const companyName = 'Astras AI';
   const description =
     'Astras AI is Bangalore\'s leading AI agency specializing in AI-powered website development, mobile app development, custom AI agents, and data-driven digital marketing. We help startups and enterprises grow with cutting-edge technology and intelligent automation.';

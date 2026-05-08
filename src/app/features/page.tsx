@@ -4,7 +4,7 @@ import Features from "@/components/Features";
 export const runtime = 'edge';
 
 
-const domain = 'https://www.astrasai.in';
+const domain = 'https://astrasai.in';
 
 export const metadata: Metadata = {
   title: 'Why Choose Astras AI — AI Technology Capabilities & Key Features',

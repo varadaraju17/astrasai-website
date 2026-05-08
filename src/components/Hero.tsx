@@ -88,16 +88,25 @@ const AuroraBackground = () => {
         };
         checkMobile();
 
-        const timer = setTimeout(() => {
-            setStartAnim(true);
-        }, 1000);
+        if (window.innerWidth >= 768) {
+            const timer = setTimeout(() => {
+                setStartAnim(true);
+            }, 1000);
+            return () => clearTimeout(timer);
+        }
 
         window.addEventListener("resize", checkMobile);
-        return () => {
-            window.removeEventListener("resize", checkMobile);
-            clearTimeout(timer);
-        };
+        return () => window.removeEventListener("resize", checkMobile);
     }, []);
+
+    if (isMobile) {
+        return (
+            <div className="absolute inset-0 bg-black pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-black to-purple-900/20 opacity-50" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,240,255,0.1),transparent_70%)]" />
+            </div>
+        );
+    }
 
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none bg-black">
@@ -106,48 +115,44 @@ const AuroraBackground = () => {
                 className="absolute inset-0 z-0 opacity-[0.15]"
                 style={{
                     backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
-                    backgroundSize: isMobile ? '30px 30px' : '40px 40px',
+                    backgroundSize: '40px 40px',
                     maskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
                     WebkitMaskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
                 }}
             />
 
-            {/* Animated Glowing Orbs - Reduced on Mobile and Delayed */}
+            {/* Animated Glowing Orbs - Desktop Only */}
             {startAnim && (
                 <>
                     <motion.div 
-                        animate={isMobile ? { opacity: [0.1, 0.2, 0.1] } : { 
+                        animate={{ 
                             x: [0, 100, -50, 0], 
                             y: [0, -50, 50, 0],
                             scale: [1, 1.2, 0.9, 1]
                         }}
                         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                        className={`absolute top-1/4 left-1/4 w-[200px] h-[200px] sm:w-[40vw] sm:h-[40vw] bg-cyan-500/20 rounded-full ${isMobile ? 'blur-[60px]' : 'blur-[90px] sm:blur-[140px]'} mix-blend-screen`}
+                        className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-cyan-500/20 rounded-full blur-[140px] mix-blend-screen"
                     />
                     
-                    {!isMobile && (
-                        <>
-                            <motion.div 
-                                animate={{ 
-                                    x: [0, -100, 50, 0], 
-                                    y: [0, 80, -40, 0],
-                                    scale: [1, 1.1, 0.8, 1]
-                                }}
-                                transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                                className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] sm:w-[35vw] sm:h-[35vw] bg-purple-600/20 rounded-full blur-[90px] sm:blur-[140px] mix-blend-screen"
-                            />
+                    <motion.div 
+                        animate={{ 
+                            x: [0, -100, 50, 0], 
+                            y: [0, 80, -40, 0],
+                            scale: [1, 1.1, 0.8, 1]
+                        }}
+                        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                        className="absolute bottom-1/4 right-1/4 w-[35vw] h-[35vw] bg-purple-600/20 rounded-full blur-[140px] mix-blend-screen"
+                    />
 
-                            <motion.div 
-                                animate={{ 
-                                    x: [0, 50, -80, 0], 
-                                    y: [0, -30, 60, 0],
-                                    scale: [1, 0.9, 1.3, 1]
-                                }}
-                                transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] sm:w-[45vw] sm:h-[45vw] bg-blue-500/15 rounded-full blur-[100px] sm:blur-[140px] mix-blend-screen"
-                            />
-                        </>
-                    )}
+                    <motion.div 
+                        animate={{ 
+                            x: [0, 50, -80, 0], 
+                            y: [0, -30, 60, 0],
+                            scale: [1, 0.9, 1.3, 1]
+                        }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[45vw] h-[45vw] bg-blue-500/15 rounded-full blur-[140px] mix-blend-screen"
+                    />
                 </>
             )}
 
@@ -189,7 +194,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-black/40 text-cyan-300 text-[10px] sm:text-xs font-semibold tracking-widest uppercase backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(0,240,255,0.15)]"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-black/40 text-cyan-300 text-[10px] sm:text-xs font-semibold tracking-widest uppercase backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(0,240,255,0.15)] min-h-[34px]"
                     >
                         <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
                         <span>Bangalore&apos;s #1 AI Agency</span>

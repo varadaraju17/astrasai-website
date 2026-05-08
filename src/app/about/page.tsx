@@ -4,7 +4,7 @@ import About from "@/components/About";
 export const runtime = 'edge';
 
 
-const domain = 'https://www.astrasai.in';
+const domain = 'https://astrasai.in';
 
 export const metadata: Metadata = {
   title: 'About Astras AI — Bangalore\'s #1 AI Agency for Websites, Apps & Automation',

@@ -4,7 +4,7 @@ import HomePageClient from '@/components/HomePageClient';
 export const runtime = 'edge';
 
 
-const domain = 'https://www.astrasai.in';
+const domain = 'https://astrasai.in';
 
 export const metadata: Metadata = {
   title: 'Astras AI — Bangalore\'s #1 AI Development Agency',

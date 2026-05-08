@@ -3,7 +3,7 @@ import TermsOfServiceClient from "./TermsOfServiceClient";
 
 export const runtime = 'edge';
 
-const domain = 'https://www.astrasai.in';
+const domain = 'https://astrasai.in';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Astras AI — Legal Terms & Conditions',
