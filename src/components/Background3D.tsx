@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, Suspense, useMemo } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
 
 // Dynamically import Three.js components with no SSR
