@@ -165,9 +165,14 @@ const AuroraBackground = () => {
 // --- Main Hero ---
 const Hero = () => {
     const [mounted, setMounted] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         setMounted(true);
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
     // Prevent hydration mismatch on initial render with heavy animations
