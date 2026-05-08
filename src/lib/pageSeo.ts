@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-const domain = 'https://www.astrasai.in';
+const domain = 'https://astrasai.in';
 
 interface PageSEO {
   title: string;

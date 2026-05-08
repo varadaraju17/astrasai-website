@@ -22,7 +22,7 @@ export default function PrivacyPolicyClient() {
                     <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight drop-shadow-2xl">
                         Privacy <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400">Policy</span>
                     </h1>
-                    <p className="text-gray-400 text-lg">Last Updated: 12/10/2025 | Website: www.astrasai.in</p>
+                    <p className="text-gray-400 text-lg">Last Updated: 12/10/2025 | Website: astrasai.in</p>
                     <div className="mt-8 p-4 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm max-w-2xl mx-auto text-sm text-gray-400">
                         Astras AI (“We”, “Us”, “Our”) is committed to protecting your privacy in compliance with the Information Technology (Reasonable Security Practices and Procedures) Rules, 2011 and IT Act 2000 (Amended).
                     </div>
@@ -188,7 +188,7 @@ export default function PrivacyPolicyClient() {
                                 <h2 className="text-xl font-bold text-white mb-2 flex items-center gap-3">
                                     <span className="text-purple-400">10.</span> Changes to This Policy
                                 </h2>
-                                <p className="text-sm text-gray-400">We may update this Policy occasionally. The latest version will always be available on <span className="text-white">www.astrasai.in</span>.</p>
+                                <p className="text-sm text-gray-400">We may update this Policy occasionally. The latest version will always be available on <span className="text-white">astrasai.in</span>.</p>
                             </div>
                         </div>
                     </section>

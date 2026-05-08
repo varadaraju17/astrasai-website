@@ -124,16 +124,9 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/logo192.webp', sizes: '192x192', type: 'image/webp' },
-      { url: '/logo512.webp', sizes: '512x512', type: 'image/webp' },
-      { url: '/logo.png', sizes: '512x512', type: 'image/png' },
-    ],
-    shortcut: ['/favicon.ico'],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    icon: 'https://astrasai.in/favicon.ico',
+    shortcut: 'https://astrasai.in/favicon.ico',
+    apple: 'https://astrasai.in/apple-touch-icon.png',
   },
   manifest: '/manifest.json',
   other: {

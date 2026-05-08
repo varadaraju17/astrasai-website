@@ -22,7 +22,7 @@ export default function TermsOfServiceClient() {
           <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 tracking-tight drop-shadow-2xl">
             Terms of <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">Service</span>
           </h1>
-          <p className="text-gray-400 text-lg">Last Updated: 12/10/2025 | Website: www.astrasai.in</p>
+          <p className="text-gray-400 text-lg">Last Updated: 12/10/2025 | Website: astrasai.in</p>
         </header>
 
         <div className="prose prose-invert prose-lg max-w-none space-y-12">
@@ -33,7 +33,7 @@ export default function TermsOfServiceClient() {
               Acceptance of Terms
             </h2>
             <p className="text-gray-300 leading-relaxed">
-              By accessing or using <span className="text-cyan-400 font-medium">www.astrasai.in</span> (&quot;Website&quot;) and our AI-powered products, services, or solutions (&quot;Services&quot;), you agree to be bound by these Terms of Service. If you do not agree, please do not use our Services.
+              By accessing or using <span className="text-cyan-400 font-medium">astrasai.in</span> (&quot;Website&quot;) and our AI-powered products, services, or solutions (&quot;Services&quot;), you agree to be bound by these Terms of Service. If you do not agree, please do not use our Services.
             </p>
           </section>
 
@@ -229,9 +229,9 @@ export default function TermsOfServiceClient() {
                 <Mail className="w-5 h-5 text-cyan-400" />
                 <span className="text-white group-hover:text-cyan-400 transition-colors">support@astrasai.in</span>
               </a>
-              <a href="https://www.astrasai.in" className="flex items-center gap-3 px-6 py-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:border-cyan-500/30 group">
+              <a href="https://astrasai.in" className="flex items-center gap-3 px-6 py-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:border-cyan-500/30 group">
                 <Globe className="w-5 h-5 text-purple-400" />
-                <span className="text-white group-hover:text-purple-400 transition-colors">www.astrasai.in</span>
+                <span className="text-white group-hover:text-purple-400 transition-colors">astrasai.in</span>
               </a>
             </div>
           </section>
