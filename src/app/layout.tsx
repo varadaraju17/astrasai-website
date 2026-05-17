@@ -132,6 +132,9 @@ export const metadata: Metadata = {
     apple: '/logo.webp',
   },
   manifest: '/manifest.json',
+  verification: {
+    google: 'xHl_uSbdQQsEqiFc23phtEJ_NMMieSurUWoVgrdtnTc',
+  },
   other: {
     // GEO tags for local discovery
     'geo.region': 'IN-KA',

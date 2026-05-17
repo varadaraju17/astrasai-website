@@ -22,7 +22,26 @@ export const metadata: Metadata = {
     title: 'Why Astras AI — Capabilities that Set Us Apart',
     description: 'From AI websites to autonomous agents — discover the technology, process, and expertise that make Astras AI the #1 AI agency in Bangalore.',
     url: `${domain}/features`,
-    images: [{ url: `${domain}/og-image.png`, width: 1200, height: 630, alt: 'Astras AI Features and Capabilities' }],
+    images: [
+      {
+        url: `${domain}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Why Astras AI — Capabilities that Set Us Apart',
+        type: 'image/jpeg',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Why Choose Astras AI — AI Technology Capabilities & Key Features',
+    description: 'From AI websites to autonomous agents — discover the technology, process, and expertise that make Astras AI the #1 AI agency in Bangalore.',
+    images: [
+      {
+        url: `${domain}/og-image.jpg`,
+        alt: 'Why Astras AI — Capabilities that Set Us Apart',
+      },
+    ],
   },
 };
 

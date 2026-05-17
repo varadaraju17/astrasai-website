@@ -25,11 +25,26 @@ export const metadata: Metadata = {
     description:
       'Full-service AI agency in Bangalore. We build intelligent websites, apps, AI agents, and run performance marketing campaigns that deliver measurable ROI.',
     url: `${domain}/services`,
-    images: [{ url: `${domain}/og-image.png`, width: 1200, height: 630, alt: 'Astras AI Services' }],
+    images: [
+      {
+        url: `${domain}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'AI Services — Websites, Apps, AI Agents & Marketing | Astras AI',
+        type: 'image/jpeg',
+      },
+    ],
   },
   twitter: {
+    card: 'summary_large_image',
     title: 'AI Services — Websites, Apps, AI Agents | Astras AI Bangalore',
     description: 'Explore Astras AI\'s full suite: AI websites, apps, agents, and digital marketing services.',
+    images: [
+      {
+        url: `${domain}/og-image.jpg`,
+        alt: 'AI Services — Websites, Apps, AI Agents & Marketing | Astras AI',
+      },
+    ],
   },
 };
 

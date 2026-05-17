@@ -23,11 +23,26 @@ export const metadata: Metadata = {
     title: 'Contact Astras AI — Build Your AI-Powered Website, App or Agent',
     description: 'Get in touch with Bangalore\'s top AI agency. Free consultation for AI websites, apps, agents, and marketing. Fast response guaranteed.',
     url: `${domain}/contact`,
-    images: [{ url: `${domain}/og-image.png`, width: 1200, height: 630, alt: 'Contact Astras AI' }],
+    images: [
+      {
+        url: `${domain}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Contact Astras AI — Build Your AI-Powered Website, App or Agent',
+        type: 'image/jpeg',
+      },
+    ],
   },
   twitter: {
+    card: 'summary_large_image',
     title: 'Contact Astras AI — Start Your Project Today',
     description: 'Get a free consultation for AI websites, apps, agents, and digital marketing. Based in Bangalore, serving globally.',
+    images: [
+      {
+        url: `${domain}/og-image.jpg`,
+        alt: 'Contact Astras AI — Build Your AI-Powered Website, App or Agent',
+      },
+    ],
   },
 };
 

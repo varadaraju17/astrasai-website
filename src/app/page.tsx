@@ -23,6 +23,32 @@ export const metadata: Metadata = {
     description:
       'Build your digital future with Astras AI. AI websites from ₹15,000 | Apps from ₹50,000 | AI Agents 24/7 | Performance Marketing. Based in Bangalore, serving globally.',
     url: domain,
+    siteName: 'Astras AI',
+    images: [
+      {
+        url: `${domain}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Astras AI — Bangalore\'s #1 AI Development Agency',
+        type: 'image/jpeg',
+      },
+    ],
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@astras_ai',
+    creator: '@astras_ai',
+    title: 'Astras AI | Bangalore\'s #1 AI Agency — Websites, Apps & AI Agents',
+    description:
+      'Build your digital future with Astras AI. AI websites from ₹15,000 | Apps from ₹50,000 | AI Agents 24/7 | Performance Marketing. Based in Bangalore, serving globally.',
+    images: [
+      {
+        url: `${domain}/og-image.jpg`,
+        alt: 'Astras AI — Bangalore\'s #1 AI Development Agency',
+      },
+    ],
   },
 };
 

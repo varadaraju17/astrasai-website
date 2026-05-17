@@ -84,7 +84,7 @@ export const businessServices: ServiceData[] = [
                 id: "wordpress-website",
                 title: "AI-Enhanced WordPress Site",
                 tagline: "Easy to Manage",
-                image: "/services/sub/web_wordpress.webp",
+                image: "/services/sub/web_wordpress.png",
                 icon: <Globe className="w-6 h-6" />,
                 description: "The world's most popular platform, upgraded. We build custom WordPress sites with AI tools that help you write content and rank higher on Google.",
                 features: [
