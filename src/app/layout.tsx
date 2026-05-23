@@ -10,8 +10,7 @@ import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import dynamic from 'next/dynamic';
-const Background3D = dynamic(() => import('@/components/Background3D'), { ssr: false });
+import Background3D from '@/components/Background3D';
 
 
 const syne = Syne({
