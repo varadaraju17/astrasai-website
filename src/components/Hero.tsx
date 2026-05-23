@@ -197,17 +197,11 @@ const Hero = () => {
                         <h1
                             className="font-display font-black tracking-tight text-white leading-[1.1] sm:leading-[1.05] mb-6 sm:mb-8 text-[2.5rem] min-[400px]:text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] px-2 sm:px-4"
                         >
-                            <span className="sr-only">
-                                Astras AI — Building Intelligent Websites, Mobile Apps &amp; AI Agents in Bangalore
-                            </span>
-
-                            <span aria-hidden="true" className="block">
-                                Building the{" "}
-                                <br className="hidden sm:block" />
-                                <span className="relative inline-block mt-2 sm:mt-4">
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 drop-shadow-[0_0_30px_rgba(0,240,255,0.4)]">
-                                        Intelligent Future
-                                    </span>
+                            Building the{" "}
+                            <br className="hidden sm:block" />
+                            <span className="relative inline-block mt-2 sm:mt-4">
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 drop-shadow-[0_0_30px_rgba(0,240,255,0.4)]">
+                                    Intelligent Future
                                 </span>
                             </span>
                         </h1>

@@ -63,6 +63,7 @@ const ServiceModal = ({ service, onClose }: { service: ServiceData; onClose: () 
                                         <Image
                                             src={sub.image}
                                             alt={sub.title}
+                                            title={sub.title}
                                             fill
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -179,6 +180,7 @@ const ServiceCard = ({ service, onClick }: { service: ServiceData; onClick: () =
                 <Image
                     src={service.image}
                     alt={service.title}
+                    title={service.title}
                     fill
                     quality={60}
                     sizes="(max-width: 768px) 50vw, 33vw"

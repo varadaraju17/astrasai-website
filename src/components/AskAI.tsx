@@ -98,6 +98,7 @@ export default function AskAI() {
               <Image
                 src={botAvatar}
                 alt="Astra AI"
+                title="Astra AI"
                 fill
                 sizes="80px"
                 className="object-cover scale-110 group-hover:scale-125 transition-transform duration-500"
@@ -138,6 +139,7 @@ export default function AskAI() {
                       <Image
                         src={botAvatar}
                         alt="Astra AI"
+                        title="Astra AI"
                         fill
                         sizes="48px"
                         className="object-cover"

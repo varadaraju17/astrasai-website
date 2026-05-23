@@ -84,6 +84,7 @@ const AboutCard = ({ item, onClick }: { item: AboutItem; onClick: () => void }) 
                 <Image
                     src={item.image}
                     alt={item.title}
+                    title={item.title}
                     fill
                     quality={60}
                     sizes="(max-width: 768px) 50vw, 33vw"

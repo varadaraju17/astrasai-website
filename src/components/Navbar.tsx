@@ -42,6 +42,7 @@ const Navbar = () => {
             <Image
               src="/logo.webp"
               alt="Astras AI Logo"
+              title="Astras AI Logo"
               width={40}
               height={40}
               priority

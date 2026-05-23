@@ -3,6 +3,20 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'clsx'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/index.html',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/index.php',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

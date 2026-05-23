@@ -112,6 +112,7 @@ const FeatureCard = ({ feature, onClick }: { feature: FeatureData; onClick: () =
                 <Image
                     src={feature.image}
                     alt={feature.title}
+                    title={feature.title}
                     fill
                     quality={60}
                     sizes="(max-width: 768px) 50vw, 33vw"
