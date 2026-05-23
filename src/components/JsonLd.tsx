@@ -95,7 +95,7 @@ export default function JsonLd() {
 
       // ─── LocalBusiness ──────────────────────────────────────────────────────
       {
-        '@type': ['LocalBusiness', 'ProfessionalService', 'SoftwareApplication'],
+        '@type': ['LocalBusiness', 'ProfessionalService'],
         '@id': `${domain}/#localbusiness`,
         name: companyName,
         image: [`${domain}/og-image.jpg`, `${domain}/logo.png`],
