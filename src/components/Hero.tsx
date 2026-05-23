@@ -1,63 +1,10 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { motion, useMotionValue } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
-// --- Magnetic CTA Button ---
-const MagneticButton = ({
-    children,
-    href,
-    primary = false,
-}: {
-    children: React.ReactNode;
-    href: string;
-    primary?: boolean;
-}) => {
-    const ref = useRef<HTMLAnchorElement>(null);
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-
-    const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        if (!ref.current) return;
-        const { clientX, clientY } = e;
-        const { left, top, width, height } = ref.current.getBoundingClientRect();
-        x.set((clientX - (left + width / 2)) * 0.25);
-        y.set((clientY - (top + height / 2)) * 0.25);
-    };
-
-    const handleMouseLeave = () => {
-        x.set(0);
-        y.set(0);
-    };
-
-    return (
-        <motion.div style={{ x, y }} className="relative z-20">
-            <Link
-                href={href}
-                ref={ref}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                className={`relative group flex sm:inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-bold text-sm md:text-base overflow-hidden transition-all duration-300 w-full sm:w-auto ${
-                    primary
-                        ? "bg-cyan-500 text-black shadow-[0_0_25px_rgba(0,240,255,0.45)] hover:shadow-[0_0_50px_rgba(0,240,255,0.7)] hover:bg-cyan-400"
-                        : "bg-white/5 text-white border border-white/20 hover:bg-white/10 hover:border-cyan-400/50 backdrop-blur-md"
-                }`}
-            >
-                {primary && (
-                    <span className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
-                        <span className="absolute -inset-x-full top-0 h-full w-[200%] bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                    </span>
-                )}
-                <span className="relative z-10 flex items-center gap-2.5">{children}</span>
-            </Link>
-        </motion.div>
-    );
-};
-
-
-// --- Floating Tag ---
+// --- Floating Tag — pure CSS fade-in, no Framer Motion ---
 const FloatingTag = ({
     text,
     className,
@@ -67,104 +14,94 @@ const FloatingTag = ({
     className: string;
     delay: number;
 }) => (
-    <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay, ease: "easeOut" }}
+    <div
         className={`hidden lg:block absolute px-4 py-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-xs font-mono text-cyan-400 whitespace-nowrap shadow-[0_0_20px_rgba(0,240,255,0.1)] z-10 ${className}`}
+        style={{
+            opacity: 0,
+            animation: `heroFadeIn 0.5s ease-out ${delay}s forwards`,
+        }}
     >
         {text}
-    </motion.div>
+    </div>
 );
 
-// --- Background Aurora Animation ---
-const AuroraBackground = () => {
-    const [isMobile, setIsMobile] = useState(false);
-    const [startAnim, setStartAnim] = useState(false);
+// --- Aurora Background — pure CSS only, zero JS animation ---
+const AuroraBackground = () => (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none bg-black">
+        {/* Base Grid Pattern */}
+        <div
+            className="absolute inset-0 z-0 opacity-[0.15]"
+            style={{
+                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
+                backgroundSize: '40px 40px',
+                maskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
+            }}
+        />
 
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-        checkMobile();
+        {/* Orb 1 — cyan — CSS only, GPU compositor thread */}
+        <div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] rounded-full"
+            style={{
+                background: 'rgba(0,240,255,0.18)',
+                filter: 'blur(100px)',
+                animation: 'heroOrb1 18s ease-in-out infinite',
+                willChange: 'transform',
+            }}
+        />
 
-        if (window.innerWidth >= 768) {
-            const timer = setTimeout(() => {
-                setStartAnim(true);
-            }, 1000);
-            return () => clearTimeout(timer);
-        }
+        {/* Orb 2 — purple */}
+        <div className="absolute bottom-1/4 right-1/4 w-[35vw] h-[35vw] rounded-full"
+            style={{
+                background: 'rgba(139,92,246,0.18)',
+                filter: 'blur(100px)',
+                animation: 'heroOrb2 22s ease-in-out infinite',
+                willChange: 'transform',
+            }}
+        />
 
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
-    }, []);
+        {/* Orb 3 — blue center */}
+        <div className="absolute top-1/2 left-1/2 w-[45vw] h-[45vw] rounded-full"
+            style={{
+                background: 'rgba(59,130,246,0.10)',
+                filter: 'blur(120px)',
+                transform: 'translate(-50%, -50%)',
+                animation: 'heroOrb3 25s ease-in-out infinite',
+                willChange: 'transform',
+            }}
+        />
 
-    if (isMobile) {
-        return (
-            <div className="absolute inset-0 bg-black pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-black to-purple-900/20 opacity-50" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,240,255,0.1),transparent_70%)]" />
-            </div>
-        );
-    }
+        {/* Fade Out Edges */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black pointer-events-none" />
 
-    return (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none bg-black">
-            {/* Base Grid Pattern */}
-            <div 
-                className="absolute inset-0 z-0 opacity-[0.15]"
-                style={{
-                    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
-                    backgroundSize: '40px 40px',
-                    maskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
-                    WebkitMaskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
-                }}
-            />
-
-            {/* Animated Glowing Orbs - Desktop Only */}
-            {startAnim && (
-                <>
-                    <motion.div 
-                        animate={{ 
-                            x: [0, 100, -50, 0], 
-                            y: [0, -50, 50, 0],
-                            scale: [1, 1.2, 0.9, 1]
-                        }}
-                        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-cyan-500/20 rounded-full blur-[140px] mix-blend-screen"
-                    />
-                    
-                    <motion.div 
-                        animate={{ 
-                            x: [0, -100, 50, 0], 
-                            y: [0, 80, -40, 0],
-                            scale: [1, 1.1, 0.8, 1]
-                        }}
-                        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                        className="absolute bottom-1/4 right-1/4 w-[35vw] h-[35vw] bg-purple-600/20 rounded-full blur-[140px] mix-blend-screen"
-                    />
-
-                    <motion.div 
-                        animate={{ 
-                            x: [0, 50, -80, 0], 
-                            y: [0, -30, 60, 0],
-                            scale: [1, 0.9, 1.3, 1]
-                        }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[45vw] h-[45vw] bg-blue-500/15 rounded-full blur-[140px] mix-blend-screen"
-                    />
-                </>
-            )}
-
-            {/* Fade Out Edges */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black pointer-events-none" />
-        </div>
-    );
-};
+        <style>{`
+            @keyframes heroOrb1 {
+                0%, 100% { transform: translate(0, 0) scale(1); }
+                33% { transform: translate(6vw, -4vh) scale(1.1); }
+                66% { transform: translate(-4vw, 5vh) scale(0.95); }
+            }
+            @keyframes heroOrb2 {
+                0%, 100% { transform: translate(0, 0) scale(1); }
+                33% { transform: translate(-5vw, 4vh) scale(1.05); }
+                66% { transform: translate(4vw, -6vh) scale(0.9); }
+            }
+            @keyframes heroOrb3 {
+                0%, 100% { transform: translate(-50%, -50%) scale(1); }
+                50% { transform: translate(-50%, -50%) scale(1.12); }
+            }
+            @keyframes heroFadeIn {
+                from { opacity: 0; transform: translateY(10px) scale(0.95); }
+                to   { opacity: 1; transform: translateY(0) scale(1); }
+            }
+            @keyframes heroSlideUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to   { opacity: 1; transform: translateY(0); }
+            }
+        `}</style>
+    </div>
+);
 
 // --- Main Hero ---
 const Hero = () => {
-
     return (
         <section
             id="home"
@@ -181,21 +118,20 @@ const Hero = () => {
             <div className="container-width relative z-10 w-full pt-32 pb-20">
                 <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
 
-                    {/* Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                    {/* Badge — CSS fade-in */}
+                    <div
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-black/40 text-cyan-300 text-[10px] sm:text-xs font-semibold tracking-widest uppercase backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(0,240,255,0.15)] min-h-[34px]"
+                        style={{ opacity: 0, animation: 'heroSlideUp 0.6s ease-out 0.1s forwards' }}
                     >
                         <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
                         <span>Bangalore&apos;s #1 AI Agency</span>
-                    </motion.div>
+                    </div>
 
-                    {/* H1 — SEO + Visual */}
+                    {/* H1 */}
                     <div className="min-h-[140px] sm:min-h-[180px] flex flex-col items-center justify-center">
                         <h1
                             className="font-display font-black tracking-tight text-white leading-[1.1] sm:leading-[1.05] mb-6 sm:mb-8 text-[2.5rem] min-[400px]:text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] px-2 sm:px-4"
+                            style={{ opacity: 0, animation: 'heroSlideUp 0.7s ease-out 0.2s forwards' }}
                         >
                             Building the{" "}
                             <br className="hidden sm:block" />
@@ -210,6 +146,7 @@ const Hero = () => {
                     {/* Subheadline */}
                     <p
                         className="speakable text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto font-light px-6"
+                        style={{ opacity: 0, animation: 'heroSlideUp 0.7s ease-out 0.35s forwards' }}
                     >
                         From{" "}
                         <span className="text-cyan-400 font-medium">AI Websites</span> and{" "}
@@ -219,22 +156,32 @@ const Hero = () => {
                         drives your exponential growth.
                     </p>
 
-                    {/* CTA Buttons */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.45 }}
+                    {/* CTA Buttons — CSS fade-in, hover effects via Tailwind */}
+                    <div
                         className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-20 w-full px-6 sm:px-0"
+                        style={{ opacity: 0, animation: 'heroSlideUp 0.7s ease-out 0.45s forwards' }}
                     >
-                        <MagneticButton href="/contact" primary>
-                            Start Your Project
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </MagneticButton>
-                        <MagneticButton href="#services">
-                            Explore Services
-                        </MagneticButton>
-                    </motion.div>
-
+                        <Link
+                            href="/contact"
+                            className="relative group flex sm:inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-bold text-sm md:text-base overflow-hidden transition-all duration-300 w-full sm:w-auto bg-cyan-500 text-black shadow-[0_0_25px_rgba(0,240,255,0.45)] hover:shadow-[0_0_50px_rgba(0,240,255,0.7)] hover:bg-cyan-400"
+                        >
+                            <span className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
+                                <span className="absolute -inset-x-full top-0 h-full w-[200%] bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                            </span>
+                            <span className="relative z-10 flex items-center gap-2.5">
+                                Start Your Project
+                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </span>
+                        </Link>
+                        <Link
+                            href="#services"
+                            className="relative group flex sm:inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-bold text-sm md:text-base overflow-hidden transition-all duration-300 w-full sm:w-auto bg-white/5 text-white border border-white/20 hover:bg-white/10 hover:border-cyan-400/50 backdrop-blur-md"
+                        >
+                            <span className="relative z-10 flex items-center gap-2.5">
+                                Explore Services
+                            </span>
+                        </Link>
+                    </div>
 
                 </div>
             </div>
