@@ -1,10 +1,8 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { Send, Sparkles, Zap, Cpu, Minimize2, User } from 'lucide-react'
-import Image from 'next/image'
+import { Send, Sparkles, Zap, Cpu, Minimize2, User, Bot } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import botAvatar from '../../public/3d_ai_bot_avatar.webp'
 
 type Message = {
   role: 'user' | 'assistant'
@@ -94,17 +92,10 @@ export default function AskAI() {
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500/40 to-purple-600/40 blur-md group-hover:blur-lg transition-all duration-500" />
 
             {/* Button Content */}
-            <div className="relative w-full h-full rounded-full bg-black border border-cyan-500/30 overflow-hidden shadow-[0_0_30px_rgba(0,240,255,0.4)] group-hover:shadow-[0_0_50px_rgba(0,240,255,0.7)] transition-all duration-500 flex items-center justify-center">
-              <Image
-                src={botAvatar}
-                alt="Astra AI"
-                title="Astra AI"
-                fill
-                sizes="80px"
-                className="object-cover scale-110 group-hover:scale-125 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
+              <div className="relative w-full h-full rounded-full bg-black border border-cyan-500/30 overflow-hidden shadow-[0_0_30px_rgba(0,240,255,0.4)] group-hover:shadow-[0_0_50px_rgba(0,240,255,0.7)] transition-all duration-500 flex items-center justify-center">
+                <Bot className="w-10 h-10 text-cyan-400 group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
           </motion.button>
         )}
       </AnimatePresence>
@@ -136,14 +127,7 @@ export default function AskAI() {
                 <div className="flex items-center gap-4">
                   <div className="relative">
                     <div className="w-12 h-12 rounded-full overflow-hidden border border-cyan-500/30 bg-black shadow-[0_0_15px_rgba(0,240,255,0.3)] flex items-center justify-center relative">
-                      <Image
-                        src={botAvatar}
-                        alt="Astra AI"
-                        title="Astra AI"
-                        fill
-                        sizes="48px"
-                        className="object-cover"
-                      />
+                      <Bot className="w-6 h-6 text-cyan-400" />
                       <div className="absolute inset-0 bg-cyan-500/10 mix-blend-overlay" />
                     </div>
                     <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-black animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
@@ -177,13 +161,7 @@ export default function AskAI() {
                   >
                     {msg.role === 'assistant' && (
                       <div className="w-8 h-8 rounded-full overflow-hidden border border-cyan-500/30 bg-black mr-3 flex-shrink-0 mt-1 shadow-[0_0_10px_rgba(0,240,255,0.2)] flex items-center justify-center relative">
-                        <Image
-                          src={botAvatar}
-                          alt="Astra AI"
-                          fill
-                          sizes="32px"
-                          className="object-cover"
-                        />
+                        <Bot className="w-5 h-5 text-cyan-400" />
                       </div>
                     )}
                     <div className={`max-w-[85%] p-4 rounded-2xl font-sans text-sm leading-relaxed shadow-lg backdrop-blur-md ${msg.role === 'user'
@@ -207,13 +185,7 @@ export default function AskAI() {
                     className="flex justify-start"
                   >
                     <div className="w-8 h-8 rounded-full overflow-hidden border border-cyan-500/30 bg-black mr-3 flex-shrink-0 mt-1 shadow-[0_0_10px_rgba(0,240,255,0.2)] flex items-center justify-center relative">
-                      <Image
-                        src={botAvatar}
-                        alt="Astra AI"
-                        fill
-                        sizes="32px"
-                        className="object-cover"
-                      />
+                      <Bot className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div className="p-4 rounded-2xl bg-white/10 border border-white/5 rounded-tl-none backdrop-blur-md">
                       <div className="flex gap-1.5">
