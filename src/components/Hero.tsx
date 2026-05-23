@@ -164,14 +164,6 @@ const AuroraBackground = () => {
 
 // --- Main Hero ---
 const Hero = () => {
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    // Prevent hydration mismatch on initial render with heavy animations
-    if (!mounted) return <section className="min-h-screen bg-black" />;
 
     return (
         <section
