@@ -4,22 +4,16 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 
-// --- Floating Tag — pure CSS fade-in, no Framer Motion ---
+// --- Floating Tag ---
 const FloatingTag = ({
     text,
     className,
-    delay,
 }: {
     text: string;
     className: string;
-    delay: number;
 }) => (
     <div
         className={`hidden lg:block absolute px-4 py-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-xs font-mono text-cyan-400 whitespace-nowrap shadow-[0_0_20px_rgba(0,240,255,0.1)] z-10 ${className}`}
-        style={{
-            opacity: 0,
-            animation: `heroFadeIn 0.5s ease-out ${delay}s forwards`,
-        }}
     >
         {text}
     </div>
@@ -88,14 +82,6 @@ const AuroraBackground = () => (
                 0%, 100% { transform: translate(-50%, -50%) scale(1); }
                 50% { transform: translate(-50%, -50%) scale(1.12); }
             }
-            @keyframes heroFadeIn {
-                from { opacity: 0; transform: translateY(10px) scale(0.95); }
-                to   { opacity: 1; transform: translateY(0) scale(1); }
-            }
-            @keyframes heroSlideUp {
-                from { opacity: 0; transform: translateY(20px); }
-                to   { opacity: 1; transform: translateY(0); }
-            }
         `}</style>
     </div>
 );
@@ -110,18 +96,17 @@ const Hero = () => {
             <AuroraBackground />
 
             {/* ── Floating tech tags (desktop only) ────────────────────────── */}
-            <FloatingTag text="▸ AI Agents" className="top-[25%] left-[10%] rotate-[-2deg]" delay={1.2} />
-            <FloatingTag text="▸ Next.js 14" className="top-[35%] right-[10%] rotate-[2deg]" delay={1.4} />
-            <FloatingTag text="▸ Flutter Apps" className="bottom-[35%] left-[12%] rotate-[1deg]" delay={1.6} />
+            <FloatingTag text="▸ AI Agents" className="top-[25%] left-[10%] rotate-[-2deg]" />
+            <FloatingTag text="▸ Next.js 14" className="top-[35%] right-[10%] rotate-[2deg]" />
+            <FloatingTag text="▸ Flutter Apps" className="bottom-[35%] left-[12%] rotate-[1deg]" />
 
             {/* ── Main Content ──────────────────────────────────────────────── */}
             <div className="container-width relative z-10 w-full pt-32 pb-20">
                 <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
 
-                    {/* Badge — CSS fade-in */}
+                    {/* Badge */}
                     <div
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-black/40 text-cyan-300 text-[10px] sm:text-xs font-semibold tracking-widest uppercase backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(0,240,255,0.15)] min-h-[34px]"
-                        style={{ opacity: 0, animation: 'heroSlideUp 0.6s ease-out 0.1s forwards' }}
                     >
                         <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
                         <span>Bangalore&apos;s #1 AI Agency</span>
@@ -131,7 +116,6 @@ const Hero = () => {
                     <div className="min-h-[140px] sm:min-h-[180px] flex flex-col items-center justify-center">
                         <h1
                             className="font-display font-black tracking-tight text-white leading-[1.1] sm:leading-[1.05] mb-6 sm:mb-8 text-[2.5rem] min-[400px]:text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] px-2 sm:px-4"
-                            style={{ opacity: 0, animation: 'heroSlideUp 0.7s ease-out 0.2s forwards' }}
                         >
                             Building the{" "}
                             <br className="hidden sm:block" />
@@ -146,7 +130,6 @@ const Hero = () => {
                     {/* Subheadline */}
                     <p
                         className="speakable text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto font-light px-6"
-                        style={{ opacity: 0, animation: 'heroSlideUp 0.7s ease-out 0.35s forwards' }}
                     >
                         From{" "}
                         <span className="text-cyan-400 font-medium">AI Websites</span> and{" "}
@@ -156,10 +139,9 @@ const Hero = () => {
                         drives your exponential growth.
                     </p>
 
-                    {/* CTA Buttons — CSS fade-in, hover effects via Tailwind */}
+                    {/* CTA Buttons */}
                     <div
                         className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-20 w-full px-6 sm:px-0"
-                        style={{ opacity: 0, animation: 'heroSlideUp 0.7s ease-out 0.45s forwards' }}
                     >
                         <Link
                             href="/contact"
