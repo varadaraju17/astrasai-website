@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Shield, Brain, Globe, Sparkles, Layers, ArrowRight, X, CheckCircle2, Lightbulb } from "lucide-react";
 import Image from "next/image";
-import Background3D from "./Background3D";
+
 
 // --- Types ---
 interface FeatureData {
@@ -237,7 +237,6 @@ const Features = () => {
 
     return (
         <section id="features" className="py-32 bg-black relative overflow-hidden">
-            <Background3D />
 
             {/* Background Glows */}
             <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-cyan-500/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />

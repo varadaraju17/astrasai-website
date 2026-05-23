@@ -1,13 +1,12 @@
 "use client";
 
 import React from "react";
-import Background3D from "@/components/Background3D";
+
 import { Lock, Eye, Shield, Server, Globe, Mail } from "lucide-react";
 
 export default function PrivacyPolicyClient() {
     return (
         <div className="min-h-screen bg-black text-gray-300 relative overflow-hidden font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
-            <Background3D />
 
             {/* Background Glows */}
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-purple-600/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2 pointer-events-none" />

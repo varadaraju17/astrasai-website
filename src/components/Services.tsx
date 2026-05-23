@@ -8,7 +8,7 @@ import {
     ArrowRight, Sparkles, X, CheckCircle2, Zap, Lightbulb
 } from "lucide-react";
 import { businessServices, individualServices, ServiceData } from "@/data/servicesData";
-import Background3D from "./Background3D";
+
 
 // --- Service Modal Component ---
 const ServiceModal = ({ service, onClose }: { service: ServiceData; onClose: () => void }) => {
@@ -228,7 +228,6 @@ const Services = () => {
 
     return (
         <section id="services" className="py-24 bg-black relative overflow-hidden">
-            <Background3D />
 
             {/* Background Elements */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />

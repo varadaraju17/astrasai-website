@@ -10,6 +10,7 @@ import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import Background3D from '@/components/Background3D';
 
 
 const syne = Syne({
@@ -174,6 +175,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/logo.webp" />
       </head>
       <body className={`${syne.variable} ${spaceGrotesk.variable} font-body bg-void text-white antialiased selection:bg-hologram-cyan selection:text-void`}>
+        <Background3D />
+        
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

@@ -4,12 +4,11 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Linkedin, MessageCircle, ArrowRight, Mail, Phone, MapPin } from "lucide-react";
-import Background3D from "./Background3D";
+
 
 const Footer = () => {
   return (
     <footer className="bg-black border-t border-white/10 py-20 relative overflow-hidden">
-      <Background3D />
 
       {/* Background Elements */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none" />

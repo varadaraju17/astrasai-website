@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, Youtube, Linkedin, Instagram, ArrowRight, Loader2, MessageCircle, Facebook } from "lucide-react";
-import Background3D from "./Background3D";
+
 
 const Contact = () => {
     const [formState, setFormState] = useState({
@@ -67,7 +67,6 @@ const Contact = () => {
 
     return (
         <section id="contact" className="py-20 lg:py-24 relative overflow-hidden bg-black">
-            <Background3D />
 
             {/* Background Ambience */}
             <div className="absolute inset-0 pointer-events-none">
