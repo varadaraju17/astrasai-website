@@ -42,19 +42,20 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
-          // {
-          //   key: 'Content-Security-Policy-Report-Only',
-          //   value: `
-          //     default-src 'self';
-          //     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com;
-          //     style-src 'self' 'unsafe-inline';
-          //     img-src 'self' data: https://www.google-analytics.com;
-          //     font-src 'self';
-          //     connect-src 'self' https://www.google-analytics.com;
-          //     frame-src 'self' https://www.googletagmanager.com;
-          //     report-uri /api/csp-reports;
-          //   `.replace(/\s{2,}/g, ' ').trim(),
-          // },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com",
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://vitals.vercel-insights.com",
+              "frame-src https://www.googletagmanager.com",
+              "worker-src blob:",
+              "child-src blob:",
+            ].join('; '),
+          },
         ],
       },
     ];

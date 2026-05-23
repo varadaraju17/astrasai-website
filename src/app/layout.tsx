@@ -10,7 +10,8 @@ import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import Background3D from '@/components/Background3D';
+import dynamic from 'next/dynamic';
+const Background3D = dynamic(() => import('@/components/Background3D'), { ssr: false });
 
 
 const syne = Syne({
@@ -28,9 +29,9 @@ const spaceGrotesk = Space_Grotesk({
 const domain = 'https://astrasai.in';
 const companyName = 'Astras AI';
 
-// GEO-rich, intent-driven description (~155 chars)
+// Concise, keyword-rich description — under 160 chars for full Google preview
 const description =
-  'Astras AI — Bangalore\'s #1 AI agency for website development, mobile apps, AI agents & digital marketing. We help startups & enterprises dominate their market with intelligent technology.';
+  'Astras AI — Bangalore\'s #1 AI agency. We build AI websites, mobile apps & autonomous AI agents for startups & enterprises. Get results in weeks, not months.';
 
 const keywords = [
   // Core brand / product
