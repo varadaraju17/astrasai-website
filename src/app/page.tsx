@@ -1,7 +1,11 @@
 import { Metadata } from 'next';
-import HomePageClient from '@/components/HomePageClient';
-
-
+import JsonLd from '@/components/JsonLd';
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import Services from '@/components/Services';
+import Features from '@/components/Features';
+import Contact from '@/components/Contact';
+import AskAI from '@/components/AskAI';
 
 const domain = 'https://astrasai.in';
 
@@ -52,5 +56,15 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return <HomePageClient />;
+  return (
+    <>
+      <JsonLd />
+      <Hero />
+      <About />
+      <Services />
+      <Features />
+      <Contact />
+      <AskAI />
+    </>
+  );
 }

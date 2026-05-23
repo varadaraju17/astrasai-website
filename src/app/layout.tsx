@@ -1,10 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 
-export const runtime = 'edge';
-
-
-
 import { Syne, Space_Grotesk } from 'next/font/google';
 import '../styles/globals.css';
 import Navbar from '@/components/Navbar';
