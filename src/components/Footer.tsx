@@ -166,11 +166,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-xs">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-xs">
           <p>&copy; {new Date().getFullYear()} AstrasAI. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="/privacy-policy" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="hover:text-cyan-400 transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-cyan-400 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="text-gray-400 hover:text-cyan-400 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

@@ -85,6 +85,7 @@ const AboutCard = ({ item, onClick }: { item: AboutItem; onClick: () => void }) 
                     src={item.image}
                     alt={item.title}
                     fill
+                    quality={60}
                     sizes="(max-width: 768px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />

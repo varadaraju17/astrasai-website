@@ -180,6 +180,7 @@ const ServiceCard = ({ service, onClick }: { service: ServiceData; onClick: () =
                     src={service.image}
                     alt={service.title}
                     fill
+                    quality={60}
                     sizes="(max-width: 768px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />

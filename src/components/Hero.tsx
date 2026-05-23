@@ -165,14 +165,9 @@ const AuroraBackground = () => {
 // --- Main Hero ---
 const Hero = () => {
     const [mounted, setMounted] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         setMounted(true);
-        const checkMobile = () => setIsMobile(window.innerWidth < 768);
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
     // Prevent hydration mismatch on initial render with heavy animations
@@ -207,10 +202,7 @@ const Hero = () => {
 
                     {/* H1 — SEO + Visual */}
                     <div className="min-h-[140px] sm:min-h-[180px] flex flex-col items-center justify-center">
-                        <motion.h1
-                            initial={isMobile ? { opacity: 0 } : { opacity: 0, y: 28 }}
-                            animate={isMobile ? { opacity: 1 } : { opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: 0.1 }}
+                        <h1
                             className="font-display font-black tracking-tight text-white leading-[1.1] sm:leading-[1.05] mb-6 sm:mb-8 text-[2.5rem] min-[400px]:text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] px-2 sm:px-4"
                         >
                             <span className="sr-only">
@@ -226,14 +218,11 @@ const Hero = () => {
                                     </span>
                                 </span>
                             </span>
-                        </motion.h1>
+                        </h1>
                     </div>
 
                     {/* Subheadline */}
-                    <motion.p
-                        initial={isMobile ? { opacity: 0 } : { opacity: 0, y: 24 }}
-                        animate={isMobile ? { opacity: 1 } : { opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
+                    <p
                         className="speakable text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto font-light px-6"
                     >
                         From{" "}
@@ -242,7 +231,7 @@ const Hero = () => {
                         <span className="text-purple-400 font-medium">AI Agents</span> and{" "}
                         <span className="text-purple-400 font-medium">Marketing</span> — we engineer technology that
                         drives your exponential growth.
-                    </motion.p>
+                    </p>
 
                     {/* CTA Buttons */}
                     <motion.div
