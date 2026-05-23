@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import PrivacyPolicyClient from "./PrivacyPolicyClient";
 
-export const runtime = 'edge';
+
 
 const domain = 'https://astrasai.in';
 

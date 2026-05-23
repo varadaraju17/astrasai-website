@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import TermsOfServiceClient from "./TermsOfServiceClient";
 
-export const runtime = 'edge';
+
 
 const domain = 'https://astrasai.in';
 

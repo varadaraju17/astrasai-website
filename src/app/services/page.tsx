@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Services from "@/components/Services";
 
-export const runtime = 'edge';
+
 
 
 const domain = 'https://astrasai.in';

@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import HomePageClient from '@/components/HomePageClient';
 
-export const runtime = 'edge';
 
 
 const domain = 'https://astrasai.in';
