@@ -137,7 +137,7 @@ const Footer = () => {
                     <Mail className="w-3.5 h-3.5" />
                   </div>
                   <div className="text-sm">
-                    <span className="block text-[10px] text-gray-500 uppercase tracking-wider mb-0.5 font-medium">Email Us</span>
+                    <span className="block text-[10px] text-gray-400 uppercase tracking-wider mb-0.5 font-medium">Email Us</span>
                     services@astrasai.in
                   </div>
                 </a>
@@ -148,7 +148,7 @@ const Footer = () => {
                     <Phone className="w-3.5 h-3.5" />
                   </div>
                   <div className="text-sm">
-                    <span className="block text-[10px] text-gray-500 uppercase tracking-wider mb-0.5 font-medium">Call Us</span>
+                    <span className="block text-[10px] text-gray-400 uppercase tracking-wider mb-0.5 font-medium">Call Us</span>
                     +91 8197489255
                   </div>
                 </a>
@@ -158,7 +158,7 @@ const Footer = () => {
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
                 <div className="text-sm">
-                  <span className="block text-[10px] text-gray-500 uppercase tracking-wider mb-0.5 font-medium">Visit Us</span>
+                  <span className="block text-[10px] text-gray-400 uppercase tracking-wider mb-0.5 font-medium">Visit Us</span>
                   Bangalore, India
                 </div>
               </li>

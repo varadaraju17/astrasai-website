@@ -20,7 +20,7 @@ const Background3D = () => {
         setIsMobile(mobile);
         
         if (!mobile) {
-            const timer = setTimeout(() => setShouldRender(true), 2000);
+            const timer = setTimeout(() => setShouldRender(true), 6000);
             return () => clearTimeout(timer);
         }
 
