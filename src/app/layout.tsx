@@ -166,6 +166,12 @@ export default function RootLayout({
         {/* Preconnects for performance */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        
+        {/* Explicit Favicons for SEO Scrapers */}
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/webp" sizes="192x192" href="/logo.webp" />
+        <link rel="apple-touch-icon" href="/logo.webp" />
       </head>
       <body className={`${syne.variable} ${spaceGrotesk.variable} font-body bg-void text-white antialiased selection:bg-hologram-cyan selection:text-void`}>
         {/* Google Tag Manager (noscript) */}

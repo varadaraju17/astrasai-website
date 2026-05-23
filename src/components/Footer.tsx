@@ -132,13 +132,22 @@ const Footer = () => {
             </h4>
             <ul className="space-y-5">
               <li>
-                <a href="mailto:services@astrasai.in" className="group flex items-start gap-3 text-gray-400 hover:text-cyan-400 transition-colors">
+                <a 
+                  href="#" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = "mailto:" + "services" + "@" + "astrasai.in";
+                  }} 
+                  className="group flex items-start gap-3 text-gray-400 hover:text-cyan-400 transition-colors"
+                >
                   <div className="p-2 rounded-md bg-white/5 group-hover:bg-cyan-500/10 transition-colors mt-0.5 border border-white/5 group-hover:border-cyan-500/20">
                     <Mail className="w-3.5 h-3.5" />
                   </div>
                   <div className="text-sm">
                     <span className="block text-[10px] text-gray-400 uppercase tracking-wider mb-0.5 font-medium">Email Us</span>
-                    services@astrasai.in
+                    <span>services</span>
+                    <span>@</span>
+                    <span>astrasai.in</span>
                   </div>
                 </a>
               </li>

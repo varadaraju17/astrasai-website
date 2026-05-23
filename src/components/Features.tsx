@@ -108,7 +108,7 @@ const FeatureCard = ({ feature, onClick }: { feature: FeatureData; onClick: () =
             className="group relative h-full bg-black/60 backdrop-blur-xl border border-cyan-500/20 rounded-xl md:rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-[inset_0_0_60px_rgba(0,240,255,0.15)] hover:border-cyan-400/60 flex flex-col shadow-[0_0_30px_rgba(0,240,255,0.1)]"
         >
             {/* Image Section - Top 50% with Fade */}
-            <div className="relative h-[140px] md:h-[280px] w-full overflow-hidden border-b border-white/5">
+            <div className="relative w-full overflow-hidden border-b border-white/5" style={{ aspectRatio: '640/467' }}>
                 <Image
                     src={feature.image}
                     alt={feature.title}

@@ -109,8 +109,17 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h3 className="text-base font-bold text-white">Email</h3>
-                                    <a href="mailto:services@astrasai.in" className="text-gray-400 hover:text-cyan-400 transition-colors font-mono text-base">
-                                        services@astrasai.in
+                                    <a 
+                                        href="#" 
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            window.location.href = "mailto:" + "services" + "@" + "astrasai.in";
+                                        }} 
+                                        className="text-gray-400 hover:text-cyan-400 transition-colors font-mono text-base"
+                                    >
+                                        <span>services</span>
+                                        <span>@</span>
+                                        <span>astrasai.in</span>
                                     </a>
                                 </div>
                             </div>

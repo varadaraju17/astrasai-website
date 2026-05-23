@@ -175,7 +175,7 @@ const ServiceCard = ({ service, onClick }: { service: ServiceData; onClick: () =
             </div>
 
             {/* Service Image */}
-            <div className="relative aspect-video w-full overflow-hidden border-b border-white/10 shrink-0">
+            <div className="relative aspect-video w-full overflow-hidden border-b border-white/10 shrink-0" style={{ aspectRatio: '16/9' }}>
                 <Image
                     src={service.image}
                     alt={service.title}
