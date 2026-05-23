@@ -285,9 +285,11 @@ const Contact = () => {
                                 </div>
 
                                 <div className="space-y-2 group">
-                                    <label className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest ml-1 opacity-70 group-focus-within:opacity-100 transition-opacity">Service Required</label>
+                                    <label htmlFor="service-select" className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest ml-1 opacity-70 group-focus-within:opacity-100 transition-opacity">Service Required</label>
                                     <div className="relative">
                                         <select
+                                            id="service-select"
+                                            aria-label="Service Required"
                                             required
                                             value={formState.service}
                                             onChange={(e) => setFormState({ ...formState, service: e.target.value })}
@@ -324,7 +326,7 @@ const Contact = () => {
                                     className="w-full group relative px-8 py-4 rounded-xl font-bold text-base tracking-wide overflow-hidden transition-all hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100 text-white shadow-[0_0_30px_rgba(0,240,255,0.4)] hover:shadow-[0_0_60px_rgba(0,240,255,0.6)] border border-cyan-400/50"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
-                                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
+                                    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20viewBox=%220%200%20200%20200%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter%20id=%22noiseFilter%22%3E%3CfeTurbulence%20type=%22fractalNoise%22%20baseFrequency=%220.80%22%20numOctaves=%223%22%20stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect%20width=%22100%25%22%20height=%22100%25%22%20filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')] opacity-15" />
                                     <span className="relative z-10 flex items-center justify-center gap-2">
                                         {isSubmitting ? (
                                             <>

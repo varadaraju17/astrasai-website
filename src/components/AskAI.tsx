@@ -99,6 +99,7 @@ export default function AskAI() {
                 src={botAvatar}
                 alt="Astra AI"
                 fill
+                sizes="80px"
                 className="object-cover scale-110 group-hover:scale-125 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -138,6 +139,7 @@ export default function AskAI() {
                         src={botAvatar}
                         alt="Astra AI"
                         fill
+                        sizes="48px"
                         className="object-cover"
                       />
                       <div className="absolute inset-0 bg-cyan-500/10 mix-blend-overlay" />
@@ -177,6 +179,7 @@ export default function AskAI() {
                           src={botAvatar}
                           alt="Astra AI"
                           fill
+                          sizes="32px"
                           className="object-cover"
                         />
                       </div>
@@ -206,6 +209,7 @@ export default function AskAI() {
                         src={botAvatar}
                         alt="Astra AI"
                         fill
+                        sizes="32px"
                         className="object-cover"
                       />
                     </div>

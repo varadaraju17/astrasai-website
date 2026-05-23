@@ -86,6 +86,7 @@ const Navbar = () => {
         <button
           className="md:hidden text-white p-2 relative group"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
         >
           <div className="absolute inset-0 bg-hologram-cyan/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           {isMobileMenuOpen ? <X size={24} className="relative z-10" /> : <Menu size={24} className="relative z-10" />}

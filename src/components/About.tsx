@@ -85,7 +85,7 @@ const AboutCard = ({ item, onClick }: { item: AboutItem; onClick: () => void }) 
                     src={item.image}
                     alt={item.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
@@ -112,7 +112,7 @@ const AboutCard = ({ item, onClick }: { item: AboutItem; onClick: () => void }) 
 
                 {/* Know More Button */}
                 <div className="mt-2 pt-2 md:mt-6 md:pt-6 border-t border-white/10 flex items-center justify-between">
-                    <span className="text-xs md:text-sm font-medium text-cyan-500/70 group-hover:text-cyan-400 transition-colors uppercase tracking-wider">Know more</span>
+                    <span className="text-xs md:text-sm font-medium text-cyan-400 group-hover:text-cyan-300 transition-colors uppercase tracking-wider">Know more</span>
                     <div className="w-6 h-6 md:w-10 md:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-cyan-500 group-hover:text-black group-hover:border-cyan-400 transition-all duration-300 shadow-lg">
                         <ArrowRight className="w-3 h-3 md:w-5 md:h-5" />
                     </div>
