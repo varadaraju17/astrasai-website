@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import Breadcrumb from '@/components/Breadcrumb';
-import { ArrowRight, Sparkles, CheckCircle2, Zap, Cpu, MessageSquare, Bot, Calendar, Layers, ShieldCheck, Mail, Database } from 'lucide-react';
+import { ArrowRight, Sparkles, Cpu, MessageSquare, Bot, Calendar, Mail, Database } from 'lucide-react';
 
 const domain = 'https://astrasai.in';
 

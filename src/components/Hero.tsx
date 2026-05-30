@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+
 
 /* ────────────────────────────────────────────────────────────────────────────
    ASTRAS AI — Hero Section
@@ -77,7 +77,7 @@ export default function Hero() {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
           </span>
           <span className="text-[11px] font-medium tracking-wide text-gray-400 sm:text-xs">
-            Bangalore's #1 AI Agency
+            Bangalore&apos;s #1 AI Agency
           </span>
         </div>
 
