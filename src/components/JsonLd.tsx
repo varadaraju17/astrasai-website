@@ -174,7 +174,7 @@ export default function JsonLd() {
         inLanguage: 'en-IN',
         speakable: {
           '@type': 'SpeakableSpecification',
-          cssSelector: ['h1', 'h2', '.speakable'],
+          cssSelector: ['h1', 'h2'],
         },
       },
 
