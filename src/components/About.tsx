@@ -89,7 +89,7 @@ const AboutCard = ({ item, onClick }: { item: AboutItem; onClick: () => void }) 
             className="group relative h-full bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl md:rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[inset_0_0_60px_rgba(0,240,255,0.15)] hover:border-cyan-400/60 flex flex-col cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
         >
             {/* Image Section - Top 50% with Fade */}
-            <div className="relative w-full overflow-hidden border-b border-white/5" style={{ aspectRatio: '640/467' }}>
+            <div className="relative w-full overflow-hidden border-b border-white/5 aspect-video">
                 <Image
                     src={item.image}
                     alt={item.title}

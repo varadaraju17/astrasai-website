@@ -124,11 +124,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/logo.webp', sizes: '192x192', type: 'image/webp' },
+      { url: 'https://astrasai.in/favicon.ico', sizes: 'any' },
+      { url: 'https://astrasai.in/logo.webp', sizes: '192x192', type: 'image/webp' },
     ],
-    shortcut: '/favicon.ico',
-    apple: '/logo.webp',
+    shortcut: 'https://astrasai.in/favicon.ico',
+    apple: 'https://astrasai.in/logo.webp',
   },
   manifest: '/manifest.json',
   verification: {
@@ -163,10 +163,10 @@ export default function RootLayout({
     <html lang="en-IN" className={`${syne.variable} ${spaceGrotesk.variable} scroll-smooth`}>
       <head>
         {/* Explicit Favicons for SEO Scrapers */}
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/webp" sizes="192x192" href="/logo.webp" />
-        <link rel="apple-touch-icon" href="/logo.webp" />
+        <link rel="shortcut icon" href="https://astrasai.in/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="https://astrasai.in/favicon.ico" />
+        <link rel="icon" type="image/webp" sizes="192x192" href="https://astrasai.in/logo.webp" />
+        <link rel="apple-touch-icon" href="https://astrasai.in/logo.webp" />
       </head>
       <body className={`${syne.variable} ${spaceGrotesk.variable} font-body bg-void text-white antialiased selection:bg-hologram-cyan selection:text-void`}>
         <Background3D />
