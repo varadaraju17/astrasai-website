@@ -65,7 +65,7 @@ const ServiceCard = ({ service }: { service: ServiceData }) => {
                     title={service.title}
                     fill
                     quality={60}
-                    sizes="(max-width: 768px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
@@ -94,6 +94,7 @@ const ServiceCard = ({ service }: { service: ServiceData }) => {
                 <div className="pt-2 md:pt-4 mt-auto">
                     <Link
                         href={`/services/${serviceSlugs[service.id] || "ai-website-development"}`}
+                        aria-label={`Know more about ${service.title}`}
                         className="w-full py-1.5 px-3 md:py-2 md:px-4 rounded-lg border border-cyan-500/30 bg-cyan-950/20 hover:bg-cyan-500 hover:text-black hover:border-cyan-400 text-cyan-400 transition-all duration-300 flex items-center justify-center gap-2 group/btn shadow-[0_0_10px_rgba(0,240,255,0.1)]"
                     >
                         <span className="text-xs md:text-sm font-bold uppercase tracking-wider">Know More</span>

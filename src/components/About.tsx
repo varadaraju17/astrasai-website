@@ -87,7 +87,7 @@ const AboutCard = ({ item, onClick }: { item: AboutItem; onClick: () => void }) 
                     title={item.title}
                     fill
                     quality={60}
-                    sizes="(max-width: 768px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 22vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />

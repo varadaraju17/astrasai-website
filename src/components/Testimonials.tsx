@@ -127,7 +127,7 @@ export default function Testimonials() {
 
               <div className="border-t border-white/5 pt-4 flex items-center justify-between">
                 <div>
-                  <h4 className="text-white font-bold text-base font-display">{t.name}</h4>
+                  <h3 className="text-white font-bold text-base font-display">{t.name}</h3>
                   <p className="text-xs text-gray-500">{t.role}, <span className="text-cyan-500">{t.company}</span></p>
                 </div>
               </div>
