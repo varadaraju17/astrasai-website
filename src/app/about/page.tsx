@@ -22,6 +22,8 @@ export const metadata: Metadata = {
     title: 'About Astras AI — Elite AI Innovation Studio in Bangalore',
     description: 'We are Astras AI — building the intelligent digital future for startups and enterprises. Human-centric AI, enterprise-grade security, and infinite scalability.',
     url: `${domain}/about`,
+    locale: 'en_IN',
+    alternateLocale: 'en_US',
     images: [
       {
         url: `${domain}/og-image.jpg`,

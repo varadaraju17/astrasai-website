@@ -63,7 +63,7 @@ const keywords = [
 export const metadata: Metadata = {
   metadataBase: new URL(domain),
   title: {
-    default: 'Astras AI | #1 AI Agency for Websites, Apps & AI Agents in Bangalore',
+    default: 'Astras AI | #1 AI Agency in Bangalore — Websites, Apps & AI Agents',
     template: `%s | ${companyName}`,
   },
   description,

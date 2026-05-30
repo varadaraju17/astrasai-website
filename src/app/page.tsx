@@ -10,7 +10,7 @@ import AskAI from '@/components/AskAI';
 const domain = 'https://astrasai.in';
 
 export const metadata: Metadata = {
-  title: 'Astras AI — Bangalore\'s #1 AI Development Agency',
+  title: 'Astras AI | #1 AI Agency in Bangalore — Websites, Apps & AI Agents',
   description:
     'Astras AI is the leading AI agency in Bangalore, India. We build intelligent AI-powered websites, custom mobile apps, and autonomous AI agents for global startups and enterprises.',
   keywords: [

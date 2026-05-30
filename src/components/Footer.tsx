@@ -52,14 +52,22 @@ const Footer = () => {
               Company
             </h4>
             <ul className="space-y-4">
-              {['About', 'Services', 'Features', 'Contact'].map((item) => (
-                <li key={item}>
+              {[
+                { label: 'About', href: '/about' },
+                { label: 'Services', href: '/services' },
+                { label: 'Pricing', href: '/pricing' },
+                { label: 'Case Studies', href: '/case-studies' },
+                { label: 'Blog', href: '/blog' },
+                { label: 'FAQ', href: '/faq' },
+                { label: 'Contact', href: '/contact' },
+              ].map((item) => (
+                <li key={item.label}>
                   <Link
-                    href={`/${item.toLowerCase()}`}
+                    href={item.href}
                     className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group text-sm"
                   >
                     <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-cyan-400" />
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">{item}</span>
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                   </Link>
                 </li>
               ))}
@@ -73,14 +81,22 @@ const Footer = () => {
               Services
             </h4>
             <ul className="space-y-4">
-              {['AI Agents', 'Web Development', 'Consulting', 'Marketing'].map((item) => (
-                <li key={item}>
+              {[
+                { label: 'AI Agents', href: '/services/ai-agents' },
+                { label: 'Web Development', href: '/services/ai-website-development' },
+                { label: 'Mobile Apps', href: '/services/mobile-app-development' },
+                { label: 'Digital Marketing', href: '/services/digital-marketing' },
+                { label: 'Business Automation', href: '/services/business-automation' },
+                { label: 'Startup MVP', href: '/services/startup-mvp' },
+                { label: 'SEO Optimization', href: '/services/seo-optimization' },
+              ].map((item) => (
+                <li key={item.label}>
                   <Link
-                    href="/services"
+                    href={item.href}
                     className="text-gray-400 hover:text-purple-400 transition-colors flex items-center gap-2 group text-sm"
                   >
                     <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-purple-400" />
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">{item}</span>
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                   </Link>
                 </li>
               ))}
@@ -132,11 +148,7 @@ const Footer = () => {
             <ul className="space-y-5">
               <li>
                 <a 
-                  href="#" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.location.href = "mailto:" + "services" + "@" + "astrasai.in";
-                  }} 
+                  href="mailto:services@astrasai.in"
                   className="group flex items-start gap-3 text-gray-400 hover:text-cyan-400 transition-colors"
                 >
                   <div className="p-2 rounded-md bg-white/5 group-hover:bg-cyan-500/10 transition-colors mt-0.5 border border-white/5 group-hover:border-cyan-500/20">
@@ -144,9 +156,7 @@ const Footer = () => {
                   </div>
                   <div className="text-sm">
                     <span className="block text-[10px] text-gray-400 uppercase tracking-wider mb-0.5 font-medium">Email Us</span>
-                    <span>services</span>
-                    <span>@</span>
-                    <span>astrasai.in</span>
+                    <span>services@astrasai.in</span>
                   </div>
                 </a>
               </li>
