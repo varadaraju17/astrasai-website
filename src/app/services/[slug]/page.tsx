@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Breadcrumb from '@/components/Breadcrumb';
+import { ArrowRight, Sparkles, CheckCircle2, Zap } from 'lucide-react';
 
 const domain = 'https://astrasai.in';
 
@@ -175,6 +177,106 @@ const serviceConfigs: ServicePageConfig[] = [
       { value: '25+', label: 'Social media clients' },
     ],
   },
+  {
+    slug: 'custom-software',
+    pageTitle: 'AI Custom Software Development Bangalore | Astras AI',
+    title: 'AI Custom Software Development Bangalore',
+    description: 'Astras AI builds bespoke AI-integrated software solutions in Bangalore. ERP, CRM, internal tools, and SaaS platforms powered by machine learning. Starting from ₹1,00,000.',
+    keywords: ['custom software development Bangalore', 'bespoke software India', 'AI software development Bangalore', 'ERP development India', 'CRM development Bangalore', 'SaaS development India'],
+    color: 'cyan',
+    emoji: '💻',
+    tagline: 'Bespoke AI Solutions',
+    startingPrice: '₹1,00,000',
+    timeline: '8–12 weeks',
+    what: [
+      { title: 'Custom CRM Platform', desc: 'Smart CRM system that tracks leads, automates sales follow-ups, and predicts deal closures using custom AI.', price: 'From ₹1,00,000' },
+      { title: 'Enterprise ERP Suite', desc: 'Connect operations, finance, and logistics in one unified dashboard with AI-driven inventory forecasting.', price: 'From ₹3,00,000' },
+      { title: 'B2B SaaS Platform', desc: 'Multi-tenant secure SaaS platform built with robust modern architecture, subscription billing, and custom AI tools.', price: 'From ₹5,00,000' },
+      { title: 'Custom Dashboards', desc: 'Real-time internal operations dashboards that clean, analyze, and visualize complex metrics using AI.', price: 'From ₹1,00,000' },
+      { title: 'AI Database Integration', desc: 'Convert legacy databases into vector databases enabling semantic search and smart document retrieval.', price: 'From ₹1,50,000' },
+    ],
+    stats: [
+      { value: '8–12 wks', label: 'Small System Delivery' },
+      { value: '16–24 wks', label: 'Medium System Delivery' },
+      { value: '99.9%', label: 'Uptime & reliability' },
+      { value: '100%', label: 'IP & Code Ownership' },
+    ],
+  },
+  {
+    slug: 'academic-projects',
+    pageTitle: 'AI Academic Project Help Bangalore | Final Year Projects | Astras AI',
+    title: 'AI Academic Projects Bangalore',
+    description: 'Astras AI provides expert support for AI/ML academic projects, final year projects, and research in Bangalore. Code, documentation, presentation, and viva preparation.',
+    keywords: ['AI academic projects Bangalore', 'final year project help India', 'machine learning project help Bangalore', 'deep learning project India', 'BE BTech project help Bangalore', 'academic AI project support India'],
+    color: 'purple',
+    emoji: '🎓',
+    tagline: 'Final Year Projects & Research',
+    startingPrice: '₹3,000',
+    timeline: '2–4 weeks',
+    what: [
+      { title: 'Mini Project Support', desc: 'Simple machine learning or web project with working code and essential project documentation.', price: '₹3,000 - ₹8,000' },
+      { title: 'Major Project Support', desc: 'Full AI/ML system implementation, comprehensive documentation, PPT design, and dedicated viva preparation.', price: '₹8,000 - ₹25,000' },
+      { title: 'Research Implementation', desc: 'Reproduce and extend a published high-impact IEEE or Springer research paper with detailed performance metrics.', price: '₹15,000 - ₹40,000' },
+      { title: 'Dataset Processing', desc: 'Collection, cleaning, labeling, and training-test split of specialized domain datasets for custom models.', price: 'From ₹5,000' },
+      { title: 'Viva & PPT Preparation', desc: 'Mock viva presentation sessions and professionally designed slides to confidently defend your project.', price: 'From ₹3,000' },
+    ],
+    stats: [
+      { value: '100%', label: 'Project selection approval' },
+      { value: '2–4 wks', label: 'Completion timeline' },
+      { value: '500+', label: 'Students mentored' },
+      { value: 'A+ Grade', label: 'Avg. project result' },
+    ],
+  },
+  {
+    slug: 'career-mentorship',
+    pageTitle: 'AI Career Mentorship Bangalore | Resume & Interview Coaching | Astras AI',
+    title: 'AI Career Mentorship Bangalore',
+    description: 'Astras AI\'s career mentorship in Bangalore helps you land your dream tech job. AI-optimized resume, LinkedIn makeover, mock interviews, and job roadmaps.',
+    keywords: ['career mentorship Bangalore', 'AI resume writing India', 'LinkedIn optimization Bangalore', 'interview coaching India', 'career coaching Bangalore', 'job search help India', 'ATS resume optimization'],
+    color: 'green',
+    emoji: '💼',
+    tagline: 'Land Your Dream Tech Job',
+    startingPrice: '₹2,500',
+    timeline: '1–4 weeks',
+    what: [
+      { title: 'ATS Resume Makeover', desc: 'Rewrite and optimize your resume to pass automated ATS screenings with keyword integration.', price: 'From ₹2,500' },
+      { title: 'LinkedIn Profile Makeover', desc: 'Revamp headline, summary, skills, and featured sections to attract global recruiters organically.', price: 'From ₹3,500' },
+      { title: 'Mock Interviews', desc: 'Realistic technical and HR mock interviews with detailed feedback on coding, system design, and communication.', price: 'From ₹4,000' },
+      { title: 'Job Search Strategy', desc: 'Customized 90-day cold emailing scripts, networking templates, and warm introduction strategies.', price: 'From ₹5,000' },
+      { title: 'Tech Career Transition', desc: 'Complete personalized program for transitioning into AI, data science, or web development from non-tech roles.', price: 'From ₹10,000' },
+    ],
+    stats: [
+      { value: '3 callback', label: 'Increase in recruiter calls' },
+      { value: '150+', label: 'Professionals placed' },
+      { value: '45%', label: 'Average salary hike' },
+      { value: '100%', label: 'ATS pass guarantee' },
+    ],
+  },
+  {
+    slug: 'profile-building',
+    pageTitle: 'AI Profile Building & Resume Optimization Bangalore | Astras AI',
+    title: 'AI Profile Building Bangalore',
+    description: 'Beat the ATS. Astras AI uses advanced AI to optimize your resume, LinkedIn, and GitHub profiles so top recruiters in Bangalore find and hire you.',
+    keywords: ['profile building Bangalore', 'resume writing services Bangalore', 'LinkedIn profile makeover India', 'GitHub portfolio review Bangalore', 'ATS resume optimization India'],
+    color: 'pink',
+    emoji: '⭐',
+    tagline: 'Beat the ATS Filters',
+    startingPrice: '₹3,00,000', // Updated to match user config
+    timeline: '3–5 days',
+    what: [
+      { title: 'ATS-Optimized Resume', desc: 'A professional resume formatted and optimized with high-impact industry keywords to pass all ATS software.', price: 'From ₹3,000' },
+      { title: 'LinkedIn Profile Makeover', desc: 'Complete revamp of your headline, summary, featured items, and skills to boost organic views from recruiters.', price: 'From ₹3,500' },
+      { title: 'GitHub Portfolio Review', desc: 'Structuring your repositories, polishing READMEs, and pinning high-impact code showcases for technical reviewers.', price: 'From ₹2,000' },
+      { title: 'Elevator Pitch & Brand Statement', desc: 'Craft a compelling 30-second personal value statement that leaves an indelible impression on hiring managers.', price: 'From ₹1,500' },
+      { title: 'Recommendation Strategy', desc: 'Structured templates and step-by-step guidance on securing powerful peer and mentor recommendations.', price: 'From ₹1,000' },
+    ],
+    stats: [
+      { value: '3 days', label: 'Fast delivery' },
+      { value: '98%', label: 'ATS compatibility' },
+      { value: '5x', label: 'Profile visibility increase' },
+      { value: '200+', label: 'Successful makeovers' },
+    ],
+  },
 ];
 
 export async function generateStaticParams() {
@@ -199,87 +301,199 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-const colorClasses: Record<string, { text: string; border: string; bg: string; btn: string }> = {
-  cyan: { text: 'text-cyan-400', border: 'border-cyan-500/30', bg: 'bg-cyan-950/30', btn: 'bg-cyan-500 hover:bg-cyan-400 text-black' },
-  purple: { text: 'text-purple-400', border: 'border-purple-500/30', bg: 'bg-purple-950/30', btn: 'bg-purple-600 hover:bg-purple-500 text-white' },
-  green: { text: 'text-green-400', border: 'border-green-500/30', bg: 'bg-green-950/30', btn: 'bg-green-600 hover:bg-green-500 text-white' },
-  pink: { text: 'text-pink-400', border: 'border-pink-500/30', bg: 'bg-pink-950/30', btn: 'bg-pink-600 hover:bg-pink-500 text-white' },
-  yellow: { text: 'text-yellow-400', border: 'border-yellow-500/30', bg: 'bg-yellow-950/30', btn: 'bg-yellow-500 hover:bg-yellow-400 text-black' },
+const colorClasses: Record<string, { text: string; border: string; bg: string; btn: string; glow: string }> = {
+  cyan: { text: 'text-cyan-400', border: 'border-cyan-500/30', bg: 'bg-cyan-950/20', btn: 'bg-cyan-500 text-black hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]', glow: 'rgba(0,240,255,0.15)' },
+  purple: { text: 'text-purple-400', border: 'border-purple-500/30', bg: 'bg-purple-950/20', btn: 'bg-purple-600 text-white hover:bg-purple-500 hover:shadow-[0_0_30px_rgba(112,0,255,0.5)]', glow: 'rgba(112,0,255,0.15)' },
+  green: { text: 'text-green-400', border: 'border-green-500/30', bg: 'bg-green-950/20', btn: 'bg-green-600 text-white hover:bg-green-500 hover:shadow-[0_0_30px_rgba(34,197,94,0.5)]', glow: 'rgba(34,197,94,0.12)' },
+  pink: { text: 'text-pink-400', border: 'border-pink-500/30', bg: 'bg-pink-950/20', btn: 'bg-pink-600 text-white hover:bg-pink-500 hover:shadow-[0_0_30px_rgba(236,72,153,0.5)]', glow: 'rgba(236,72,153,0.12)' },
+  yellow: { text: 'text-yellow-400', border: 'border-yellow-500/30', bg: 'bg-yellow-950/20', btn: 'bg-yellow-500 text-black hover:bg-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.5)]', glow: 'rgba(234,179,8,0.12)' },
 };
+
+// --- CSS Aurora Background ---
+const AuroraBackground = ({ glowColor }: { glowColor: string }) => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none bg-black">
+    {/* Base Grid Pattern */}
+    <div
+      className="absolute inset-0 z-0 opacity-[0.12]"
+      style={{
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px)`,
+        backgroundSize: '45px 45px',
+        maskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
+      }}
+    />
+    {/* Dynamic Orb */}
+    <div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] rounded-full"
+      style={{
+        background: glowColor,
+        filter: 'blur(100px)',
+        animation: 'serviceOrb1 18s ease-in-out infinite',
+        willChange: 'transform',
+      }}
+    />
+    <div className="absolute bottom-1/4 right-1/4 w-[35vw] h-[35vw] rounded-full"
+      style={{
+        background: 'rgba(112,0,255,0.06)',
+        filter: 'blur(110px)',
+        animation: 'serviceOrb2 22s ease-in-out infinite',
+        willChange: 'transform',
+      }}
+    />
+    <style>{`
+      @keyframes serviceOrb1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(3vw, -4vh) scale(1.08); }
+      }
+      @keyframes serviceOrb2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(-3vw, 3vh) scale(0.92); }
+      }
+    `}</style>
+  </div>
+);
 
 export default function ServicePage({ params }: { params: { slug: string } }) {
   const config = serviceConfigs.find((s) => s.slug === params.slug);
-  if (!config) return <div className="min-h-screen bg-black text-white flex items-center justify-center"><p>Service not found. <Link href="/services" className="text-cyan-400 underline">View all services →</Link></p></div>;
+  if (!config) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <p>Service not found. <Link href="/services" className="text-cyan-400 underline">View all services →</Link></p>
+      </div>
+    );
+  }
 
-  const c = colorClasses[config.color];
+  const c = colorClasses[config.color] || colorClasses.cyan;
 
   return (
-    <main className="min-h-screen bg-black text-white">
-      <section className={`pt-32 pb-20 px-4 bg-gradient-to-b from-${config.color}-950/20 to-black`}>
-        <div className="max-w-5xl mx-auto text-center">
-          <nav className="text-sm text-gray-500 mb-8">
-            <Link href="/" className="hover:text-cyan-400">Home</Link> &rsaquo;{' '}
-            <Link href="/services" className="hover:text-cyan-400">Services</Link> &rsaquo;{' '}
-            <span className="text-gray-300">{config.title}</span>
-          </nav>
-          <div className={`inline-block text-5xl mb-6`}>{config.emoji}</div>
-          <span className={`inline-block px-4 py-1.5 rounded-full border ${c.border} ${c.bg} ${c.text} text-xs font-mono uppercase tracking-wider mb-6`}>
-            {config.tagline}
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">{config.title}</h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10">
+    <main className="min-h-screen bg-black text-white relative overflow-hidden font-body">
+      {/* Aurora Ambience */}
+      <AuroraBackground glowColor={c.glow} />
+
+      {/* ── HERO SECTION ── */}
+      <section className="relative pt-32 pb-20 px-4 md:px-8 z-10">
+        <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
+          
+          <div className="flex justify-center mb-6">
+            <Breadcrumb
+              items={[
+                { label: 'Home', href: '/' },
+                { label: 'Services', href: '/services' },
+                { label: config.title }
+              ]}
+            />
+          </div>
+
+          <div className="text-6xl mb-6 animate-bounce">{config.emoji}</div>
+          
+          <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border ${c.border} ${c.bg} ${c.text} text-xs font-semibold tracking-wider uppercase mb-8 shadow-inner`}>
+            <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+            <span>{config.tagline}</span>
+          </div>
+
+          <h1 className="font-display font-black tracking-tight text-white leading-tight mb-8 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+            {config.title}
+          </h1>
+
+          <p className="speakable text-lg sm:text-xl text-gray-300 leading-relaxed mb-12 max-w-3xl font-light">
             {config.description.split('.')[0]}. Starting from{' '}
-            <strong className={c.text}>{config.startingPrice}</strong>.{' '}
-            Delivered in {config.timeline}.
+            <span className={`${c.text} font-medium`}>{config.startingPrice}</span>. Completed within {config.timeline}.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className={`px-8 py-4 rounded-lg ${c.btn} font-bold transition-colors`}>Get Free Quote</Link>
-            <Link href="/pricing" className="px-8 py-4 rounded-lg border border-white/20 hover:border-cyan-500/50 text-white hover:text-cyan-400 transition-colors">View Pricing</Link>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto">
+            <Link href="/contact" className={`relative flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-bold text-sm md:text-base transition-all duration-300 w-full sm:w-auto ${c.btn}`}>
+              Get Free Quote
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link href="/pricing" className="flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-bold text-sm md:text-base bg-white/5 text-white border border-white/20 hover:bg-white/10 hover:border-cyan-400/50 backdrop-blur-md transition-all duration-300 w-full sm:w-auto">
+              View Pricing
+            </Link>
           </div>
+
         </div>
       </section>
 
-      <section className="py-20 px-4">
+      {/* ── WHAT WE OFFER ── */}
+      <section className="relative py-24 px-4 md:px-8 z-10 border-t border-white/10 bg-black/40">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">What We Offer</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white tracking-tight">
+              Elite <span className={c.text}>Capabilities</span>
+            </h2>
+            <p className="text-gray-400 mt-4 text-base md:text-lg max-w-2xl mx-auto font-light">
+              Bespoke systems engineered with next-gen AI to give you a definitive market advantage.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {config.what.map((w) => (
-              <div key={w.title} className={`p-6 rounded-xl border border-white/10 bg-white/5 hover:${c.border} transition-colors`}>
-                <h3 className="text-xl font-bold text-white mb-2">{w.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">{w.desc}</p>
-                <span className={`${c.text} font-bold text-sm`}>{w.price}</span>
+              <div 
+                key={w.title} 
+                className={`group flex flex-col justify-between p-8 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(0,240,255,0.02)] hover:border-${config.color}-400/60 hover:shadow-[0_0_40px_rgba(0,240,255,0.15)] transition-all duration-500`}
+              >
+                <div>
+                  <h3 className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors font-display tracking-tight">
+                    {w.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                    {w.desc}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                  <span className={`${c.text} font-bold text-sm tracking-wide`}>{w.price}</span>
+                  <span className="text-xs uppercase tracking-wider text-cyan-400/70 group-hover:text-cyan-300 flex items-center gap-1 transition-colors">
+                    Request <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-white/5">
+      {/* ── CLIENT STATS BOARD ── */}
+      <section className="relative py-24 px-4 md:px-8 z-10 border-t border-white/10 bg-white/5">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-white text-center mb-10">Results Our Clients Achieve</h2>
-          <div className={`grid grid-cols-2 md:grid-cols-4 gap-6`}>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white tracking-tight">
+              Sovereign <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Milestones</span>
+            </h2>
+            <p className="text-gray-400 mt-4 text-sm md:text-base font-light">
+              Demonstrated success parameters across our operational profiles.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {config.stats.map(({ value, label }) => (
-              <div key={label} className={`text-center p-6 rounded-xl border ${c.border} ${c.bg}`}>
-                <div className={`text-4xl font-bold ${c.text} mb-2`}>{value}</div>
-                <div className="text-gray-400 text-sm">{label}</div>
+              <div 
+                key={label} 
+                className={`p-6 rounded-2xl border border-white/10 bg-black/60 flex flex-col items-center text-center hover:border-cyan-500/30 transition-all duration-300`}
+              >
+                <div className="p-3 rounded-xl bg-black/40 border border-white/5 mb-4">
+                  <Zap className={`w-6 h-6 ${c.text}`} />
+                </div>
+                <div className="text-3xl font-black text-white font-display mb-1">{value}</div>
+                <div className="text-gray-400 text-xs uppercase tracking-wider">{label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-4">
-        <div className="max-w-3xl mx-auto text-center p-10 rounded-2xl border border-white/10 bg-gradient-to-br from-cyan-950/10 to-purple-950/10">
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
-          <p className="text-gray-400 mb-8">Get a free 30-minute consultation. We&apos;ll discuss your specific needs and provide a custom quote within 24 hours.</p>
-          <Link href="/contact" className={`inline-block px-10 py-4 rounded-lg ${c.btn} font-bold transition-colors text-lg`}>
+      {/* ── CALL TO ACTION ── */}
+      <section className="relative py-24 px-4 md:px-8 z-10">
+        <div className="max-w-3xl mx-auto text-center p-12 rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-950/20 to-purple-950/10 shadow-[0_0_50px_rgba(0,240,255,0.08)]">
+          <h2 className="text-2xl md:text-4xl font-display font-bold text-white mb-4">Ready to Get Started?</h2>
+          <p className="text-gray-400 mb-8 max-w-xl mx-auto font-light leading-relaxed">
+            Get a free 30-minute consultation. We&apos;ll discuss your specific needs and provide a custom quote within 24 hours.
+          </p>
+          <Link href="/contact" className={`inline-block px-10 py-4 rounded-full ${c.btn} font-bold transition-all text-lg shadow-lg`}>
             Book Free Consultation →
           </Link>
-          <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-gray-500">
-            <span>✓ Free consultation</span>
-            <span>✓ Custom quote in 24hrs</span>
-            <span>✓ No hidden fees</span>
-            <span>✓ 30-day support included</span>
+          <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
+            <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-green-400" /> Free consultation</span>
+            <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-green-400" /> Custom quote in 24hrs</span>
+            <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-green-400" /> No hidden fees</span>
+            <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-green-400" /> 30-day support</span>
           </div>
         </div>
       </section>

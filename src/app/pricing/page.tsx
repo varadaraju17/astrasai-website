@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { ArrowRight, Sparkles, Check } from 'lucide-react';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const domain = 'https://astrasai.in';
 
@@ -231,79 +233,145 @@ const pricingPlans = [
   },
 ];
 
+// --- CSS Aurora Background ---
+const AuroraBackground = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none bg-black">
+    {/* Base Grid Pattern */}
+    <div
+      className="absolute inset-0 z-0 opacity-[0.12]"
+      style={{
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px)`,
+        backgroundSize: '45px 45px',
+        maskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
+      }}
+    />
+    {/* Orbs */}
+    <div className="absolute top-1/3 left-1/4 w-[40vw] h-[40vw] rounded-full"
+      style={{
+        background: 'rgba(0,240,255,0.14)',
+        filter: 'blur(100px)',
+        animation: 'pricingOrb1 20s ease-in-out infinite',
+        willChange: 'transform',
+      }}
+    />
+    <div className="absolute bottom-1/3 right-1/4 w-[35vw] h-[35vw] rounded-full"
+      style={{
+        background: 'rgba(112,0,255,0.12)',
+        filter: 'blur(110px)',
+        animation: 'pricingOrb2 24s ease-in-out infinite',
+        willChange: 'transform',
+      }}
+    />
+    <style>{`
+      @keyframes pricingOrb1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(4vw, -4vh) scale(1.08); }
+      }
+      @keyframes pricingOrb2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(-4vw, 4vh) scale(0.92); }
+      }
+    `}</style>
+  </div>
+);
+
 export default function PricingPage() {
   return (
-    <main className="min-h-screen bg-black text-white py-32 px-4">
-      <div className="max-w-7xl mx-auto">
+    <main className="min-h-screen bg-black text-white py-32 px-4 relative overflow-hidden font-body">
+      <AuroraBackground />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        
+        {/* Breadcrumb */}
+        <div className="flex justify-center mb-6">
+          <Breadcrumb
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Pricing' }
+            ]}
+          />
+        </div>
+
         {/* Header */}
-        <div className="text-center mb-20">
-          <span className="inline-block px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 text-xs font-mono uppercase tracking-wider mb-6">
-            Pricing
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Transparent{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-              Pricing
-            </span>
+        <div className="text-center mb-24">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 text-xs font-semibold tracking-wider uppercase mb-6 shadow-[0_0_20px_rgba(0,240,255,0.15)]">
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+            <span>TRANSPARENT_MUTATIONS</span>
+          </div>
+          
+          <h1 className="font-display font-black tracking-tight text-white leading-tight mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+            Sovereign <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 drop-shadow-[0_0_20px_rgba(0,240,255,0.3)]">Pricing</span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            No hidden fees. No surprises. World-class AI solutions built for Indian businesses — 
-            from startups to enterprises. All prices in INR.
+
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
+            No hidden retainers. No surprise clauses. High-fidelity systems engineered in Bangalore, deployed globally. All metrics mapped in INR.
           </p>
         </div>
 
         {/* Pricing Sections */}
-        <div className="space-y-24">
+        <div className="space-y-32">
           {pricingPlans.map((section) => (
-            <div key={section.category}>
-              <div className="flex items-center gap-4 mb-10">
-                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-cyan-500/50" />
-                <h2 className="text-2xl md:text-3xl font-bold text-white text-center px-4">
+            <div key={section.category} className="border-t border-white/10 pt-16">
+              
+              <div className="flex items-center gap-6 mb-12">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-cyan-500/30" />
+                <h2 className="text-2xl md:text-4xl font-display font-bold text-white text-center px-4 tracking-tight drop-shadow-[0_0_10px_rgba(0,240,255,0.3)]">
                   {section.category}
                 </h2>
-                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-cyan-500/50" />
+                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-cyan-500/30" />
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {section.plans.map((plan) => (
                   <div
                     key={plan.name}
-                    className={`relative rounded-2xl border p-8 flex flex-col transition-all duration-300 ${
+                    className={`group relative rounded-3xl border flex flex-col p-8 md:p-10 transition-all duration-500 hover:-translate-y-2 ${
                       plan.highlight
-                        ? 'border-cyan-500/60 bg-gradient-to-br from-cyan-950/30 to-purple-950/20 shadow-[0_0_30px_rgba(0,240,255,0.15)]'
-                        : 'border-white/10 bg-white/5 hover:border-cyan-500/30'
+                        ? 'border-cyan-500/50 bg-gradient-to-br from-cyan-950/20 to-purple-950/20 shadow-[0_0_40px_rgba(0,240,255,0.15)] hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(0,240,255,0.3)]'
+                        : 'border-white/10 bg-black/60 backdrop-blur-xl hover:border-cyan-500/40 hover:shadow-[0_0_40px_rgba(0,240,255,0.1)]'
                     }`}
                   >
                     {plan.highlight && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                        <span className="px-4 py-1 rounded-full bg-cyan-500 text-black text-xs font-bold uppercase">
-                          Most Popular
+                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 shadow-lg">
+                        <span className="px-4 py-1.5 rounded-full bg-cyan-500 text-black text-[10px] font-black uppercase tracking-widest flex items-center gap-1">
+                          <Sparkles className="w-3 h-3 text-black fill-black" /> Most Popular
                         </span>
                       </div>
                     )}
 
-                    <div className="mb-6">
-                      <h3 className="text-xl font-bold text-white mb-1">{plan.name}</h3>
-                      <p className="text-gray-400 text-sm mb-4">{plan.description}</p>
-                      <div className="text-4xl font-bold text-cyan-400 mb-1">{plan.price}</div>
-                      <div className="text-gray-500 text-sm">Timeline: {plan.timeline}</div>
+                    <div className="mb-8">
+                      <h3 className="text-2xl font-bold text-white mb-2 font-display tracking-tight group-hover:text-cyan-400 transition-colors">
+                        {plan.name}
+                      </h3>
+                      <p className="text-gray-400 text-sm leading-relaxed mb-6 font-light">{plan.description}</p>
+                      
+                      <div className="flex items-baseline gap-1.5 my-4">
+                        <span className="text-4xl md:text-5xl font-black text-cyan-400 font-display drop-shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+                          {plan.price}
+                        </span>
+                      </div>
+                      
+                      <div className="text-gray-500 text-xs uppercase tracking-wider font-mono">Timeline: {plan.timeline}</div>
                     </div>
 
-                    <ul className="space-y-3 mb-8 flex-grow">
+                    <ul className="space-y-4 mb-8 flex-grow">
                       {plan.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2 text-gray-400 text-sm">
-                          <span className="text-cyan-400 mt-0.5">✓</span>
-                          {f}
+                        <li key={f} className="flex items-start gap-3 text-gray-300 text-sm">
+                          <div className="mt-0.5 p-0.5 rounded-full bg-cyan-950 border border-cyan-500/30 text-cyan-400 shrink-0 shadow-inner">
+                            <Check className="w-3.5 h-3.5" />
+                          </div>
+                          <span className="font-light">{f}</span>
                         </li>
                       ))}
                     </ul>
 
                     <Link
                       href="/contact"
-                      className={`w-full py-3 rounded-lg font-bold text-center transition-all ${
+                      className={`w-full py-4 rounded-full font-bold text-center text-sm md:text-base uppercase tracking-wider transition-all duration-300 shadow-md ${
                         plan.highlight
-                          ? 'bg-cyan-500 hover:bg-cyan-400 text-black'
-                          : 'border border-cyan-500/30 hover:bg-cyan-500/10 text-cyan-400'
+                          ? 'bg-cyan-500 hover:bg-cyan-400 text-black hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]'
+                          : 'border border-cyan-500/30 hover:bg-cyan-500 hover:text-black hover:border-cyan-400 text-cyan-400'
                       }`}
                     >
                       Get Started
@@ -312,14 +380,14 @@ export default function PricingPage() {
                 ))}
               </div>
 
-              <p className="text-center text-gray-500 text-sm mt-4">
-                Need something custom?{' '}
+              <p className="text-center text-gray-500 text-xs mt-6 font-mono uppercase tracking-wide">
+                Custom parameters?{' '}
                 <Link href={section.href} className="text-cyan-400 hover:underline">
-                  Learn more about {section.category}
+                  Explore {section.category} Details
                 </Link>{' '}
                 or{' '}
                 <Link href="/contact" className="text-cyan-400 hover:underline">
-                  contact us for a custom quote
+                  Initiate System Scope
                 </Link>.
               </p>
             </div>
@@ -327,15 +395,17 @@ export default function PricingPage() {
         </div>
 
         {/* FAQ Teaser */}
-        <div className="mt-24 text-center p-10 rounded-2xl border border-white/10 bg-gradient-to-br from-cyan-950/10 to-purple-950/10">
-          <h2 className="text-2xl font-bold text-white mb-3">Have pricing questions?</h2>
-          <p className="text-gray-400 mb-6">All projects come with a free 30-minute consultation call.</p>
+        <div className="mt-32 text-center p-12 rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-950/20 to-purple-950/10 shadow-[0_0_50px_rgba(0,240,255,0.05)] max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-display font-bold text-white mb-4">Have Pricing Questions?</h2>
+          <p className="text-gray-400 mb-8 max-w-xl mx-auto font-light leading-relaxed">
+            All custom builds start with a detailed 30-minute system assessment. Let&apos;s map your competitive advantages together.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/faq" className="px-8 py-3 rounded-lg border border-white/20 hover:border-cyan-500/50 text-white hover:text-cyan-400 transition-colors font-medium">
+            <Link href="/faq" className="px-8 py-3.5 border border-white/20 hover:border-cyan-500/50 text-white hover:text-cyan-400 rounded-xl transition-all flex items-center justify-center font-medium">
               View FAQ
             </Link>
-            <Link href="/contact" className="px-8 py-3 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-bold transition-colors">
-              Book Free Consultation
+            <Link href="/contact" className="px-8 py-3.5 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-xl transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2">
+              Book Free Consultation <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

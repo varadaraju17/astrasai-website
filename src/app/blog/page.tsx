@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { ArrowRight, Sparkles, BookOpen } from 'lucide-react';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const domain = 'https://astrasai.in';
 
@@ -86,66 +88,131 @@ const categoryColors: Record<string, string> = {
   'Mobile Development': 'text-pink-400 bg-pink-950/40 border-pink-500/30',
 };
 
+// --- CSS Aurora Background ---
+const AuroraBackground = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none bg-black">
+    {/* Base Grid Pattern */}
+    <div
+      className="absolute inset-0 z-0 opacity-[0.12]"
+      style={{
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px)`,
+        backgroundSize: '45px 45px',
+        maskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
+      }}
+    />
+    {/* Orbs */}
+    <div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] rounded-full"
+      style={{
+        background: 'rgba(0,240,255,0.13)',
+        filter: 'blur(100px)',
+        animation: 'blogOrb1 20s ease-in-out infinite',
+        willChange: 'transform',
+      }}
+    />
+    <div className="absolute bottom-1/4 right-1/4 w-[35vw] h-[35vw] rounded-full"
+      style={{
+        background: 'rgba(112,0,255,0.11)',
+        filter: 'blur(110px)',
+        animation: 'blogOrb2 25s ease-in-out infinite',
+        willChange: 'transform',
+      }}
+    />
+    <style>{`
+      @keyframes blogOrb1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(4vw, -4vh) scale(1.06); }
+      }
+      @keyframes blogOrb2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(-4vw, 4vh) scale(0.94); }
+      }
+    `}</style>
+  </div>
+);
+
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-black text-white py-32 px-4">
-      <div className="max-w-6xl mx-auto">
+    <main className="min-h-screen bg-black text-white py-32 px-4 relative overflow-hidden font-body">
+      <AuroraBackground />
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        
+        {/* Breadcrumb */}
+        <div className="flex justify-center mb-6">
+          <Breadcrumb
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Blog' }
+            ]}
+          />
+        </div>
+
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 text-xs font-mono uppercase tracking-wider mb-6">
-            Blog
+        <div className="text-center mb-20">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 text-xs font-semibold tracking-wider uppercase mb-6 shadow-[0_0_20px_rgba(0,240,255,0.15)]">
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+            <span>TRANSMISSION_FEED</span>
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            AI Insights &{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-              Expert Guides
-            </span>
+          
+          <h1 className="font-display font-black tracking-tight text-white leading-tight mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+            AI Insights & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 drop-shadow-[0_0_20px_rgba(0,240,255,0.3)]">Expert Guides</span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Practical AI knowledge for Indian entrepreneurs, developers, and business owners.
-            Written by the Astras AI team from Bangalore.
+
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
+            Practical AI knowledge, systems documentation, and digital tactical guidelines curated by Astras AI.
           </p>
         </div>
 
         {/* Featured Post */}
-        <div className="mb-12">
+        <div className="mb-16">
           <Link
             href={`/blog/${posts[0].slug}`}
-            className="group block rounded-2xl border border-white/10 bg-gradient-to-br from-cyan-950/20 to-purple-950/20 hover:border-cyan-500/40 transition-all overflow-hidden p-8 md:p-12"
+            className="group block rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-950/20 to-purple-950/20 hover:border-cyan-500/50 hover:shadow-[0_0_40px_rgba(0,240,255,0.15)] transition-all duration-500 p-8 md:p-12"
           >
-            <div className="flex flex-wrap gap-2 mb-4">
-              <span className={`px-3 py-1 rounded-full border text-xs font-mono ${categoryColors[posts[0].category] || 'text-gray-400 bg-white/5 border-white/10'}`}>
+            <div className="flex flex-wrap items-center gap-4 mb-6">
+              <span className={`px-3 py-1 rounded-full border text-[10px] font-mono uppercase tracking-wider ${categoryColors[posts[0].category] || 'text-gray-400 bg-white/5 border-white/10'}`}>
                 {posts[0].category}
               </span>
-              <span className="text-gray-500 text-xs flex items-center">{posts[0].readTime}</span>
-              <span className="text-gray-500 text-xs flex items-center">{posts[0].date}</span>
+              <span className="text-gray-500 text-xs font-mono">{posts[0].readTime}</span>
+              <span className="text-gray-500 text-xs font-mono">{posts[0].date}</span>
             </div>
-            <h2 className="text-2xl md:text-4xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-4">
+            
+            <h2 className="text-2xl md:text-4xl font-display font-bold text-white group-hover:text-cyan-400 transition-colors mb-4 tracking-tight leading-tight">
               {posts[0].title}
             </h2>
-            <p className="text-gray-400 text-lg leading-relaxed mb-6">{posts[0].excerpt}</p>
-            <span className="text-cyan-400 font-medium group-hover:underline">Read Article →</span>
+            
+            <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6 font-light">{posts[0].excerpt}</p>
+            
+            <span className="text-cyan-400 font-bold group-hover:text-cyan-300 flex items-center gap-2 transition-colors text-sm uppercase tracking-wider">
+              Read Complete Guide <ArrowRight className="w-4 h-4" />
+            </span>
           </Link>
         </div>
 
         {/* Post Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {posts.slice(1).map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group block rounded-xl border border-white/10 bg-white/5 hover:border-cyan-500/30 transition-all p-6 flex flex-col"
+              className="group flex flex-col justify-between rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl hover:border-cyan-500/50 hover:shadow-[0_0_40px_rgba(0,240,255,0.1)] transition-all duration-500 p-6 md:p-8"
             >
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className={`px-2 py-0.5 rounded-full border text-[10px] font-mono ${categoryColors[post.category] || 'text-gray-400 bg-white/5 border-white/10'}`}>
-                  {post.category}
-                </span>
+              <div>
+                <div className="flex flex-wrap items-center gap-3 mb-4">
+                  <span className={`px-2.5 py-0.5 rounded-full border text-[9px] font-mono uppercase tracking-wider ${categoryColors[post.category] || 'text-gray-400 bg-white/5 border-white/10'}`}>
+                    {post.category}
+                  </span>
+                </div>
+                
+                <h2 className="text-lg md:text-xl font-display font-bold text-white group-hover:text-cyan-400 transition-colors mb-4 tracking-tight leading-snug">
+                  {post.title}
+                </h2>
+                
+                <p className="text-gray-400 text-sm leading-relaxed mb-6 font-light line-clamp-3">{post.excerpt}</p>
               </div>
-              <h2 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors mb-3 flex-grow">
-                {post.title}
-              </h2>
-              <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
-              <div className="flex justify-between text-gray-600 text-xs pt-4 border-t border-white/5">
+
+              <div className="flex items-center justify-between text-gray-500 text-[10px] font-mono pt-4 border-t border-white/5 uppercase tracking-wider">
                 <span>{post.readTime}</span>
                 <span>{post.date}</span>
               </div>
@@ -154,13 +221,15 @@ export default function BlogPage() {
         </div>
 
         {/* Coming Soon notice */}
-        <div className="mt-16 text-center p-8 rounded-2xl border border-white/10 bg-white/5">
-          <p className="text-gray-400">
-            📬 More articles coming weekly.{' '}
-            <a href="mailto:services@astrasai.in" className="text-cyan-400 hover:underline">
-              Subscribe to our newsletter
-            </a>{' '}
-            to get notified.
+        <div className="mt-20 text-center p-10 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md max-w-2xl mx-auto">
+          <p className="text-gray-400 font-light flex items-center justify-center gap-2">
+            <BookOpen className="w-5 h-5 text-cyan-400" />
+            <span>
+              📬 System telemetry signals updated weekly.{' '}
+              <a href="mailto:services@astrasai.in" className="text-cyan-400 hover:text-cyan-300 font-bold hover:underline">
+                Subscribe to transmission feed
+              </a>.
+            </span>
           </p>
         </div>
       </div>

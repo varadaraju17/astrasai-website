@@ -1,149 +1,31 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, useMotionTemplate, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
-    ArrowRight, Sparkles, X, CheckCircle2, Zap, Lightbulb
+    ArrowRight, Sparkles
 } from "lucide-react";
 import { businessServices, individualServices, ServiceData } from "@/data/servicesData";
 
-
-// --- Service Modal Component ---
-const ServiceModal = ({ service, onClose }: { service: ServiceData; onClose: () => void }) => {
-    return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
-            onClick={onClose}
-        >
-            <motion.div
-                initial={{ scale: 0.9, opacity: 0, y: 20 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                onClick={(e) => e.stopPropagation()}
-                className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-black border border-cyan-500/30 rounded-2xl shadow-[0_0_50px_rgba(0,240,255,0.15)]"
-            >
-                {/* Close Button */}
-                <button
-                    onClick={onClose}
-                    className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/50 hover:bg-white/10 text-gray-400 hover:text-white transition-colors border border-white/10"
-                >
-                    <X className="w-6 h-6" />
-                </button>
-
-                {/* Header Section */}
-                <div className="w-full bg-gradient-to-r from-cyan-950/30 to-purple-950/30 p-8 flex flex-col md:flex-row items-center gap-6 border-b border-white/10 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />
-                    <div className="relative z-10 p-4 rounded-xl bg-black/40 backdrop-blur-md border border-cyan-500/30 shadow-[0_0_20px_rgba(0,240,255,0.2)]">
-                        {service.icon}
-                    </div>
-                    <div className="relative z-10 text-center md:text-left">
-                        <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">{service.title}</h3>
-                        <p className="text-cyan-400 font-mono text-sm uppercase tracking-wider">{service.benefit}</p>
-                    </div>
-                </div>
-
-                {/* Content Section */}
-                <div className="p-8 bg-black">
-                    <p className="hidden md:block text-gray-300 text-lg leading-relaxed mb-8 border-l-4 border-cyan-500 pl-6 italic">
-                        {service.details.extendedDesc}
-                    </p>
-
-                    {service.subServices ? (
-                        // Sub-Services Grid View
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                            {service.subServices.map((sub, idx) => (
-                                <div key={idx} className="group relative bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,240,255,0.1)] flex flex-col">
-                                    {/* Image */}
-                                    <div className="aspect-video w-full relative overflow-hidden shrink-0 bg-black/20">
-                                        <Image
-                                            src={sub.image}
-                                            alt={sub.title}
-                                            title={sub.title}
-                                            fill
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            className="object-cover group-hover:scale-110 transition-transform duration-500"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                        <div className="absolute top-2 right-2 md:top-3 md:right-3 px-1.5 py-0.5 md:px-2 md:py-1 rounded bg-black/60 backdrop-blur-md border border-white/10 text-[8px] md:text-[10px] font-mono uppercase tracking-wider text-cyan-400 z-10">
-                                            {sub.tagline}
-                                        </div>
-                                        <div className="absolute bottom-2 left-2 md:bottom-3 md:left-3 z-10 p-1.5 md:p-2 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 text-white">
-                                            {React.cloneElement(sub.icon as React.ReactElement<{ className?: string }>, { className: "w-3 h-3 md:w-4 md:h-4" })}
-                                        </div>
-                                    </div>
-                                    {/* Content */}
-                                    <div className="p-3 md:p-5 flex flex-col flex-grow">
-                                        <h4 className="text-lg font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors line-clamp-2">{sub.title}</h4>
-                                        <p className="text-gray-400 text-sm mb-4 line-clamp-3 leading-relaxed">{sub.description}</p>
-
-                                        {sub.features && (
-                                            <div className="mb-4 space-y-1 block">
-                                                {sub.features.slice(0, 2).map((feat, i) => (
-                                                    <div key={i} className="flex items-center gap-2 text-xs text-gray-500">
-                                                        <div className="w-1 h-1 rounded-full bg-cyan-400" />
-                                                        <span className="line-clamp-1">{feat}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
-
-                                        <Link
-                                            href={`/services/detail?id=${sub.id}`}
-                                            className="mt-auto w-full py-2.5 rounded-lg bg-white/5 hover:bg-cyan-500/20 border border-white/10 hover:border-cyan-500/50 text-cyan-400 text-xs md:text-sm font-bold uppercase tracking-wide flex items-center justify-center gap-2 transition-all group/link shadow-lg shadow-black/20"
-                                        >
-                                            Learn more <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
-                                        </Link>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    ) : (
-                        // Standard Detail View
-                        <div className="flex flex-col md:flex-row gap-8">
-                            <div className="flex-1">
-                                <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                                    <Zap className="w-5 h-5 text-cyan-400" />
-                                    Key Capabilities
-                                </h4>
-                                <ul className="space-y-3">
-                                    {service.details.features.map((feature, idx) => (
-                                        <li key={idx} className="flex items-start gap-3 text-gray-400">
-                                            <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
-                                            <span>{feature}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="w-full md:w-1/3">
-                                <div className="p-6 rounded-xl bg-white/5 border border-white/10 h-full">
-                                    <h4 className="text-sm font-bold text-gray-300 mb-4 uppercase tracking-wider flex items-center gap-2">
-                                        <Lightbulb className="w-4 h-4" /> Visual Metaphor
-                                    </h4>
-                                    <div className="text-center py-8">
-                                        <span className="text-4xl mb-4 block">✨</span>
-                                        <p className="text-cyan-400 font-mono text-lg">{service.details.visualMetaphor}</p>
-                                    </div>
-                                    <div className="mt-6 pt-6 border-t border-white/10">
-                                        <h4 className="text-sm font-bold text-gray-300 mb-2 uppercase tracking-wider">Best Example</h4>
-                                        <p className="text-gray-400 text-sm italic">&quot;{service.example}&quot;</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </motion.div>
-        </motion.div>
-    );
+const serviceSlugs: Record<string, string> = {
+    "web-dev": "ai-website-development",
+    "app-dev": "mobile-app-development",
+    "software-dev": "custom-software",
+    "ai-ads": "digital-marketing",
+    "ai-agents": "ai-agents",
+    "ai-mvp": "startup-mvp",
+    "ai-social": "social-media",
+    "ai-strategy": "business-automation",
+    "ai-seo": "seo-optimization",
+    "academic": "academic-projects",
+    "profile": "profile-building",
+    "career": "career-mentorship"
 };
 
 // --- Service Card Component ---
-const ServiceCard = ({ service, onClick }: { service: ServiceData; onClick: () => void }) => {
+const ServiceCard = ({ service }: { service: ServiceData }) => {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
     const mouseX = useSpring(x, { stiffness: 500, damping: 100 });
@@ -210,13 +92,13 @@ const ServiceCard = ({ service, onClick }: { service: ServiceData; onClick: () =
                 </p>
 
                 <div className="pt-2 md:pt-4 mt-auto">
-                    <button
-                        onClick={onClick}
+                    <Link
+                        href={`/services/${serviceSlugs[service.id] || "ai-website-development"}`}
                         className="w-full py-1.5 px-3 md:py-2 md:px-4 rounded-lg border border-cyan-500/30 bg-cyan-950/20 hover:bg-cyan-500 hover:text-black hover:border-cyan-400 text-cyan-400 transition-all duration-300 flex items-center justify-center gap-2 group/btn shadow-[0_0_10px_rgba(0,240,255,0.1)]"
                     >
                         <span className="text-xs md:text-sm font-bold uppercase tracking-wider">Know More</span>
                         <ArrowRight className="w-3 h-3 md:w-4 md:h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -224,8 +106,6 @@ const ServiceCard = ({ service, onClick }: { service: ServiceData; onClick: () =
 };
 
 const Services = () => {
-    const [selectedService, setSelectedService] = useState<ServiceData | null>(null);
-
     return (
         <section id="services" className="py-24 bg-black relative overflow-hidden">
 
@@ -276,7 +156,7 @@ const Services = () => {
                         <div className="h-px flex-1 bg-gradient-to-l from-transparent to-cyan-500/50" />
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
                         {businessServices.map((service, index) => (
                             <motion.div
                                 key={service.id}
@@ -286,7 +166,7 @@ const Services = () => {
                                 transition={{ delay: index * 0.05 }}
                                 className="h-full"
                             >
-                                <ServiceCard service={service} onClick={() => setSelectedService(service)} />
+                                <ServiceCard service={service} />
                             </motion.div>
                         ))}
                     </div>
@@ -305,7 +185,7 @@ const Services = () => {
                         <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple-500/50" />
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {individualServices.map((service, index) => (
                             <motion.div
                                 key={service.id}
@@ -315,19 +195,12 @@ const Services = () => {
                                 transition={{ delay: index * 0.05 }}
                                 className="h-full"
                             >
-                                <ServiceCard service={service} onClick={() => setSelectedService(service)} />
+                                <ServiceCard service={service} />
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </div>
-
-            {/* Modal */}
-            <AnimatePresence>
-                {selectedService && (
-                    <ServiceModal service={selectedService} onClose={() => setSelectedService(null)} />
-                )}
-            </AnimatePresence>
         </section>
     );
 };

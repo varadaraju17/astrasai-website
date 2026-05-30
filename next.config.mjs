@@ -15,6 +15,11 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/en/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
     ];
   },
   async headers() {

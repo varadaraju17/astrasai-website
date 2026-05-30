@@ -1,5 +1,8 @@
 import { Metadata } from 'next';
 import Script from 'next/script';
+import Link from 'next/link';
+import { ArrowRight, Sparkles } from 'lucide-react';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const domain = 'https://astrasai.in';
 
@@ -82,6 +85,49 @@ const faqSchema = {
   })),
 };
 
+// --- CSS Aurora Background ---
+const AuroraBackground = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none bg-black">
+    {/* Base Grid Pattern */}
+    <div
+      className="absolute inset-0 z-0 opacity-[0.12]"
+      style={{
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px)`,
+        backgroundSize: '45px 45px',
+        maskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
+      }}
+    />
+    {/* Orbs */}
+    <div className="absolute top-1/4 left-1/4 w-[45vw] h-[45vw] rounded-full"
+      style={{
+        background: 'rgba(0,240,255,0.13)',
+        filter: 'blur(110px)',
+        animation: 'faqOrb1 20s ease-in-out infinite',
+        willChange: 'transform',
+      }}
+    />
+    <div className="absolute bottom-1/4 right-1/4 w-[40vw] h-[40vw] rounded-full"
+      style={{
+        background: 'rgba(112,0,255,0.11)',
+        filter: 'blur(120px)',
+        animation: 'faqOrb2 25s ease-in-out infinite',
+        willChange: 'transform',
+      }}
+    />
+    <style>{`
+      @keyframes faqOrb1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(3vw, -3vh) scale(1.05); }
+      }
+      @keyframes faqOrb2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(-3vw, 3vh) scale(0.95); }
+      }
+    `}</style>
+  </div>
+);
+
 export default function FAQPage() {
   return (
     <>
@@ -91,38 +137,50 @@ export default function FAQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <main className="min-h-screen bg-black text-white py-32 px-4">
-        <div className="max-w-4xl mx-auto">
+      <main className="min-h-screen bg-black text-white py-32 px-4 relative overflow-hidden font-body">
+        <AuroraBackground />
+
+        <div className="max-w-4xl mx-auto relative z-10">
+          
+          {/* Breadcrumb */}
+          <div className="flex justify-center mb-6">
+            <Breadcrumb
+              items={[
+                { label: 'Home', href: '/' },
+                { label: 'FAQ' }
+              ]}
+            />
+          </div>
+
           {/* Header */}
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 text-xs font-mono uppercase tracking-wider mb-6">
-              FAQ
+          <div className="text-center mb-20">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 text-xs font-semibold tracking-wider uppercase mb-6 shadow-[0_0_20px_rgba(0,240,255,0.15)]">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+              <span>KNOWLEDGE_NODE</span>
             </span>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Frequently Asked{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-                Questions
-              </span>
+            
+            <h1 className="font-display font-black tracking-tight text-white leading-tight mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+              Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 drop-shadow-[0_0_20px_rgba(0,240,255,0.3)]">Questions</span>
             </h1>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Everything you need to know about Astras AI, our services, pricing, and timelines.
-              Can&apos;t find your answer?{' '}
-              <a href="/contact" className="text-cyan-400 hover:underline">Contact us</a>.
+
+            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
+              Find technical documentation, SLA timelines, pricing schedules, and operational blueprints.
+              Need custom assessments? <Link href="/contact" className="text-cyan-400 hover:underline">Contact us</Link>.
             </p>
           </div>
 
           {/* FAQ Items */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             {faqs.map(({ q, a }, i) => (
               <details
                 key={i}
-                className="group border border-white/10 rounded-xl bg-white/5 hover:border-cyan-500/30 transition-colors overflow-hidden"
+                className="group border border-white/10 rounded-2xl bg-black/60 backdrop-blur-xl hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(0,240,255,0.1)] transition-all duration-500 overflow-hidden"
               >
-                <summary className="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                  <span className="pr-4">{q}</span>
-                  <span className="text-cyan-400 text-2xl shrink-0 group-open:rotate-45 transition-transform duration-300">+</span>
+                <summary className="flex items-center justify-between p-6 md:p-8 cursor-pointer list-none font-bold text-white group-hover:text-cyan-400 transition-colors font-display tracking-tight text-base md:text-lg">
+                  <span className="pr-6">{q}</span>
+                  <span className="text-cyan-400 text-3xl font-light shrink-0 group-open:rotate-45 transition-transform duration-300 select-none">+</span>
                 </summary>
-                <div className="px-6 pb-6 text-gray-400 leading-relaxed border-t border-white/5 pt-4">
+                <div className="px-6 md:px-8 pb-6 md:pb-8 text-gray-400 leading-relaxed border-t border-white/5 pt-6 font-light text-sm md:text-base">
                   {a}
                 </div>
               </details>
@@ -130,21 +188,23 @@ export default function FAQPage() {
           </div>
 
           {/* CTA */}
-          <div className="mt-16 text-center p-8 rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-cyan-950/20 to-purple-950/20">
-            <h2 className="text-2xl font-bold text-white mb-3">Still have questions?</h2>
-            <p className="text-gray-400 mb-6">Our team responds within 2 hours during business hours.</p>
+          <div className="mt-24 text-center p-12 rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-950/20 to-purple-950/10 shadow-[0_0_50px_rgba(0,240,255,0.05)]">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">Still Have Questions?</h2>
+            <p className="text-gray-400 mb-8 font-light max-w-lg mx-auto">
+              Our engineering triage team processes assessments and replies within 2 hours.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <Link
                 href="/contact"
-                className="px-8 py-3 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-bold transition-colors"
+                className="px-8 py-3.5 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-xl transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2"
               >
-                Contact Us
-              </a>
+                Contact Us <ArrowRight className="w-4 h-4" />
+              </Link>
               <a
                 href="https://wa.me/918197489255"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 rounded-lg border border-white/20 hover:border-cyan-500/50 text-white hover:text-cyan-400 transition-colors font-medium"
+                className="px-8 py-3.5 border border-white/20 hover:border-cyan-500/50 text-white hover:text-cyan-400 rounded-xl transition-all flex items-center justify-center font-medium"
               >
                 WhatsApp Us
               </a>

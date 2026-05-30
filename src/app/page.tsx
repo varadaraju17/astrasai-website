@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Services from '@/components/Services';
 import Features from '@/components/Features';
+import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import AskAI from '@/components/AskAI';
 
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Astras AI | #1 AI Agency in Bangalore — Websites, Apps & AI Agents',
     description:
-      'Build your digital future with Astras AI. AI websites from ₹15,000 | Apps from ₹50,000 | AI Agents 24/7 | Performance Marketing. Based in Bangalore, serving globally.',
+      'We build intelligent AI-powered websites, custom mobile apps, and autonomous AI agents for global startups and enterprises. Headquartered in Bangalore.',
     url: domain,
     siteName: 'Astras AI',
     images: [
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     creator: '@astras_ai',
     title: 'Astras AI | Bangalore\'s #1 AI Agency — Websites, Apps & AI Agents',
     description:
-      'Build your digital future with Astras AI. AI websites from ₹15,000 | Apps from ₹50,000 | AI Agents 24/7 | Performance Marketing. Based in Bangalore, serving globally.',
+      'We build intelligent AI-powered websites, custom mobile apps, and autonomous AI agents for global startups and enterprises. Headquartered in Bangalore.',
     images: [
       {
         url: `${domain}/og-image.jpg`,
@@ -63,6 +64,7 @@ export default function HomePage() {
       <About />
       <Services />
       <Features />
+      <Testimonials />
       <Contact />
       <AskAI />
     </>

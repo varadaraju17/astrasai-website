@@ -204,7 +204,7 @@ const About = () => {
                 </div>
 
                 {/* Standard Grid Layout */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                     {aboutItems.map((item, index) => (
                         <div key={index} className="h-full">
                             <AboutCard item={item} onClick={() => setSelectedItem(item)} />

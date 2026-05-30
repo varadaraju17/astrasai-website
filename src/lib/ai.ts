@@ -1,28 +1,40 @@
 type Msg = { role: 'user' | 'assistant', content: string }
+
 const WEBSITE_KB = `Astras AI: Next-Gen Intelligence, Next-Level You.
 We build AI-powered ecosystems that help startups scale faster, businesses grow smarter, and people achieve more.
+Headquarters: Bangalore, Karnataka, India. Serving clients globally (US, UK, UAE, Singapore).
+Contact Email: services@astrasai.in
+Contact Phone/WhatsApp: +91 8197489255
 
-Mission: Strategic partner with proprietary AI + human expertise.
+SERVICES & PRICING PLANS (All websites are fully responsive, built on Next.js 14, and highly optimized):
 
-Brahmastra AI (For Businesses & Startups):
-- AI-powered websites and applications with real-time personalization
-- Startup MVP development with AI acceleration
-- Conversational AI and WhatsApp bots for customer engagement
-- Predictive analytics and BI dashboards
-- AI-driven SEO, content creation, and marketing automation
+1. AI Websites (Brahmastra AI Business Suite):
+- Price: Starts from ₹15,000. Standard AI business sites range from ₹25,000 to ₹60,000. Complex enterprise platforms range from ₹75,000 to ₹2,00,000+.
+- Timeline: Typically 2 to 6 weeks. Standard sites take 2-3 weeks; complex enterprise web applications take 4-8 weeks.
 
-Sudarshana Chakra (For Individuals & Professionals):
-- AI research and academic intelligence tools
-- Resume and LinkedIn optimization
-- Interview coaching and mock AI evaluations
-- Skill pathways and learning automation
-- Personal AI mentors for career growth
+2. Mobile App Development (Brahmastra AI Business Suite):
+- Scope: High-end cross-platform iOS & Android mobile apps built on Flutter and React Native.
+- Price: Customized based on request.
+- Timeline: 6 to 12 weeks. Basic builds take 6-8 weeks; custom voice, AI models, or real-time databases take 10-16 weeks.
 
-Technology: Next.js, advanced AI/ML models, cloud infrastructure, privacy-first architecture.
+3. Custom AI Agents (Brahmastra AI Business Suite):
+- Scope: Autonomous customer support agents, automated sales pipelines, leads qualification bots, custom LangChain integrations.
+- Benefit: Reduces corporate operational costs by up to 60% and guarantees 24/7 autonomous task execution.
 
-Vision: Democratize AI technology while maintaining highest standards of ethics and transparency. We aim to be a strategic partner that combines proprietary AI with human expertise to create meaningful impact.
+4. Startup MVP Acceleration (Brahmastra AI Business Suite):
+- Price: Starts at ₹50,000.
+- Timeline: 3 to 6 weeks. Helps founders go from conceptual idea to fully working, investor-ready prototypes.
 
-Contact: services@astrasai.in or +91 8197489255`
+5. AI Digital Marketing & SEO (Brahmastra AI Business Suite):
+- Scope: Full technical SEO, active keyword parsing, custom AI content calendars, Google Ads optimization.
+- Timeline: Measures high Page 1 search authority ranking improvements within 60 to 90 days.
+
+6. Sudarshana Chakra (Personal & Academic Acceleration):
+- Scope: IEEE/Springer academic project implementation, viva preparation support, ATS-optimized resume building, LinkedIn profile refinement, and active AI-evaluation career mentorship.
+
+PAYMENT POLICY:
+Standard 50% advance payment, and 50% upon final delivery. EMI arrangements are available for large custom builds. 30 days of free post-launch support included; ongoing maintenance starts at ₹5,000/month.`;
+
 export async function astrasResponder(history: Msg[]): Promise<string> {
   const last = history[history.length - 1]?.content ?? ''
   if (!process.env.GEMINI_API_KEY) {
@@ -35,8 +47,8 @@ export async function astrasResponder(history: Msg[]): Promise<string> {
 Guidelines:
 - Be conversational, friendly, and enthusiastic
 - Answer questions using ONLY the knowledge base provided below
-- Keep responses concise but informative (2-4 sentences typically)
-- If asked about something not in the knowledge base, politely suggest they email services@astrasai.in for more information
+- Keep responses concise but highly informative, referencing exact prices, timelines, or services
+- If asked about something not in the knowledge base, politely suggest they email services@astrasai.in or WhatsApp +91 8197489255
 - Always be helpful and positive
 - Use emojis sparingly and appropriately (👋 for greetings)
 - For greetings, introduce yourself as Astra from Astras AI
@@ -54,7 +66,6 @@ Remember: Answer naturally and conversationally, as if you're a knowledgeable te
     }
 
     // Convert internal message format to Gemini API format
-    // Filter out any system messages if they exist in history (though our type is only user/assistant)
     const contents = history.map(msg => ({
       role: msg.role === 'assistant' ? 'model' : 'user',
       parts: [{ text: msg.content }]
@@ -78,7 +89,6 @@ Remember: Answer naturally and conversationally, as if you're a knowledgeable te
     if (!res.ok) {
       const errorText = await res.text().catch(() => 'Unable to read error response')
       console.error('Gemini API error:', res.status, errorText)
-      // Don't throw, just return fallback
       return fallbackAnswer(last)
     }
 
@@ -87,14 +97,12 @@ Remember: Answer naturally and conversationally, as if you're a knowledgeable te
       return null
     })
 
-    // Check for API errors in response
-    if (data.error) {
+    if (data?.error) {
       console.error('Gemini API returned error:', data.error)
       return fallbackAnswer(last)
     }
 
-    // Check for safety ratings that blocked the response
-    if (data.promptFeedback?.blockReason) {
+    if (data?.promptFeedback?.blockReason) {
       console.warn('Gemini API blocked content:', data.promptFeedback.blockReason)
       return fallbackAnswer(last)
     }
@@ -106,7 +114,6 @@ Remember: Answer naturally and conversationally, as if you're a knowledgeable te
 
     const candidate = data.candidates[0]
 
-    // Check if candidate was blocked
     if (candidate.finishReason === 'SAFETY' || candidate.finishReason === 'RECITATION') {
       console.warn('Gemini API blocked response due to safety/recitation:', candidate.finishReason)
       return fallbackAnswer(last)
@@ -124,44 +131,41 @@ Remember: Answer naturally and conversationally, as if you're a knowledgeable te
     return fallbackAnswer(last)
   }
 }
+
 function fallbackAnswer(q: string): string {
   const lower = q.toLowerCase().trim()
 
-  // Handle greetings
   if (lower.includes('hi') || lower.includes('hello') || lower.includes('hey')) {
-    return `Hello! 👋 I'm Astra, your AI assistant from Astras AI. Astras AI: Next-Gen Intelligence, Next-Level You. We build AI-powered ecosystems that help startups scale faster, businesses grow smarter, and people achieve more. How can I help you today?`
+    return `Hello! 👋 I'm Astra, your AI assistant from Astras AI. How can I help you today? We specialize in AI-powered website development (starting from ₹15,000), custom mobile apps, business-grade AI agents, and career mentorship services.`
   }
 
-  // Handle company/about questions
-  if (lower.includes('what is astras') || lower.includes('who is astras') || lower.includes('about astras')) {
-    return `Astras AI: Next-Gen Intelligence, Next-Level You. We build AI-powered ecosystems that help startups scale faster, businesses grow smarter, and people achieve more. We're a strategic partner combining proprietary AI with human expertise. We offer Brahmastra AI for businesses and Sudarshana Chakra for individuals.`
+  if (lower.includes('price') || lower.includes('cost') || lower.includes('how much') || lower.includes('charge')) {
+    return `Our AI website development services start at ₹15,000 for basic layouts. Standard AI business websites cost ₹25,000–₹60,000, while complex enterprise platforms range between ₹75,000–₹2,00,000+. Startup MVPs start at ₹50,000. Standard payment is 50% advance and 50% on delivery. EMI options are available!`
   }
 
-  // Handle services questions
-  if (lower.includes('service') || lower.includes('what are') || lower.includes('offer') || lower.includes('provide')) {
-    return `We offer two main service categories:
-
-**Brahmastra AI** (For Businesses & Startups):
-AI-powered websites, startup MVPs, conversational AI & WhatsApp bots, predictive analytics, and AI-driven marketing.
-
-**Sudarshana Chakra** (For Individuals & Professionals):
-AI research tools, career acceleration, resume optimization, interview coaching, and personalized AI mentors.
-
-For more details, email us at services@astrasai.in or call +91 8197489255.`
+  if (lower.includes('time') || lower.includes('timeline') || lower.includes('how long') || lower.includes('duration')) {
+    return `Building an AI-powered website typically takes 2–6 weeks. A standard business website takes 2–3 weeks, while custom enterprise platforms and database systems take 4–8 weeks. Our mobile app development timeline is 6–12 weeks.`
   }
 
-  // Handle Brahmastra questions
-  if (lower.includes('brahmastra')) {
-    return `Brahmastra AI is our service for businesses and startups. We build AI-powered websites & apps, accelerate startup MVPs, deploy WhatsApp AI bots, provide predictive analytics, and offer AI-driven marketing (content, ads, SEO).`
+  if (lower.includes('agent') || lower.includes('automation') || lower.includes('bot')) {
+    return `Astras AI builds custom autonomous AI agents that work 24/7 to handle support, orders, emails, and data synchronization. Our bots reduce operational overhead by up to 60% and improve business productivity.`
   }
 
-  // Handle Sudarshana questions
-  if (lower.includes('sudarshana') || lower.includes('career')) {
-    return `Sudarshana Chakra accelerates people: AI-assisted research & academic work, resume/LinkedIn optimization, interview simulations, branding, and guided AI upskilling. Perfect for individuals, students, and professionals.`
+  if (lower.includes('mobile') || lower.includes('app') || lower.includes('flutter') || lower.includes('react native')) {
+    return `We develop high-performance cross-platform iOS and Android mobile apps using Flutter and React Native. Timelines range from 6 to 12 weeks, depending on whether you need custom fine-tuned voice or AI models.`
   }
 
-  // Default response
-  return `Astras AI: Next-Gen Intelligence, Next-Level You. We build AI-powered ecosystems that help startups scale faster, businesses grow smarter, and people achieve more. 
+  if (lower.includes('student') || lower.includes('academic') || lower.includes('career') || lower.includes('resume') || lower.includes('sudarshana')) {
+    return `Our Sudarshana Chakra program supports individuals! We provide professional IEEE/Springer academic project implementation, ATS-shredding resumes, LinkedIn profile refinement, and mock AI evaluations to secure high-paying jobs.`
+  }
 
-We offer Brahmastra AI for businesses and Sudarshana Chakra for individuals. Feel free to ask about our services, or contact us at services@astrasai.in for more information!`
+  if (lower.includes('where') || lower.includes('located') || lower.includes('bangalore') || lower.includes('office') || lower.includes('address')) {
+    return `Astras AI is headquartered in Bangalore, Karnataka, India. While we are based in Bangalore, we serve startups and enterprise clients globally, including in the US, UK, UAE, and Singapore.`
+  }
+
+  if (lower.includes('seo') || lower.includes('marketing') || lower.includes('google')) {
+    return `Yes! We provide full technical SEO, Google Ads (SEM), social media management, and custom content generation. Our technical SEO optimizations typically rank your key assets on Page 1 of Search and AI engines in 60–90 days.`
+  }
+
+  return `I'm Astra from Astras AI! We build premium AI websites (starting at ₹15,000 in 2–6 weeks), custom mobile apps, corporate AI agents, digital marketing, and academic project support. Contact us directly at services@astrasai.in or WhatsApp +91 8197489255 for custom scopes!`
 }

@@ -47,5 +47,35 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <Contact />;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Astras AI",
+    "description": "Ready to build an AI-powered website, app, or automation? Contact Astras AI in Bangalore. Get a free consultation for website development, mobile apps, AI agents, and digital marketing services.",
+    "url": `${domain}/contact`,
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "Astras AI",
+      "image": `${domain}/logo.webp`,
+      "telephone": "+918197489255",
+      "email": "services@astrasai.in",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "priceRange": "$$"
+    }
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Contact />
+    </>
+  );
 }
