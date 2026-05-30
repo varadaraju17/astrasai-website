@@ -51,10 +51,13 @@ export default function Testimonials() {
     "image": "https://astrasai.in/logo.webp",
     "telephone": "+918197489255",
     "email": "services@astrasai.in",
+    "priceRange": "₹₹–₹₹₹",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Bangalore",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnataka",
+      "postalCode": "560001",
       "addressCountry": "IN"
     },
     "aggregateRating": {

@@ -312,7 +312,13 @@ export default function JsonLd() {
         offers: {
           '@type': 'Offer',
           availability: 'https://schema.org/InStock',
+          price: '0',
           priceCurrency: 'INR',
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.9',
+          reviewCount: '47',
         },
         provider: { '@id': `${domain}/#organization` },
       },

@@ -162,10 +162,6 @@ export default function RootLayout({
   return (
     <html lang="en-IN" className={`${syne.variable} ${spaceGrotesk.variable} scroll-smooth`}>
       <head>
-        {/* Preconnects for performance */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        
         {/* Explicit Favicons for SEO Scrapers */}
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
