@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
+import Breadcrumb from '@/components/Breadcrumb';
+import { ArrowRight, Sparkles, CheckCircle2, Zap, Laptop, ShieldCheck, Database, Rocket, BarChart3, HelpCircle } from 'lucide-react';
 
 const domain = 'https://astrasai.in';
 
@@ -67,101 +69,187 @@ const faqSchema = {
   ],
 };
 
+const AuroraBackground = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none bg-black">
+    {/* Base Grid Pattern */}
+    <div
+      className="absolute inset-0 z-0 opacity-[0.12]"
+      style={{
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px)`,
+        backgroundSize: '45px 45px',
+        maskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%)',
+      }}
+    />
+    {/* Dynamic Glowing Orbs */}
+    <div className="absolute top-1/4 left-1/4 w-[45vw] h-[45vw] rounded-full"
+      style={{
+        background: 'rgba(0, 240, 255, 0.15)',
+        filter: 'blur(110px)',
+        animation: 'serviceOrb1 20s ease-in-out infinite',
+        willChange: 'transform',
+      }}
+    />
+    <div className="absolute bottom-1/4 right-1/4 w-[40vw] h-[40vw] rounded-full"
+      style={{
+        background: 'rgba(157, 78, 221, 0.08)',
+        filter: 'blur(120px)',
+        animation: 'serviceOrb2 25s ease-in-out infinite',
+        willChange: 'transform',
+      }}
+    />
+    <style>{`
+      @keyframes serviceOrb1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(4vw, -5vh) scale(1.1); }
+      }
+      @keyframes serviceOrb2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(-4vw, 4vh) scale(0.9); }
+      }
+    `}</style>
+  </div>
+);
+
 export default function AIWebsiteDevelopmentPage() {
   return (
     <>
       <Script id="service-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <main className="min-h-screen bg-black text-white">
-        {/* Hero */}
-        <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-cyan-950/20 to-black">
-          <div className="max-w-5xl mx-auto text-center">
-            <nav className="text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
-              <Link href="/" className="hover:text-cyan-400">Home</Link> &rsaquo;{' '}
-              <Link href="/services" className="hover:text-cyan-400">Services</Link> &rsaquo;{' '}
-              <span className="text-gray-300">AI Website Development</span>
-            </nav>
-            <span className="inline-block px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 text-xs font-mono uppercase tracking-wider mb-6">
-              Brahmastra AI — Web
-            </span>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              AI Website Development{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-                Bangalore
+      <main className="min-h-screen bg-black text-white relative overflow-hidden font-body">
+        {/* Aurora Ambience */}
+        <AuroraBackground />
+
+        {/* ── HERO SECTION ── */}
+        <section className="relative pt-32 pb-20 px-4 md:px-8 z-10">
+          <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
+            
+            <div className="flex justify-center mb-6">
+              <Breadcrumb
+                items={[
+                  { label: 'Home', href: '/' },
+                  { label: 'Services', href: '/services' },
+                  { label: 'AI Website Development' }
+                ]}
+              />
+            </div>
+
+            <div className="text-6xl mb-6 animate-pulse">💻</div>
+            
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-950/20 text-cyan-400 text-xs font-semibold tracking-wider uppercase mb-8 shadow-inner">
+              <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+              <span>BRAHMASTRA SERIES · WEB</span>
+            </div>
+
+            <h1 className="font-display font-black tracking-tight text-white leading-tight mb-8 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+              AI-Powered{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-400">
+                Web Development
               </span>
             </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-10">
-              We build intelligent, high-performance websites that work as your 24/7 sales engine. 
-              Powered by Next.js 14, AI chatbots, and proven SEO strategies. 
-              Starting from <strong className="text-cyan-400">₹15,000</strong>.
+
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-12 max-w-3xl font-light">
+              We build intelligent, high-performance websites built on Next.js 14, dynamic lead capture, and absolute SEO perfection. Starting from{' '}
+              <span className="text-cyan-400 font-semibold">₹15,000</span>. Completed in 2–6 weeks.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="px-8 py-4 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-bold transition-colors">
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto">
+              <Link href="/contact" className="relative flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-bold text-sm md:text-base transition-all duration-300 w-full sm:w-auto bg-cyan-500 text-black hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]">
                 Get Free Quote
+                <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/pricing" className="px-8 py-4 rounded-lg border border-white/20 hover:border-cyan-500/50 text-white hover:text-cyan-400 transition-colors">
+              <Link href="/pricing" className="flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-bold text-sm md:text-base bg-white/5 text-white border border-white/20 hover:bg-white/10 hover:border-cyan-400/50 backdrop-blur-md transition-all duration-300 w-full sm:w-auto">
                 View Pricing
               </Link>
             </div>
+
           </div>
         </section>
 
-        {/* What We Build */}
-        <section className="py-20 px-4">
+        {/* ── WHAT WE BUILD ── */}
+        <section className="relative py-24 px-4 md:px-8 z-10 border-t border-white/10 bg-black/40">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">What We Build</h2>
-            <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-              From simple portfolio sites to complex AI-powered web applications — we cover the full spectrum.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-white tracking-tight">
+                Sovereign <span className="text-cyan-400">Capabilities</span>
+              </h2>
+              <p className="text-gray-400 mt-4 text-base md:text-lg max-w-2xl mx-auto font-light">
+                Premium, speed-optimized digital architecture constructed to dominate search and convert visitors.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {[
-                { title: 'Business Websites', desc: 'Professional, fast-loading websites that represent your brand and convert visitors into customers. Includes contact forms, Google Maps, and WhatsApp integration.', price: 'From ₹15,000' },
-                { title: 'AI Chatbot Websites', desc: 'Websites with an embedded AI assistant that answers customer queries, qualifies leads, and books appointments automatically — 24/7 without human intervention.', price: 'From ₹35,000' },
-                { title: 'E-Commerce Stores', desc: 'AI-powered online stores with product recommendations, abandoned cart recovery, and smart search. Built on Next.js for maximum performance and SEO.', price: 'From ₹60,000' },
-                { title: 'Web Applications', desc: 'Custom web apps with user authentication, dashboards, payment gateways, and real-time features. CRMs, SaaS platforms, booking systems, and more.', price: 'From ₹1,20,000' },
-                { title: 'WordPress Sites', desc: 'AI-enhanced WordPress websites that are easy to manage. Perfect for businesses that want to update their own content without technical knowledge.', price: 'From ₹20,000' },
-                { title: 'Landing Pages', desc: 'High-converting single-page designs for product launches, ad campaigns, and lead generation. A/B tested for maximum conversion rates.', price: 'From ₹8,000' },
+                { title: 'Business Platforms', desc: 'Convert traffic with professional, zero-delay websites loaded with integrated WhatsApp and automated form qualification systems.', price: 'From ₹15,000' },
+                { title: 'AI Chatbot Interfaces', desc: 'Train automated customer assistants qualified to address user queries, schedule appointments, and capture leads 24/7.', price: 'From ₹35,000' },
+                { title: 'Full E-Commerce Suites', desc: 'Modern catalogs optimized with smart recommendations, zero-checkout friction, and dynamic discount triggers.', price: 'From ₹60,000' },
+                { title: 'Custom Web Apps', desc: 'Secure custom apps with advanced role structures, database syncs, payment splits, and clean administrative control cards.', price: 'From ₹1,20,000' },
+                { title: 'CMS-Managed Hubs', desc: 'High-performance headless WordPress or Sanity platforms engineered for rapid content uploads and seamless team management.', price: 'From ₹20,000' },
+                { title: 'High-Converting Landers', desc: 'Single pages engineered with strict A/B guidelines to direct focus entirely on product conversion or marketing capture.', price: 'From ₹8,000' },
               ].map((item) => (
-                <div key={item.title} className="p-6 rounded-xl border border-white/10 bg-white/5 hover:border-cyan-500/30 transition-colors">
-                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-gray-400 text-sm mb-4 leading-relaxed">{item.desc}</p>
-                  <span className="text-cyan-400 font-bold text-sm">{item.price}</span>
+                <div 
+                  key={item.title} 
+                  className="group flex flex-col justify-between p-8 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(0,240,255,0.02)] hover:border-cyan-400/60 hover:shadow-[0_0_40px_rgba(0,240,255,0.15)] transition-all duration-500"
+                >
+                  <div>
+                    <h3 className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors font-display tracking-tight">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                      {item.desc}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                    <span className="text-cyan-400 font-bold text-sm tracking-wide">{item.price}</span>
+                    <span className="text-xs uppercase tracking-wider text-cyan-400/70 group-hover:text-cyan-300 flex items-center gap-1 transition-colors">
+                      Request <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Process */}
-        <section className="py-20 px-4 bg-white/5">
+        {/* ── WORK PROCESS ── */}
+        <section className="relative py-24 px-4 md:px-8 z-10 border-t border-white/10 bg-white/5">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">How We Work</h2>
-            <div className="grid md:grid-cols-4 gap-6">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-center text-white tracking-tight mb-16">
+              Development <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Chronicle</span>
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { step: '01', title: 'Discovery Call', desc: 'Free 30-min call to understand your business goals, target audience, and technical requirements.' },
-                { step: '02', title: 'Design & Plan', desc: 'We create wireframes and a project plan. You approve the design before we write a single line of code.' },
-                { step: '03', title: 'Build & Test', desc: 'We develop your website with weekly check-ins and a staging link so you can review progress at any time.' },
-                { step: '04', title: 'Launch & Support', desc: 'We deploy your site, submit it to Google Search Console, and provide 30 days of free post-launch support.' },
+                { step: '01', title: 'Discovery Sync', desc: 'A dedicated call mapping goals, target keywords, and integrations.', icon: Database },
+                { step: '02', title: 'Tactical Design', desc: 'Stunning Figma wireframes refined and approved before any coding.', icon: ShieldCheck },
+                { step: '03', title: 'Next.js Build', desc: 'Deploying optimized React trees with full micro-animation triggers.', icon: Laptop },
+                { step: '04', title: 'Deploy & Audit', desc: 'Core Web Vitals launch, sitemap sync, and organic Google checklist.', icon: Rocket },
               ].map((s) => (
-                <div key={s.step} className="text-center">
-                  <div className="text-4xl font-bold text-cyan-400/30 mb-3">{s.step}</div>
-                  <h3 className="text-lg font-bold text-white mb-2">{s.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+                <div key={s.step} className="flex flex-col p-6 rounded-2xl border border-white/5 bg-black/40 hover:border-cyan-500/30 transition-all duration-300">
+                  <div className="text-3xl font-black text-cyan-500/20 font-mono mb-4">{s.step}</div>
+                  <h3 className="text-lg font-bold text-white mb-2 font-display">{s.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed font-light">{s.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Tech Stack */}
-        <section className="py-20 px-4">
+        {/* ── TECH STACK ── */}
+        <section className="relative py-24 px-4 md:px-8 z-10 border-t border-white/10 bg-black/40">
           <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">Our Technology Stack</h2>
-            <p className="text-gray-400 mb-10">We use the same technologies as the world&apos;s fastest websites.</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {['Next.js 14', 'React 18', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'OpenAI API', 'Vercel', 'PostgreSQL', 'Supabase', 'Stripe'].map((tech) => (
-                <span key={tech} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 text-sm hover:border-cyan-500/30 hover:text-cyan-400 transition-colors">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white tracking-tight mb-6">
+              Elite Technology <span className="text-cyan-400">Blueprint</span>
+            </h2>
+            <p className="text-gray-400 mb-12 max-w-xl mx-auto font-light text-sm md:text-base">
+              We compile code exclusively on high-performance frameworks serving fast speed scales.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {['Next.js 14', 'React 18', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'OpenAI GPT-4', 'Vercel Node', 'PostgreSQL', 'Supabase', 'Stripe Integration'].map((tech) => (
+                <span 
+                  key={tech} 
+                  className="px-5 py-2 rounded-full border border-cyan-500/10 bg-cyan-950/10 text-cyan-400 text-xs font-semibold hover:border-cyan-400 hover:text-white hover:shadow-[0_0_15px_rgba(0,240,255,0.2)] transition-all duration-300 cursor-default"
+                >
                   {tech}
                 </span>
               ))}
@@ -169,18 +257,25 @@ export default function AIWebsiteDevelopmentPage() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-20 px-4 bg-white/5">
+        {/* ── FAQ SECTION ── */}
+        <section className="relative py-24 px-4 md:px-8 z-10 border-t border-white/10 bg-white/5">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-white text-center mb-10">Frequently Asked Questions</h2>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-white tracking-tight">
+                Frequently Addressed <span className="text-cyan-400">Inquiries</span>
+              </h2>
+            </div>
             <div className="space-y-4">
               {faqSchema.mainEntity.map((item, i) => (
-                <details key={i} className="group border border-white/10 rounded-xl bg-black overflow-hidden hover:border-cyan-500/30 transition-colors">
-                  <summary className="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                    <span className="pr-4">{item.name}</span>
-                    <span className="text-cyan-400 text-2xl shrink-0 group-open:rotate-45 transition-transform duration-300">+</span>
+                <details 
+                  key={i} 
+                  className="group border border-white/10 rounded-2xl bg-black/60 overflow-hidden hover:border-cyan-500/30 transition-all duration-300"
+                >
+                  <summary className="flex items-center justify-between p-6 cursor-pointer list-none font-bold text-white group-hover:text-cyan-300 transition-colors">
+                    <span className="pr-4 font-display text-sm md:text-base">{item.name}</span>
+                    <span className="text-cyan-400 text-xl font-light shrink-0 group-open:rotate-45 transition-transform duration-300">+</span>
                   </summary>
-                  <div className="px-6 pb-6 text-gray-400 leading-relaxed border-t border-white/5 pt-4">
+                  <div className="px-6 pb-6 text-gray-400 text-sm md:text-base leading-relaxed border-t border-white/5 pt-4 font-light">
                     {item.acceptedAnswer.text}
                   </div>
                 </details>
@@ -189,15 +284,17 @@ export default function AIWebsiteDevelopmentPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 px-4">
-          <div className="max-w-3xl mx-auto text-center p-10 rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-cyan-950/20 to-purple-950/20">
-            <h2 className="text-3xl font-bold text-white mb-4">Ready to Build Your AI Website?</h2>
-            <p className="text-gray-400 mb-8">Get a free consultation and custom quote within 24 hours.</p>
-            <Link href="/contact" className="inline-block px-10 py-4 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-bold transition-colors text-lg">
-              Get Free Quote →
+        {/* ── CALL TO ACTION ── */}
+        <section className="relative py-24 px-4 md:px-8 z-10">
+          <div className="max-w-3xl mx-auto text-center p-12 rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-950/20 to-purple-950/10 shadow-[0_0_50px_rgba(0,240,255,0.08)]">
+            <h2 className="text-2xl md:text-4xl font-display font-bold text-white mb-4">Ready to Launch Your Platform?</h2>
+            <p className="text-gray-400 mb-8 max-w-xl mx-auto font-light leading-relaxed">
+              Book a custom quote. Get complete wireframes, a transparent timeline, and technical SEO structure mapped within 24 hours.
+            </p>
+            <Link href="/contact" className="inline-block px-10 py-4 rounded-full bg-cyan-500 text-black hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(0,240,255,0.5)] font-bold transition-all text-lg shadow-lg">
+              Start Project Development →
             </Link>
-            <p className="text-gray-500 text-sm mt-4">Starting from ₹15,000 · Delivered in 2–6 weeks · 30 days free support</p>
+            <p className="text-gray-500 text-xs mt-6">Starting from ₹15,000 · Completed in 2–6 Weeks · 30 Days Sovereign Support</p>
           </div>
         </section>
       </main>

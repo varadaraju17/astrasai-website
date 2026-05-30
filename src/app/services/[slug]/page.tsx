@@ -261,7 +261,7 @@ const serviceConfigs: ServicePageConfig[] = [
     color: 'pink',
     emoji: '⭐',
     tagline: 'Beat the ATS Filters',
-    startingPrice: '₹3,00,000', // Updated to match user config
+    startingPrice: '₹3,00,000',
     timeline: '3–5 days',
     what: [
       { title: 'ATS-Optimized Resume', desc: 'A professional resume formatted and optimized with high-impact industry keywords to pass all ATS software.', price: 'From ₹3,000' },
@@ -301,12 +301,47 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-const colorClasses: Record<string, { text: string; border: string; bg: string; btn: string; glow: string }> = {
-  cyan: { text: 'text-cyan-400', border: 'border-cyan-500/30', bg: 'bg-cyan-950/20', btn: 'bg-cyan-500 text-black hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]', glow: 'rgba(0,240,255,0.15)' },
-  purple: { text: 'text-purple-400', border: 'border-purple-500/30', bg: 'bg-purple-950/20', btn: 'bg-purple-600 text-white hover:bg-purple-500 hover:shadow-[0_0_30px_rgba(112,0,255,0.5)]', glow: 'rgba(112,0,255,0.15)' },
-  green: { text: 'text-green-400', border: 'border-green-500/30', bg: 'bg-green-950/20', btn: 'bg-green-600 text-white hover:bg-green-500 hover:shadow-[0_0_30px_rgba(34,197,94,0.5)]', glow: 'rgba(34,197,94,0.12)' },
-  pink: { text: 'text-pink-400', border: 'border-pink-500/30', bg: 'bg-pink-950/20', btn: 'bg-pink-600 text-white hover:bg-pink-500 hover:shadow-[0_0_30px_rgba(236,72,153,0.5)]', glow: 'rgba(236,72,153,0.12)' },
-  yellow: { text: 'text-yellow-400', border: 'border-yellow-500/30', bg: 'bg-yellow-950/20', btn: 'bg-yellow-500 text-black hover:bg-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.5)]', glow: 'rgba(234,179,8,0.12)' },
+const colorClasses: Record<string, { text: string; border: string; borderHover: string; bg: string; btn: string; glow: string }> = {
+  cyan: { 
+    text: 'text-cyan-400', 
+    border: 'border-cyan-500/30', 
+    borderHover: 'hover:border-cyan-400/60',
+    bg: 'bg-cyan-950/20', 
+    btn: 'bg-cyan-500 text-black hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]', 
+    glow: 'rgba(0,240,255,0.15)' 
+  },
+  purple: { 
+    text: 'text-purple-400', 
+    border: 'border-purple-500/30', 
+    borderHover: 'hover:border-purple-400/60',
+    bg: 'bg-purple-950/20', 
+    btn: 'bg-purple-600 text-white hover:bg-purple-500 hover:shadow-[0_0_30px_rgba(112,0,255,0.5)]', 
+    glow: 'rgba(112,0,255,0.15)' 
+  },
+  green: { 
+    text: 'text-green-400', 
+    border: 'border-green-500/30', 
+    borderHover: 'hover:border-green-400/60',
+    bg: 'bg-green-950/20', 
+    btn: 'bg-green-600 text-white hover:bg-green-500 hover:shadow-[0_0_30px_rgba(34,197,94,0.5)]', 
+    glow: 'rgba(34,197,94,0.12)' 
+  },
+  pink: { 
+    text: 'text-pink-400', 
+    border: 'border-pink-500/30', 
+    borderHover: 'hover:border-pink-400/60',
+    bg: 'bg-pink-950/20', 
+    btn: 'bg-pink-600 text-white hover:bg-pink-500 hover:shadow-[0_0_30px_rgba(236,72,153,0.5)]', 
+    glow: 'rgba(236,72,153,0.12)' 
+  },
+  yellow: { 
+    text: 'text-yellow-400', 
+    border: 'border-yellow-500/30', 
+    borderHover: 'hover:border-yellow-400/60',
+    bg: 'bg-yellow-950/20', 
+    btn: 'bg-yellow-500 text-black hover:bg-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.5)]', 
+    glow: 'rgba(234,179,8,0.12)' 
+  },
 };
 
 // --- CSS Aurora Background ---
@@ -428,7 +463,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             {config.what.map((w) => (
               <div 
                 key={w.title} 
-                className={`group flex flex-col justify-between p-8 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(0,240,255,0.02)] hover:border-${config.color}-400/60 hover:shadow-[0_0_40px_rgba(0,240,255,0.15)] transition-all duration-500`}
+                className={`group flex flex-col justify-between p-8 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(0,240,255,0.02)] ${c.borderHover} hover:shadow-[0_0_40px_rgba(0,240,255,0.15)] transition-all duration-500`}
               >
                 <div>
                   <h3 className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors font-display tracking-tight">
